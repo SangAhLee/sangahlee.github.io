@@ -10,7 +10,7 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://sangahlee.github.io/'
-baseurl:          '/main'
+baseurl:          #'/FindingMyWorld'
 rss:              RSS
 
 toc:
