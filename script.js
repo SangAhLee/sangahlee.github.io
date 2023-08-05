@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 var contents = {
-  mycareer: "./_pages/99_about.md",
-  myinterest: "./_pages/00_research.md",
+  mycareer: "./pages/99_about.md",
+  myinterest: "./pages/00_research.md",
   graphvis: "./datavis/test.html"
 };
 
