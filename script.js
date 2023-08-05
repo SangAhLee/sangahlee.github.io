@@ -90,7 +90,7 @@ function handleNavClick(event) {
           .catch(error => console.error('Error:', error));
 
       }
-
+    }
       // 모든 아이템의 선택 스타일을 초기화
       var navItems = document.querySelectorAll('.nav a');
       navItems.forEach(item => {
@@ -100,10 +100,10 @@ function handleNavClick(event) {
       // 현재 선택된 아이템에 선택 스타일 적용
       event.target.classList.add('selected');
 
-      // GNB의 선택 스타일 제거
-      var gnbTitle = document.querySelector('.gnb-title');
-      gnbTitle.classList.remove('selected');
-    }
+      // // GNB의 선택 스타일 제거
+      // var gnbTitle = document.querySelector('.gnb-title');
+      // gnbTitle.classList.remove('selected');
+
   }
 }
 
