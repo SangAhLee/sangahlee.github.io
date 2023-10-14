@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 var contents = {
   mycareer: "./pages/99_about.md",
   myinterest: "./pages/00_research.md",
-  graphvis: "./datavis/test.html",
+  graphvis: "./datavis/visualizellms.html",
   newssnapshotdemo: "./news-analysis/newssnapshot-demo.html"
 };
 
@@ -53,15 +53,31 @@ function handleNavClick(event) {
 
     if (contents[targetId] == contents.newssnapshotdemo) {
       console.log("It's a html file!");
-      let additionalContent = `<div style="margin-bottom: 20px;">이 컨텐츠는 아래의 URL로 바로 접근가능합니다. <br>
-      <a href="https://sangahlee.github.io/news-analysis/newssnapshot-demo.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/news-analysis/newssnapshot-demo.html</a>
+      let currentDate = new Date('2023-10-14'); // 업데이트일자
+      let initialDate = new Date('2023-10-14'); // 최초 작성일을 원하는 날짜로 설정
+
+      let additionalContent = `<div style="margin-bottom: 20px;">
+      - 최초 작성일: ${initialDate.toLocaleDateString()}<br>
+      - 최근 업데이트 일자: ${currentDate.toLocaleDateString()}<br><br>
+      뉴스 분석 및 시각화 인터페이스에 관한 연구를 진행 중입니다.<br><br>
+        이 컨텐츠는 아래의 URL로 바로 접근 가능합니다.<br>
+        <a href="https://sangahlee.github.io/news-analysis/newssnapshot-demo.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/news-analysis/newssnapshot-demo.html</a><br>
       </div>`;
-      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="100%" height="95%" frameborder="0"></iframe>`;
+      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
     }
     else if (contents[targetId] == contents.graphvis) {
       console.log("It's a html file!");
-      let additionalContent = `<div style="margin-bottom: 20px;">데이터 시각화 관련 testbed 입니다. 주로 로컬로 작업하므로 업데이트 빈도가 낮습니다.<br> </div>`;
-      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="100%" height="100%" frameborder="0"></iframe>`;
+      let currentDate = new Date('2023-10-15'); // 업데이트일자
+      let initialDate = new Date('2023-10-15'); // 최초 작성일을 원하는 날짜로 설정
+
+      let additionalContent = `<div style="margin-bottom: 20px;">
+      - 최초 작성일: ${initialDate.toLocaleDateString()}<br>
+      - 최근 업데이트 일자: ${currentDate.toLocaleDateString()}<br><br>
+      학습 목적으로 제작한 Large Language Models (LLMs)의 시각화 결과물입니다.<br><br>
+      이 컨텐츠는 아래의 URL로 바로 접근 가능합니다.<br>
+      <a href="https://sangahlee.github.io/datavis/visualizellms.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/datavis/visualizellms.html</a><br>
+    </div>`;
+      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
     }
     else if (contents[targetId]) {
       // If the content is an HTML file, load it in an iframe instead of fetching it

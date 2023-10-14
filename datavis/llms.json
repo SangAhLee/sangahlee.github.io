@@ -1,0 +1,642 @@
+[
+    {
+        "name": "BERT",
+        "owner": "Google",
+        "trained on x billion parameters": 0.34,
+        "date": "Oct 2018",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/BERT_(language_model)"
+    },
+    {
+        "name": "GPT-2",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 1.5,
+        "date": "Feb 2019",
+        "note \/ * = parameters undisclosed": "trained on Reddit only",
+        "link": "https:\/\/en.wikipedia.org\/wiki\/GPT-2"
+    },
+    {
+        "name": "T5",
+        "owner": "Google",
+        "trained on x billion parameters": 11.0,
+        "date": "Oct 2019",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/1910.10683"
+    },
+    {
+        "name": "Megatron-11B",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 11.0,
+        "date": "Apr 2020",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/github.com\/pytorch\/fairseq\/tree\/main\/examples\/megatron_11b"
+    },
+    {
+        "name": "BlenderBot1",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 9.4,
+        "date": "Apr 2020",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/cobusgreyling.medium.com\/meta-ais-blender-bot-3-0-is-an-open-source-chatbot-with-long-term-memory-internet-search-ce024a5fe8aa"
+    },
+    {
+        "name": "GPT-3",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 175.0,
+        "date": "May 2020",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/GPT-3"
+    },
+    {
+        "name": "Wu Dao 2.0",
+        "owner": "Beijing Academy of AI",
+        "trained on x billion parameters": 1750.0,
+        "date": "Jan 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/Wu_Dao"
+    },
+    {
+        "name": "GPT-J",
+        "owner": "EleutherAI",
+        "trained on x billion parameters": 6.0,
+        "date": "Jun 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/EleutherAI\/gpt-j-6b"
+    },
+    {
+        "name": "PanGu-Alpha",
+        "owner": "Huawei",
+        "trained on x billion parameters": 200.0,
+        "date": "Apr 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2104.12369"
+    },
+    {
+        "name": "LaMDA",
+        "owner": "Google",
+        "trained on x billion parameters": 137.0,
+        "date": "Jun 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/LaMDA"
+    },
+    {
+        "name": "BlenderBot2.0",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 9.4,
+        "date": "Jul 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/cobusgreyling.medium.com\/meta-ais-blender-bot-3-0-is-an-open-source-chatbot-with-long-term-memory-internet-search-ce024a5fe8aa"
+    },
+    {
+        "name": "Jurassic-1",
+        "owner": "AI21",
+        "trained on x billion parameters": 178.0,
+        "date": "Aug 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/www.ai21.com\/blog\/announcing-ai21-studio-and-jurassic-1"
+    },
+    {
+        "name": "Codex",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 12.0,
+        "date": "Aug 2021",
+        "note \/ * = parameters undisclosed": "Generates programming code",
+        "link": "https:\/\/arxiv.org\/abs\/2107.03374"
+    },
+    {
+        "name": "FLAN",
+        "owner": "Google",
+        "trained on x billion parameters": 137.0,
+        "date": "Sep 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2109.01652"
+    },
+    {
+        "name": "PLATO-XL",
+        "owner": "Baidu",
+        "trained on x billion parameters": 11.0,
+        "date": "Sep 2021",
+        "note \/ * = parameters undisclosed": "chatbot",
+        "link": "https:\/\/arxiv.org\/abs\/2109.09519"
+    },
+    {
+        "name": "WeLM",
+        "owner": "WeChat",
+        "trained on x billion parameters": 10.0,
+        "date": "Sep 2022",
+        "note \/ * = parameters undisclosed": "87% chinese language",
+        "link": "https:\/\/arxiv.org\/abs\/2209.10372"
+    },
+    {
+        "name": "xlarge",
+        "owner": "Cohere",
+        "trained on x billion parameters": 52.4,
+        "date": "Sep 2021",
+        "note \/ * = parameters undisclosed": "Trained on \"ebooks and webpages\"",
+        "link": "https:\/\/arxiv.org\/abs\/2108.07790"
+    },
+    {
+        "name": "Megatron-Turing NLG",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 530.0,
+        "date": "Oct 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/developer.nvidia.com\/megatron-turing-natural-language-generation"
+    },
+    {
+        "name": "MT-NLG",
+        "owner": "Microsoft",
+        "trained on x billion parameters": 530.0,
+        "date": "Oct 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2201.11990"
+    },
+    {
+        "name": "BERT-200",
+        "owner": "Google",
+        "trained on x billion parameters": 200.0,
+        "date": "Nov 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/cloud.google.com\/blog\/topics\/tpus\/google-showcases-cloud-tpu-v4-pods-for-large-model-training (same as above)"
+    },
+    {
+        "name": "BERT-480",
+        "owner": "Google",
+        "trained on x billion parameters": 480.0,
+        "date": "Nov 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/cloud.google.com\/blog\/topics\/tpus\/google-showcases-cloud-tpu-v4-pods-for-large-model-training"
+    },
+    {
+        "name": "Luminous",
+        "owner": "Aleph Alpha",
+        "trained on x billion parameters": 200.0,
+        "date": "Nov 2021",
+        "note \/ * = parameters undisclosed": "German-language",
+        "link": "https:\/\/www.aleph-alpha.de\/pricing"
+    },
+    {
+        "name": "Ernie 3.0 Titan",
+        "owner": "Baidu",
+        "trained on x billion parameters": 260.0,
+        "date": "Dec 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/www.marktechpost.com\/2021\/12\/29\/baidu-and-pcl-team-introduce-ernie-3-0-titan-a-pre-training-language-model-with-260-billion-parameters\/"
+    },
+    {
+        "name": "GLaM",
+        "owner": "Google",
+        "trained on x billion parameters": 1200.0,
+        "date": "Dec 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/ai.googleblog.com\/2021\/12\/more-efficient-in-context-learning-with.html"
+    },
+    {
+        "name": "Gopher",
+        "owner": "Google Deepmind",
+        "trained on x billion parameters": 280.0,
+        "date": "Dec 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/www.deepmind.com\/blog\/language-modelling-at-scale-gopher-ethical-considerations-and-retrieval"
+    },
+    {
+        "name": "GPT-NeoX",
+        "owner": "EleutherAI",
+        "trained on x billion parameters": 20.0,
+        "date": "Feb 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/docs\/transformers\/model_doc\/gpt_neox"
+    },
+    {
+        "name": "GPT Neo",
+        "owner": "EleutherAI",
+        "trained on x billion parameters": 2.7,
+        "date": "Feb 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/docs\/transformers\/model_doc\/gpt_neo"
+    },
+    {
+        "name": "Chinchilla",
+        "owner": "DeepMind",
+        "trained on x billion parameters": 70.0,
+        "date": "Mar 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2203.15556v1"
+    },
+    {
+        "name": "CodeGen",
+        "owner": "Salesforce",
+        "trained on x billion parameters": 16.0,
+        "date": "Mar 2022",
+        "note \/ * = parameters undisclosed": "Generates programming code",
+        "link": "https:\/\/arxiv.org\/abs\/2203.13474"
+    },
+    {
+        "name": "InCoder",
+        "owner": "Meta",
+        "trained on x billion parameters": 6.7,
+        "date": "Apr 2022",
+        "note \/ * = parameters undisclosed": "generates python and javascript",
+        "link": "https:\/\/arxiv.org\/abs\/2204.05999"
+    },
+    {
+        "name": "mGPT",
+        "owner": "Sber",
+        "trained on x billion parameters": 13.0,
+        "date": "Apr 2022",
+        "note \/ * = parameters undisclosed": "60 languages",
+        "link": "https:\/\/arxiv.org\/abs\/2204.07580"
+    },
+    {
+        "name": "PaLM",
+        "owner": "Google",
+        "trained on x billion parameters": 540.0,
+        "date": "Apr 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/ai.googleblog.com\/2022\/04\/pathways-language-model-palm-scaling-to.html"
+    },
+    {
+        "name": "OPT-IML",
+        "owner": "Meta AI",
+        "trained on x billion parameters": 175.0,
+        "date": "May 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2212.12017"
+    },
+    {
+        "name": "Minerva",
+        "owner": "Google",
+        "trained on x billion parameters": 540.0,
+        "date": "Jun 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/ai.googleblog.com\/2022\/06\/minerva-solving-quantitative-reasoning.html"
+    },
+    {
+        "name": "YaLM 100B",
+        "owner": "Yandex",
+        "trained on x billion parameters": 100.0,
+        "date": "Jun 2022",
+        "note \/ * = parameters undisclosed": "Russian \/ English",
+        "link": "https:\/\/huggingface.co\/yandex\/yalm-100b"
+    },
+    {
+        "name": "BLOOM",
+        "owner": "BigScience",
+        "trained on x billion parameters": 175.0,
+        "date": "Jul 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/bigscience\/bloom"
+    },
+    {
+        "name": "FIM 6.9B",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 6.9,
+        "date": "Jul 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/pdf\/2207.14255.pdf"
+    },
+    {
+        "name": "NLLB-200",
+        "owner": "Meta AI",
+        "trained on x billion parameters": 54.5,
+        "date": "Jul 2022",
+        "note \/ * = parameters undisclosed": "200 language translation ",
+        "link": "https:\/\/ai.facebook.com\/blog\/nllb-200-high-quality-machine-translation\/"
+    },
+    {
+        "name": "GLM-130B",
+        "owner": "Tsinghua & Zhipu",
+        "trained on x billion parameters": 130.0,
+        "date": "Aug 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/spaces\/THUDM\/GLM-130B"
+    },
+    {
+        "name": "Atlas",
+        "owner": "Meta",
+        "trained on x billion parameters": 11.0,
+        "date": "Aug 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2208.03299"
+    },
+    {
+        "name": "BlenderBot3",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 175.0,
+        "date": "Aug 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/cobusgreyling.medium.com\/meta-ais-blender-bot-3-0-is-an-open-source-chatbot-with-long-term-memory-internet-search-ce024a5fe8aa"
+    },
+    {
+        "name": "AlexaTM",
+        "owner": "Amazon",
+        "trained on x billion parameters": 20.0,
+        "date": "Aug 2022",
+        "note \/ * = parameters undisclosed": "trained on Wikipedia and mC4 only",
+        "link": "https:\/\/www.amazon.science\/blog\/20b-parameter-alexa-model-sets-new-marks-in-few-shot-learning"
+    },
+    {
+        "name": "PaLI",
+        "owner": "Google",
+        "trained on x billion parameters": 17.0,
+        "date": "Sep 2022",
+        "note \/ * = parameters undisclosed": "Vision model",
+        "link": "https:\/\/arxiv.org\/abs\/2209.06794"
+    },
+    {
+        "name": "Sparrow",
+        "owner": "Google",
+        "trained on x billion parameters": 70.0,
+        "date": "Sep 2022",
+        "note \/ * = parameters undisclosed": "powered by Chincilla",
+        "link": "https:\/\/en.wikipedia.org\/wiki\/Sparrow_(bot)"
+    },
+    {
+        "name": "MT5",
+        "owner": "Google",
+        "trained on x billion parameters": 13.0,
+        "date": "Oct 2022",
+        "note \/ * = parameters undisclosed": "101 languages",
+        "link": "https:\/\/huggingface.co\/google\/mt5-base"
+    },
+    {
+        "name": "Galactica",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 120.0,
+        "date": "Nov 2022",
+        "note \/ * = parameters undisclosed": "scientific only",
+        "link": "https:\/\/www.technologyreview.com\/2022\/11\/18\/1063487\/meta-large-language-model-ai-only-survived-three-days-gpt-3-science\/"
+    },
+    {
+        "name": "ChatGPT",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 12.0,
+        "date": "Nov 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/ChatGPT"
+    },
+    {
+        "name": "RL-CAI",
+        "owner": "Anthropic",
+        "trained on x billion parameters": 52.0,
+        "date": "Dec 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/lifearchitect.ai\/anthropic\/"
+    },
+    {
+        "name": "Exaone",
+        "owner": "LG",
+        "trained on x billion parameters": 300.0,
+        "date": "Dec 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/sourceforge.net\/software\/product\/EXAONE\/"
+    },
+    {
+        "name": "GPT 3.5",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 175.0,
+        "date": "Dec 2022",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/openai.com\/blog\/chatgpt"
+    },
+    {
+        "name": "WebGPT",
+        "owner": "Open AI \/ Microsoft",
+        "trained on x billion parameters": 175.0,
+        "date": "Jan 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/openai.com\/research\/webgpt"
+    },
+    {
+        "name": "Claude",
+        "owner": "Anthropic",
+        "trained on x billion parameters": 52.0,
+        "date": "Jan 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arstechnica.com\/information-technology\/2023\/03\/anthropic-introduces-claude-a-more-steerable-ai-competitor-to-chatgpt\/"
+    },
+    {
+        "name": "LLaMa",
+        "owner": "Meta \/ Facebook",
+        "trained on x billion parameters": 65.0,
+        "date": "Feb 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/ai.facebook.com\/blog\/large-language-model-llama-meta-ai\/"
+    },
+    {
+        "name": "Luminous Supreme",
+        "owner": "Aleph Alpha",
+        "trained on x billion parameters": 70.0,
+        "date": "Feb 2023",
+        "note \/ * = parameters undisclosed": "German-language",
+        "link": "https:\/\/docs.aleph-alpha.com\/docs\/introduction\/prompting_and_completion\/#zero-shot-learning-with-luminous-supreme-control"
+    },
+    {
+        "name": "PanGu-Sigma",
+        "owner": "Huawei",
+        "trained on x billion parameters": 1085.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/arxiv.org\/abs\/2303.10845"
+    },
+    {
+        "name": "Bard*",
+        "owner": "Google",
+        "trained on x billion parameters": 0.7,
+        "date": "Feb 2023",
+        "note \/ * = parameters undisclosed": "powered by LaMDA",
+        "link": "https:\/\/techmonitor.ai\/technology\/ai-and-automation\/google-i-o-bard-chatbot-llm-palm2-gemini"
+    },
+    {
+        "name": "Alpaca",
+        "owner": "Stanford",
+        "trained on x billion parameters": 7.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/github.com\/tatsu-lab\/stanford_alpaca"
+    },
+    {
+        "name": "BloombergGPT",
+        "owner": "Bloomberg",
+        "trained on x billion parameters": 50.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": "Finance-focussed (of course)",
+        "link": "https:\/\/arxiv.org\/abs\/2303.17564"
+    },
+    {
+        "name": "Cerebras-GPT",
+        "owner": "Cerebras",
+        "trained on x billion parameters": 13.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": "open-source",
+        "link": "https:\/\/www.cerebras.net\/blog\/cerebras-gpt-a-family-of-open-compute-efficient-large-language-models\/"
+    },
+    {
+        "name": "Ernie Bot",
+        "owner": "Baidu",
+        "trained on x billion parameters": 200.0,
+        "date": "Dec 2021",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/www.prnewswire.com\/news-releases\/baidu-unveils-ernie-bot-the-latest-generative-ai-mastering-chinese-language-and-multi-modal-generation-301774240.html"
+    },
+    {
+        "name": "GPT-4*",
+        "owner": "OpenAI",
+        "trained on x billion parameters": 1000.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/en.wikipedia.org\/wiki\/GPT-4"
+    },
+    {
+        "name": "GPT4All-LoRA",
+        "owner": "Nomic",
+        "trained on x billion parameters": 7.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": "open source chatbot based on LLaMa",
+        "link": "https:\/\/s3.amazonaws.com\/static.nomic.ai\/gpt4all\/2023_GPT4All_Technical_Report.pdf"
+    },
+    {
+        "name": "Jurassic-2*",
+        "owner": "AI21",
+        "trained on x billion parameters": 200.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/thenewstack.io\/ai21-labs-releases-jurassic-2-its-new-large-language-model\/"
+    },
+    {
+        "name": "Koala-13B",
+        "owner": "Berkeley",
+        "trained on x billion parameters": 13.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": "Based on LLaMA",
+        "link": "https:\/\/bair.berkeley.edu\/blog\/2023\/04\/03\/koala\/"
+    },
+    {
+        "name": "StableLM",
+        "owner": "Stability AI",
+        "trained on x billion parameters": 65.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": "open-source from the makers of Stable Diffusion",
+        "link": "https:\/\/github.com\/stability-AI\/stableLM\/"
+    },
+    {
+        "name": "Dolly 2.0",
+        "owner": "Databricks",
+        "trained on x billion parameters": 12.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": "open-source",
+        "link": "https:\/\/arstechnica.com\/information-technology\/2023\/04\/a-really-big-deal-dolly-is-a-free-open-source-chatgpt-style-ai-model\/"
+    },
+    {
+        "name": "SenseChat",
+        "owner": "SenseTime",
+        "trained on x billion parameters": 200.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/www.silicon.co.uk\/e-innovation\/artificial-intelligence\/sensetime-ai-505764"
+    },
+    {
+        "name": "Titan",
+        "owner": "Amazon",
+        "trained on x billion parameters": 350.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/aws.amazon.com\/bedrock\/titan\/"
+    },
+    {
+        "name": "Tongyi Qianwen",
+        "owner": "Alibaba",
+        "trained on x billion parameters": 200.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": "name roughly translates to \u201ctruth from a thousand questions,\u201d",
+        "link": "https:\/\/www.theregister.com\/2023\/04\/11\/alibaba_tongyi_qianwen_llm\/"
+    },
+    {
+        "name": "Hugging Chat",
+        "owner": "LAION",
+        "trained on x billion parameters": 30.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/techcrunch.com\/2023\/04\/25\/hugging-face-releases-its-own-version-of-chatgpt\/?guccounter=1&guce_referrer=aHR0cHM6Ly9uZXdzLnNsYXNoZG90Lm9yZy8&guce_referrer_sig=AQAAAAykGMvXCA4mB45v7uwolZNOHKsD8v0oCXuvA_ODzNeQYDZSu_-gosaiEklXgzcJrzmgiNapj8m3WQ7gmE8auQxFEIKokjxYpdx7TXhOimIuz0Dww2I7ceB29AYZHtxkD4wfgA8BN4aB5CR3L9aVOLjXXiiCHDmCvhBr9I8xwLAo"
+    },
+    {
+        "name": "BingChat*",
+        "owner": "Microsoft \/ OpenAI",
+        "trained on x billion parameters": 1000.0,
+        "date": "Apr 2023",
+        "note \/ * = parameters undisclosed": "Microsoft's version of ChatGPT",
+        "link": "https:\/\/www.zdnet.com\/article\/how-to-use-the-new-bing-and-how-its-different-from-chatgpt\/"
+    },
+    {
+        "name": "PaLM2",
+        "owner": "Google",
+        "trained on x billion parameters": 540.0,
+        "date": "May 2023",
+        "note \/ * = parameters undisclosed": "Trained on 100 languages and 20 programming languages. Google says the new model is better at common sense reasoning, mathematics and logic",
+        "link": "https:\/\/techcrunch.com\/2023\/05\/10\/google-launches-palm-2-its-next-gen-large-language-model\/"
+    },
+    {
+        "name": "Vicuna-13B",
+        "owner": "Vicuna Team",
+        "trained on x billion parameters": 65.0,
+        "date": "Mar 2023",
+        "note \/ * = parameters undisclosed": "an open-source chatbot trained by fine-tuning LLaMA on user-shared conversations collected from ShareGPT",
+        "link": "https:\/\/lmsys.org\/blog\/2023-03-30-vicuna\/"
+    },
+    {
+        "name": "Falcon LLM",
+        "owner": "Technology Innovation Institute",
+        "trained on x billion parameters": 40.0,
+        "date": "Jun 2023",
+        "note \/ * = parameters undisclosed": "foundational large language model (LLM) with 40 billion parameters trained on one trillion tokens",
+        "link": "https:\/\/falconllm.tii.ae\/"
+    },
+    {
+        "name": "Sail-7B",
+        "owner": "Open Language Safety Research",
+        "trained on x billion parameters": 7.0,
+        "date": "Jun 2023",
+        "note \/ * = parameters undisclosed": "search engine-grounded large language model based on LLama-7B",
+        "link": "https:\/\/openlsr.org\/sail-7b"
+    },
+    {
+        "name": "Web LLM",
+        "owner": "Independent",
+        "trained on x billion parameters": 7.0,
+        "date": "Jun 2023",
+        "note \/ * = parameters undisclosed": "Browser-based LLM Chatbot",
+        "link": "https:\/\/simonwillison.net\/2023\/Apr\/16\/web-llm\/"
+    },
+    {
+        "name": "OpenLLM",
+        "owner": "Independent",
+        "trained on x billion parameters": 13.0,
+        "date": "Jun 2023",
+        "note \/ * = parameters undisclosed": null,
+        "link": "https:\/\/huggingface.co\/openlm-research\/open_llama_13b_easylm"
+    },
+    {
+        "name": "Ernie Bot 3.5",
+        "owner": "Baidu",
+        "trained on x billion parameters": 200.0,
+        "date": "July 2023",
+        "note \/ * = parameters undisclosed": "Surpassing ChatGPT (3.5) in comprehensive ability scores and outperforming GPT-4 in several Chinese language capabilities - and supporting plugins.",
+        "link": "http:\/\/research.baidu.com\/Blog\/index-view?id=185"
+    },
+    {
+        "name": "Claude 2",
+        "owner": "Anthropic",
+        "trained on x billion parameters": 52.0,
+        "date": "July 2023",
+        "note \/ * = parameters undisclosed": "Expanded input and output length (up to 100,00 tokens) allowing the AI model to analyze long documents such as technical guides or entire books",
+        "link": "https:\/\/arstechnica.com\/information-technology\/2023\/07\/new-chatgpt-rival-claude-2-launches-for-open-beta-testing\/"
+    },
+    {
+        "name": "LLaMa2",
+        "owner": "Facebook",
+        "trained on x billion parameters": 70.0,
+        "date": "July 2023",
+        "note \/ * = parameters undisclosed": "Open source LLM comes in 3 parameter sizes - 7, 30, and 70 bn",
+        "link": "https:\/\/venturebeat.com\/ai\/facebook-parent-meta-unveils-llama-2-open-source-ai-model-for-commercial-use\/"
+    }
+]

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Visualize LLMs</title>
+    <meta charset="UTF-8">
+    <!-- Title font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tangerine&amp;display=swap">
+    <!-- common font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&amp;display=swap">
+    <link rel="stylesheet" href="llms-style.css">
+
+    <!-- FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <h1 id="title">Visualize LLMs</h1>
+    <section class="main-section">
+
+        <div class="dataset-info">
+            <p class="korean">2018년부터 2023년 7월까지 출시된 대규모 언어 모델(LLM, Large Language Model)들을 시각화하였습니다.</p>
+            <p class="english">(From 2018 to July 2023, we visualized the Large Language Models (LLM) that were
+                released.)</p>
+
+            <p><i class="fas fa-link"></i>데이터셋 (Dataset):
+                <a href="https://www.kaggle.com/datasets/joebeachcapital/large-language-models" target="_blank"
+                    rel="noopener noreferrer">Kaggle의 Large Language Models 데이터셋</a>
+            </p>
+        </div>
+        <div class="divider div-transparent div-dot"></div>
+        <div>
+            <div id="tabs-container">
+                <button class="tab" id="tab-overview">Overview</button>
+                <button class="tab active" id="tab-owners">By Owners</button>
+                <button class="tab" id="tab-time">Ordering by Time</button>
+            </div>
+            <div id="content-container">
+                <div id="content-overview" class="tab-content">
+                    <div class="content-header">업데이트 예정입니다. (To be updated later.)</div>
+                </div>
+                <div id="content-owners" class="tab-content active-content">
+                    <div class="content-header">
+                        <p class="korean">네트워크 시각화를 통해 LLM 모델들을 각각의 소유자별로 클러스터링하였습니다.</p>
+                        <p class="english">(Through network visualization, LLM models have been clustered by individual
+                            owners.)</p>
+                        <p class="korean">각 소유자를 클릭하면, 해당 소유자가 보유한 모델의 정보를 하단에서 확인할 수 있습니다.</p>
+                        <p class="english">(By clicking on each owner, you can view the information of the models they
+                            possess at the bottom.)</p>
+                    </div>
+                    <div id="svg-container"></div>
+                    <div id="table-container"></div>
+                </div>
+                <div id="content-time" class="tab-content">
+                    <div class="content-header">업데이트 예정입니다. (To be updated later.)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="llms-script.js"></script>
+</body>
+
+</html>

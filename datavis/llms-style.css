@@ -1,0 +1,282 @@
+:root {
+    --color-background: #f7f7f7;
+    --color-owner: #73a9ad;
+    --color-tab: #445069;
+    --color-etc: #f7e987;
+    --font-family-default: "Noto Sans KR", "Lato", sans-serif;
+    --text-padding: 0.7em;
+  }
+  
+  /* --------------------------------------------------
+  기본
+  -------------------------------------------------- */
+  
+  body {
+    font-family: var(--font-family-default);
+    background-color: var(--color-background);
+  }
+  
+  #title {
+    text-align: center;
+    font-family: "Tangerine", cursive;
+    font-size: 4em;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0.67em 0;
+    color: black;
+  }
+  
+  .main-section {
+    background-color: #f5f5f5; /* 섹션 배경색 지정 */
+    padding: 20px; /* 섹션의 패딩 추가 */
+    border-radius: 5px; /* 섹션 테두리 둥글게 만듦 */
+    margin-bottom: 20px; /* 섹션 아래 간격 추가 */
+  }
+  
+  p.korean {
+    margin-bottom: 5px; /* 한글 문장 아래에 10px의 간격을 줍니다. */
+  }
+  
+  p.english {
+    margin-top: 0px;
+    margin-bottom: 15px; /* 영어 문장 아래에 15px의 간격을 줍니다. */
+    color: #888; /* 연한 회색 (#888) 색상을 적용합니다. */
+  }
+  /* --------------------------------------------------
+  디바이더
+  -------------------------------------------------- */
+  
+  .divider {
+    position: relative;
+    margin-top: 90px;
+    height: 1px;
+  }
+  
+  .div-transparent:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    width: 70%;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      rgb(48, 49, 51),
+      transparent
+    );
+  }
+  
+  .div-dot:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -9px;
+    left: calc(50% - 9px);
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-owner);
+    border: 1px solid rgb(48, 49, 51);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--color-background),
+      0 0 0 4px var(--color-background);
+  }
+  /* --------------------------------------------------
+  데이터셋 정보
+  -------------------------------------------------- */
+  
+  .dataset-info {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin: 25px auto; /* 수평 가운데 정렬을 위해 추가 */
+  }
+  
+  .dataset-info {
+    width: 70%; /* 부모 요소의 80% 크기로 설정 */
+  }
+  
+  .dataset-info a {
+    color: var(--color-owner);
+    transition: color 0.3s;
+  }
+  
+  .dataset-info a:hover {
+    color: var(--color-model);
+  }
+  
+  /* --------------------------------------------------
+  시각화
+  -------------------------------------------------- */
+  
+  #svg-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .link {
+    stroke: #888;
+    stroke-opacity: 0.7;
+  }
+  
+  svg {
+    border: none; /* Removed border for cleaner look */
+    background-color: #fff;
+    border-radius: 10px; /* Added rounded edges */
+  }
+  
+  .nodeText {
+    font-size: 13px; /* Increased font size slightly */
+    fill: black;
+    stroke: #f7f7f7;
+    stroke-width: 0.5px;
+    font-weight: 500; /* Made it a bit less bold */
+  }
+  
+  .owner.nodeText {
+    fill: blue;
+    font-weight: bold;
+  }
+  
+  .model.nodeText {
+    fill: black;
+    stroke: white;
+    stroke-width: 0.1px;
+  }
+  
+  /* --------------------------------------------------
+  테이블
+  -------------------------------------------------- */
+  
+  #ownerInfoTable {
+    width: 95%;
+    margin: 25px auto; /* 이 부분이 테이블을 가운데로 배치합니다. */
+    border-collapse: collapse;
+    font-family: "Lato", sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Rounded corner를 위해 추가 */
+    border-radius: 10px; /* 테이블 모서리를 둥글게 */
+  }
+  
+  #ownerInfoTable th {
+    background-color: var(--color-owner);
+    color: white;
+    text-align: left;
+    text-align: center; /* 내용을 중앙에 배치 */
+    padding: 15px; /* 패딩을 조금 더 증가 */
+    font-weight: 600; /* 글자를 더 두껍게 */
+  }
+  
+  #ownerInfoTable td {
+    border-bottom: 1px solid #e0e0e0; /* 경계선을 더 연하게 */
+    padding: 12px 15px; /* 패딩 조정 */
+    text-align: center; /* 내용을 중앙에 배치 */
+  }
+  
+  #ownerInfoTable td.ownerCell {
+    font-weight: 500;
+    background-color: #EEEEEE; /* #F5F0BB; */
+  }
+  
+  #ownerInfoTable tr:last-child td {
+    border-bottom: none; /* 마지막 행의 경계선 제거 */
+  }
+  
+  #ownerInfoTable tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  #ownerInfoTable tr:nth-child(even) {
+    background-color: #f9f9f9; /* 짝수 행의 배경색을 조금 더 밝게 */
+  }
+  
+  #ownerInfoTable a {
+    color: #2196f3;
+    text-decoration: none;
+    transition: color 0.3s; /* 링크의 색상 변화에 애니메이션 효과 추가 */
+  }
+  
+  #ownerInfoTable a:hover {
+    color: var(--color-owner); /* 호버 시 색상을 owner의 색상으로 변경 */
+  }
+  
+  /* --------------------------------------------------
+  탭 이벤트
+  -------------------------------------------------- */
+  
+  #tabs-container {
+    display: flex;
+  
+    width: 70%; /* 부모 요소의 80% 크기로 설정 */
+    justify-content: space-around;
+    margin-bottom: 30px; /* 조금 더 여백을 추가하여 시각적으로 여유롭게 */
+    font-family: "Lato", sans-serif;
+  
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    margin: 25px auto; /* 수평 가운데 정렬을 위해 추가 */
+  }
+  
+  .tab {
+    flex: 1; /* 각 탭 요소에 균등한 너비 부여 */
+    padding: 15px 25px; /* 패딩을 조금 더 추가하여 크게 보이게 함 */
+    cursor: pointer;
+    background-color: #f9f9f9; /* 더 밝은 배경색으로 */
+    border: 2px solid transparent;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 17px; /* 글꼴 크기 조절 */
+    font-weight: 600; /* 글꼴 두께 조절 */
+    color: #666; /* 기본 글꼴 색상을 약간 어둡게 */
+  }
+  
+  .tab:hover {
+    background-color: #ebebeb;
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .tab.active {
+    background-color: var(--color-tab); /* 활성 탭의 배경색을 owner 색상으로 */
+    color: white; /* 활성 탭의 글꼴 색상을 흰색으로 */
+    border-color: transparent; /* 활성 탭의 테두리 색상 제거 */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1); /* 활성 탭에 그림자 추가 */
+  }
+  
+  /* --------------------------------------------------
+  탭 컨테이너
+  -------------------------------------------------- */
+  #content-container {
+    display: flex;
+    flex-direction: column; /* 세로로 정렬 */
+    align-items: center; /* 센터 정렬 */
+    gap: 20px; /* 요소들 사이의 간격 */
+  }
+  
+  .tab-content {
+    display: none; /* 기본적으로 모든 탭 내용을 숨깁니다. */
+  }
+  
+  .active-content {
+    display: block; /* 활성화된 탭 내용만 보이게 합니다. */
+  }
+  
+  .content-header {
+    width: 95%; /* 부모 요소의 80% 크기로 설정 */
+    background-color: #ffffff; /* 연한 그레이 배경색으로 변경 */
+    padding: 15px 25px; /* 패딩을 조금 더 증가 */
+    border-radius: 12px; /* 모서리를 더욱 둥글게 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 그림자 효과 조정 */
+    margin-bottom: 20px; /* 아래 내용과의 간격 확보 */
+    transition: transform 0.3s ease; /* 호버 효과를 위한 트랜지션 */
+  }
+  
+  /* .content-header:hover {
+    transform: translateY(-3px); 
+  } */
+  
