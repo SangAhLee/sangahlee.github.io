@@ -63,12 +63,23 @@ body.dark {
     flex-direction: column;
 }
 
-.header, .footer {
+.header {
     height: 43px; /* fixed height */
     padding: 15px;
     text-align: center;
     background-color: var(--bg-color-light);
 }
+
+.footer {
+    height: 43px; /* fixed height */
+    padding: 15px;
+    text-align: center;
+    background-color: var(--bg-color-light);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 
 .content {
     flex-grow: 1; /* to fill remaining vertical space */
