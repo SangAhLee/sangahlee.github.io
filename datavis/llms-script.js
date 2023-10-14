@@ -263,7 +263,7 @@ function displayOwnerInfo(ownerName) {
     let thead = document.createElement('thead');
     let headerRow = document.createElement('tr');
 
-    ["Owner", "Date", "Model", "Parameters", "Note", "Link"].forEach(header => {
+    ["Owner", "Date", "Model", "Parameters (Billions)", "Note", "Link"].forEach(header => {
         let th = document.createElement('th');
         th.textContent = header;
         headerRow.appendChild(th);
