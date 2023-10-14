@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 var contents = {
   mycareer: "./pages/99_about.md",
   myinterest: "./pages/00_research.md",
-  graphvis: "./datavis/test.html"
+  graphvis: "./datavis/test.html",
+  newssnapshotdemo: "./news-analysis/newssnapshot-demo.html"
 };
 
 // GNB 아이템을 클릭했을 때 이벤트 핸들러
@@ -49,7 +50,15 @@ function handleNavClick(event) {
     event.preventDefault();
     var contentDiv = document.getElementById("page-content");
 
-  if (contents[targetId] == contents.graphvis) {
+
+    if (contents[targetId] == contents.newssnapshotdemo) {
+      console.log("It's a html file!");
+      let additionalContent = `<div style="margin-bottom: 20px;">이 컨텐츠는 아래의 URL로 바로 접근가능합니다. <br>
+      <a href="https://sangahlee.github.io/news-analysis/newssnapshot-demo.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/news-analysis/newssnapshot-demo.html</a>
+      </div>`;
+      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="100%" height="95%" frameborder="0"></iframe>`;
+    }
+    else if (contents[targetId] == contents.graphvis) {
       console.log("It's a html file!");
       let additionalContent = `<div style="margin-bottom: 20px;">데이터 시각화 관련 testbed 입니다. 주로 로컬로 작업하므로 업데이트 빈도가 낮습니다.<br> </div>`;
       contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="100%" height="100%" frameborder="0"></iframe>`;
@@ -91,18 +100,18 @@ function handleNavClick(event) {
 
       }
     }
-      // 모든 아이템의 선택 스타일을 초기화
-      var navItems = document.querySelectorAll('.nav a');
-      navItems.forEach(item => {
-        item.classList.remove('selected');
-      });
+    // 모든 아이템의 선택 스타일을 초기화
+    var navItems = document.querySelectorAll('.nav a');
+    navItems.forEach(item => {
+      item.classList.remove('selected');
+    });
 
-      // 현재 선택된 아이템에 선택 스타일 적용
-      event.target.classList.add('selected');
+    // 현재 선택된 아이템에 선택 스타일 적용
+    event.target.classList.add('selected');
 
-      // // GNB의 선택 스타일 제거
-      // var gnbTitle = document.querySelector('.gnb-title');
-      // gnbTitle.classList.remove('selected');
+    // // GNB의 선택 스타일 제거
+    // var gnbTitle = document.querySelector('.gnb-title');
+    // gnbTitle.classList.remove('selected');
 
   }
 }

@@ -1,0 +1,690 @@
+:root {
+  --news-text-color-light: #333;
+  --news-text-color-dark: #fff;
+  --news-bg-color-light: #fcfcfc;
+  --news-bg-color-dark: #323536;
+  --news-color-light: #f4f5f6;
+
+  --news-bg-color: var(--news-bg-color-dark);
+
+  --news-point-color: #0092ca;
+  --news-point-color2: #5b9a8b;
+
+  --news-text-additional: #7f8c8d;
+  --news-tabs-bg: #fbfbfb; /* var(--news-tabs-bg); */
+  --news-tablink-inactive: #f2f2f2; /* var(--news-tablink-inactive); */
+  --news-tablink-hover: #e7e7e7; /* var(--news-tab-hover); */
+  --news-tablink-active: #7d98a1; /* var(--news-tab-active); */
+
+  --news-button-bg: #7ab9a6; /* var(--news-button-bg); */
+  --news-button-hover: #689c89; /* --news-button-hover); */
+
+  --news-newsitem-button-bg: #7ab9a6;
+  --news-newsitem-button-hover: #4a857a;
+  --news-newsitem-button-active: #3f756a;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  color: var(--news-text-color-light);
+  margin: 0;
+  padding: 5px;
+}
+body {
+  font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+  font-weight: normal;
+  height: 100%;
+  /* background-color: var(--news-bg-color); */
+  background-color: white;
+}
+/* 
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+h2 {
+
+  margin: 1em 0;
+}
+h3 {
+  font-size: 1.17em;
+  margin: 0.8em 0;
+}
+
+p {
+  margin: 0.5em 0;
+}
+ */
+
+/* 기본 설정 */
+
+h2,
+h3 {
+  margin: 0 0 20px 0; /* 아래쪽 마진 추가 */
+}
+
+/* 주요 제목 스타일 */
+h2 {
+  /* font-size: 1.5em; */
+  color: #2c3e50; /* 진한 청색 계열 */
+  border-bottom: 2px solid #3498db; /* 하단 테두리 */
+  padding-bottom: 10px; /* 테두리와 제목 간격 */
+}
+
+/* 부제목 스타일 */
+h3 {
+  /* font-size: 1.17em; */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+h3.additional {
+  margin-top: 20px;
+  /* font-size: 1.17em; */
+  color: var(--news-text-additional);
+  /* display: flex; /* 아이콘과 제목을 나란히 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+
+h3 i.fas {
+  margin-right: 10px; /* 아이콘과 제목 사이 간격 */
+  color: #f39c12; /* 주황색 아이콘 */
+  font-size: 24px; /* 아이콘 크기 */
+}
+
+/* 본문 스타일 */
+p {
+  font-size: 1em;
+  color: #2c3e50; /* 진한 청색 계열 */
+  line-height: 1.6; /* 줄 간격 */
+  margin: 0 0 12px 0; /* 아래쪽 마진 추가 */
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  margin: 0.5em 0;
+}
+
+div {
+  padding: 1em;
+}
+div.box {
+  /*font-family: 'Arial', sans-serif; /* 원하는 폰트로 변경 가능 */
+  padding: 20px; /* 내부 패딩 추가 */
+  background-color: #f9f9f9; /* 밝은 회색 배경색 */
+  border-radius: 10px; /* 모서리 둥글게 */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+}
+
+div.none {
+  padding: 0;
+  margin: 0;
+}
+
+div.section {
+  margin: 1em 0.5em;
+  padding: 1.5em;
+  /* background-color: var(--news-color-light);  */
+  background-color: white;
+
+  /* border-radius: 5px; */
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.titlesection {
+  margin: 1em 0.5em;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  text-align: center;
+  /* font-family: "Tangerine", cursive;
+  font-size: 4em; */
+  font-family: "Libre Baskerville", serif;
+  font-size: 3em;
+  padding-left: 20px; /* 왼쪽 패딩 */
+  padding-right: 20px; /* 오른쪽 패딩 */
+
+  margin: 0.67em 0;
+  color: var(--news-text-color-light);
+  /* background: linear-gradient(90deg, var(--news-bg-color) 10%, var(--news-point-color) 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+#dateSelect {
+  padding: 10px 15px; /* 내부 패딩 */
+  font-size: 16px; /* 글자 크기 */
+  color: #333; /* 글자색 */
+  border: 1px solid #ccc; /* 테두리 스타일 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  appearance: none; /* 브라우저별 기본 스타일 제거 */
+  -webkit-appearance: none; /* 크롬, 사파리 기본 스타일 제거 */
+  -moz-appearance: none; /* 파이어폭스 기본 스타일 제거 */
+  background-color: #fff; /* 배경색 */
+  cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* 트랜지션 효과 */
+}
+
+#dateSelect:focus {
+  border-color: #007bff; /* 포커스시 테두리 색상 */
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.25); /* 포커스시 그림자 효과 */
+}
+
+/*--News tab----------------------------------*/
+
+/* CSS Styles */
+.sample-news-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* gap between links */
+}
+
+.sample-link {
+  text-decoration: none;
+  color: #333;
+  background-color: #f8f8f8;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+}
+
+.sample-link:hover {
+  background-color: #e8e8e8;
+}
+
+/* 버튼 스타일 */
+.additional_info_button {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: none;
+  /* border: 1px solid #7AB9A6; */
+  /* border-radius: 5px; */
+  color: var(--news-text-additional); /* var(--news-point-color);  */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.additional_info_button:hover {
+  background-color: var(--news-tablink-active);
+  color: #ffffff;
+}
+
+.divider-style {
+  border-top: 1px dashed #dddddd;
+  height: 0;
+  margin-top: 10px;
+}
+
+/*--News tab----------------------------------*/
+
+.prev_button {
+  position: absolute;
+  font-size: 16px;
+  left: 0;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.centerDiv {
+  width: 70%; /* div의 가로 크기를 줄입니다. */
+  margin: 0 auto; /* div를 페이지 가운데에 배치합니다. */
+}
+
+.news-item {
+  margin-bottom: 100px;
+
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #dddddd;
+
+  display: flex;
+  flex-direction: column; /* 자식 요소들을 수직 방향으로 정렬 */
+}
+
+/*--News tab----------------------------------*/
+
+.content-box {
+  display: block;
+
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  /* border: 1px solid #dddddd; */
+  border: 1px solid var(--news-point-color); /* #dddddd; */
+
+  /* 추가된 스타일 */
+  /* width: 80vw; */
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+.custom-divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.news-item h2 {
+  font-size: 20px;
+  color: var(--news-text-color-light);
+}
+
+.news-item ul {
+  list-style-type: none;
+}
+
+.news-item li {
+  margin-bottom: 0.5em;
+}
+
+.newsitem_button {
+  display: block;
+  padding: 8px 15px; /* 상하 좌우 패딩 조절 */
+  background-color: var(--news-newsitem-button-bg); /* #7AB9A6; */
+  border: none; /* 테두리 제거 */
+  border-radius: 20px; /* 둥근 모서리 조절 */
+  color: white; /* 글자색 */
+  font-size: 14px; /* 글자 크기 조절 */
+  font-weight: 600; /* 글자 굵기 */
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s; /* 배경색에 대한 전환 효과 */
+}
+
+/* 버튼에 마우스를 올렸을 때의 스타일 */
+.newsitem_button:hover {
+  background-color: var(--news-newsitem-button-hover); /* #4A857A; */
+}
+
+/* 버튼이 활성화(토글된) 상태일 때의 스타일 */
+.newsitem_button.active {
+  background-color: var(--news-newsitem-button-active); /* #3F756A; */
+  color: #eee;
+}
+
+/*------------------------------------*/
+
+/* 리스트 전체 스타일 */
+ul.newsContentList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* 각 항목 스타일 */
+ul.newsContentList li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* 각 항목을 구분하는 하단 테두리 */
+  transition: background-color 0.2s;
+}
+
+ul.newsContentList li:last-child {
+  border-bottom: none; /* 리스트의 마지막 항목에는 테두리를 제거 */
+}
+
+ul.newsContentList li:hover {
+  background-color: #f5f5f5; /* 항목에 마우스를 올렸을 때의 배경색 */
+}
+
+/* NEW 마커 스타일 */
+span.newMarker {
+  background-color: blue;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/*--News tab----------------------------------*/
+
+.tab_info_button {
+  display: inline-block; /* 이 부분을 변경 */
+  margin-right: 10px; /* 탭 버튼 사이의 간격을 조정 */
+
+  padding: 8px 15px;
+  background-color: var(
+    --news-tablink-inactive
+  ); /* #7AB9A6; /* 조금 더 연한 색으로 설정 */
+  border: none;
+  border-radius: 5px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.tab_info_button:hover {
+  background-color: var(--news-tablink-hover); /* #689C89; /* 호버 시 색상 */
+  color: #333;
+}
+
+.tab_info_button.active {
+  background-color: var(--news-tablink-active);
+  color: white;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/*--News info toggle----------------------------------*/
+
+.sentencesDivClass {
+  /* border: 1px solid #5B9A8B;
+  background-color: #f9f9f9; */
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  /* margin-top: 15px; */
+  max-width: 100%; /* 최대 너비를 100%로 설정 */
+  /* 높이는 내용에 따라 자동으로 조절됩니다. */
+}
+
+/* 문장 내용 스타일 */
+.sentencesDivClass p {
+  /* margin: 8px 0;
+  font-size: 16px; */
+  color: #666;
+}
+
+/*--News----------------------------------*/
+.newstitle {
+  border-bottom: 2px solid var(--news-text-color-light);
+
+  /* background-color: var(--bg-color);
+  color: white;
+  display: inline-block;
+  padding: 5px;  */
+}
+
+#concept_title {
+  font-size: 1.7em;
+
+  /* text-decoration: underline; */
+  background-color: #ffffff; /* 흰색 배경 */
+  color: #000000; /* 검정색 글씨 */
+  padding: 10px; /* 패딩 추가로 더욱 보기 좋게 */
+  text-align: center; /* 제목을 가운데 정렬 */
+  /* border: 1.5px solid  var(--news-point-color);  */
+  border-radius: 10px; /* 모서리를 약간 둥글게 */
+  margin: 20px 0; /* 상하 여백 추가 */
+}
+
+.guidetext {
+  margin: 30px 0;
+}
+
+.guidetext li {
+  color: var(--news-point-color);
+}
+
+.guidetext .highlight::before {
+  content: "￭ "; /* 동그라미 특수문자 */
+  font-weight: bold; /* 글자를 진하게 만듭니다 */
+}
+
+/*------------------------------------*/
+
+#pageContainer {
+  /* display: flex; */
+  background-color: #fbfbfb;
+}
+
+#leftPane {
+  flex-grow: 1; /* 사용 가능한 공간을 최대한 차지하도록 합니다*/
+}
+
+#rightPane {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  overflow: auto;
+  background: white;
+  /* box-shadow: h-offset v-offset blur spread color; */
+  box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#rightPane {
+  /* Your existing styles here */
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/*--Demo----------------------------------*/
+/* Style for tabs */
+.tabs {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  border: none;
+  background-color: var(--news-tabs-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+.tablinks {
+  background-color: var(--news-tablink-inactive);
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  transition: 0.3s;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #555;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tablinks:hover {
+  background-color: var(--news-tablink-hover);
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tablinks.active {
+  background-color: var(--news-tablink-active);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*--thematic contents----------------------------------*/
+
+#topicContainer {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between; /* 왼쪽과 오른쪽 요소를 양끝에 배치 */
+  align-items: center; /* 항목들을 세로 중앙에 배치 */
+}
+
+.tabs {
+  flex: 3; /* 전체 너비의 3/4 차지 */
+  padding-right: 20px; /* 오른쪽에 간격 추가 */
+}
+
+#searchContent {
+  margin-top: 20px;
+
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+
+  flex: 1; /* 전체 너비의 1/4 차지 */
+  display: flex;
+  flex-direction: column; /* 세로로 항목 배치 */
+  align-items: flex-end; /* 오른쪽 정렬 */
+}
+
+#thematic_contents {
+  width: 100%; /* 전체 너비를 차지하도록 설정 */
+}
+
+/*--TipCard----------------------------------*/
+
+.tipcard {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tipcard:hover {
+  background-color: #f5f5f5;
+}
+
+/*--Demo----------------------------------*/
+.footer {
+  height: 43px; /* fixed height */
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+
+/*--Demo----------------------------------*/
+.date-container {
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.date-title {
+  font-weight: 600;
+  /* margin-bottom: 15px; */
+}
+
+.date-btn {
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 15px;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, border 0.3s;
+}
+
+.date-btn.active {
+  /* background-color: #f2f2f2;
+    border: 2px solid #333; */
+
+  background-color: #007bff;
+  color: #fff;
+}
+
+.date-btn-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.date-subtitle {
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.date-subtitle span {
+  text-decoration: underline;
+}
+
+/*--Demo----------------------------------*/
+
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* 제목 행 스타일 */
+th {
+  background-color: #f2f2f2;
+}
+
+/* 행에 마우스를 올렸을 때의 배경색 */
+table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* 페이지네이션 버튼 기본 스타일 */
+.navbutton {
+  background-color: transparent;
+  border: none; /* 테두리 제거 */
+  color: #888; /* 중립적인 회색 텍스트 */
+  padding: 6px 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px; /* 글자 크기 조절 */
+  text-decoration: none;
+  display: inline-block;
+  margin: 0px 8px; /* 간격 조절 */
+  cursor: pointer;
+  border-radius: 10px; /* 둥근 테두리 스타일 */
+  transition: background-color 0.2s, color 0.2s; /* 부드러운 색상 전환 효과 */
+}
+
+/* 마우스를 올렸을 때의 버튼 스타일 */
+.navbutton:hover {
+  background-color: #f2f2f2; /* 매우 밝은 회색으로 하이라이트 */
+  color: #666; /* 조금 더 어두운 텍스트 */
+}
+
+/* 현재 페이지 버튼 스타일 */
+.navbutton.active,
+.highlighted {
+  background-color: #d8d8d8; /* 중립적인 회색 */
+  color: white; /* 백색 글자 */
+}
+
+/* 현재 페이지 버튼에 마우스 오버시 */
+.navbutton.active:hover,
+.highlighted:hover {
+  background-color: #b5b5b5; /* 조금 더 진한 회색 */
+  color: white;
+}

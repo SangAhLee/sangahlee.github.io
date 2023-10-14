@@ -1,0 +1,674 @@
+[
+    {
+        "group_index": 0,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005558896?sid=105",
+                "title": "마이크로소프트, 생성AI 이용 전세계 파트너 성장 돕는다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003129188?sid=105",
+                "title": "마이크로소프트, 생성형 AI와 클라우드 솔루션으로 혁신 제공"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014152223?sid=105",
+                "title": "기본 재무부터 환자 관리까지… MS, 고객사 AI 성공사례 소개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002303022?sid=105",
+                "title": "마이크로소프트 \"생성AI, 기업 곳곳에서 생산성 증대\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/138/0002155223?sid=105",
+                "title": "분석·전략 구축 뚝딱…MS, 고객사 대상 'AI 혁신사례' 공개"
+            }
+        ]
+    },
+    {
+        "group_index": 1,
+        "date": "2023.08.24",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002302975?sid=105",
+                "title": "\"구글·MS 겨루자\"...네이버, 韓 생성형 AI '하이퍼클로바X' 출사표"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/024/0000084139?sid=105",
+                "title": "네이버, 하이퍼클로바X 공개 하루 만에 7%대 약세...왜? [오늘, 이 종목]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929863?sid=105",
+                "title": "네이버, '하이퍼클로바X' 발표 하루 만에 8%대 하락"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/243/0000049201?sid=105",
+                "title": "2000명 청중 앞, 자신감 드러낸 최수연 “네이버 기술로 세상 변화” [가봤어요]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/366/0000926672?sid=105",
+                "title": "[일문일답] 네이버 “하이퍼클로바X, GPT 3.5와의 승률은 75%… 구글·오픈AI는 韓 홀대할 수밖에 없어”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007008933?sid=105",
+                "title": "'파트너' 강조한 네이버, 한국형 생성AI 생태계 만든다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/469/0000756780?sid=105",
+                "title": "\"한국어 제일 잘 아는 초거대 AI로 안방서 이긴다\" 네이버, 하이퍼클로바X 꺼냈다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/215/0001121189?sid=105",
+                "title": "한국형AI '하이퍼클로바X'…베타서비스 써보니"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/629/0000234687?sid=105",
+                "title": "네이버, '하이퍼클로바X' 한국어 집중은 '전략적 선택'…K-AI 생태계 만든다(영상)"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/658/0000050422?sid=105",
+                "title": "네이버 초거대 AI 승부수...'하이퍼클로바 X' 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/025/0003302910?sid=105",
+                "title": "[팩플] AI 대중화·수익화 나선 네이버…'생태계' 키우고 '환각'도 해결할까"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/215/0001121320?sid=105",
+                "title": "아직은 무뚝뚝한 '클로바X'...네이버 AI 대해부"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/081/0003387496?sid=105",
+                "title": "챗GPT엔 ‘클로바X’, 구글엔 ‘큐:’… 한국어 능력 앞세운 네이버, 국내 시장 수성할까"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/022/0003848638?sid=105",
+                "title": "네이버판 챗GPT… 한국을 가장 잘 이해하는 생성형 AI"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/032/0003244768?sid=105",
+                "title": "더 똑똑해진 네이버 AI ‘하이퍼클로버X’...국내용 한계 극복할까"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/032/0003244751?sid=105",
+                "title": "네이버, 한국 문화 맥락 특화 초거대 AI ‘하이퍼클로바X’ 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883842?sid=105",
+                "title": "\"어제 팔고 튈 걸\" 허탈한 개미들…네이버 종토방 '술렁'"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003128771?sid=105",
+                "title": "네이버 '생성형 AI ' 글로벌 빅테크와 겨룬다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883852?sid=105",
+                "title": "\"화장 더 빡세게 했다\"…네이버 대표의 전략은 성공했을까? [정지은의 산업노트]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/088/0000832295?sid=105",
+                "title": "네이버, 한국형 AI '하이퍼클로바X' 공개···IT업계 \"새 기회 창출 기대\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/437/0000356831?sid=105",
+                "title": "네이버, 거대언어모델 AI '하이퍼클로바X' 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/032/0003244876?sid=105",
+                "title": "‘챗GPT 대항마’ 한국어 최적화 AI 출격"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/417/0000944296?sid=105",
+                "title": "네이버, AI株 블루칩 될까… 하이퍼클로바X에 쏠린 눈"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/119/0002742752?sid=105",
+                "title": "빅테크와 경쟁 나선 네이버...‘한국 특화’ 초거대 AI로 승부수(종합)"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014151609?sid=105",
+                "title": "삼성증권, 네이버 목표가 상향…\"하이퍼클로바X 성장 잠재력\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/029/0002821241?sid=105",
+                "title": "베일 벗은 네이버 초거대 AI, 챗GPT와 정면승부한다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/016/0002188163?sid=105",
+                "title": "“네이버는 희망이라도 있지…” 하이퍼클로바X 출시에 좌절하는 카카오 주주들 [투자360]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/024/0000084122?sid=105",
+                "title": "네이버 ‘하이퍼클로바 X’ 오늘 오후 4시부터 베타서비스…‘챗 GPT’에 대적할 K-대항마 될까?"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/293/0000047152?sid=105",
+                "title": "투자제안서도 써준다…네이버, '판매자·창작자·광고주' 모두 쓰는 AI '하이퍼클로바X' 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/138/0002155209?sid=105",
+                "title": "[종합] 구글·MS와 정면승부…생성형AI 시대, 네이버 반격"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883763?sid=105",
+                "title": "\"네이버, 하이퍼클로바X 통해 모든 서비스 레벨업 전망\"-이베스트"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/629/0000234572?sid=105",
+                "title": "네이버, '하이퍼클로바X' 전격 공개…\"누구나 AI 쓰는 시대 만든다\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012050269?sid=105",
+                "title": "네이버 챗봇 '클로바X' 써보니…느리지만 맛집·길찾기·면접 '제법 똑똑하네'"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/020/0003516867?sid=105",
+                "title": "네이버, 한국어 AI챗봇 공개… 뉴스 이용료 지급 안밝혀 논란"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/022/0003848350?sid=105",
+                "title": "네이버 최수연 “생성형AI ‘하이퍼클로바X’, 새로운 변화 맞이할 준비 마쳤다”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929687?sid=105",
+                "title": "네이버 '하이퍼클로바X' 한국어 특화…\"국내 AI 선봉장\"-이베스트"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/366/0000926569?sid=105",
+                "title": "최수연 네이버 대표 “양질의 데이터 무기로 빅테크와 생성형AI 경쟁 자신있어…오후 4시 클로바X 써봐라”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012049608?sid=105",
+                "title": "네이버, 하이퍼클로바X 공개에 6%대 상승(종합)"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/243/0000049190?sid=105",
+                "title": "네이버 AI 특화 서비스 범위는 ‘대한민국’…“8.15 사명감으로 개발”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/243/0000049196?sid=105",
+                "title": "네이버式 챗GPT 통하면…개인·기업 생산성 극대화"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/022/0003848693?sid=105",
+                "title": "네이버 “하이퍼클로바X는 가장 한국적인 생성형 AI, 챗GPT에 밀리지 않을 자신 있다”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/011/0004230134?sid=105",
+                "title": "\"파트너와 동반성장\"…유통·금융 등 아우르는 AI 생태계 만든다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/293/0000047165?sid=105",
+                "title": "네이버의 '하이퍼클로바X' 자신감…'GPT'보다 한국 더 잘안다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/011/0004230245?sid=105",
+                "title": "\"네이버 하이클로바X 잠재력 높다\"…목표가 상향"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014150987?sid=105",
+                "title": "국산 초거대AI 데뷔전에 2천명 몰려…하이퍼클로바X 사양 비공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/422/0000615961?sid=105",
+                "title": "초거대 AI 하이퍼클로바X 공개…창작자 보호도 필요"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/009/0005177301?sid=105",
+                "title": "“네이버 ‘하이퍼클로바X’ 중장기 성장동력 핵심”…목표가 상승"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/417/0000944359?sid=105",
+                "title": "[STOCK] 네이버, '한국형 AI' 하이퍼클로바 수혜 없다… 5% 하락"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/025/0003303005?sid=105",
+                "title": "챗GPT보다 6500배 더 학습했다…네이버 한국어 AI 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007009690?sid=105",
+                "title": "네이버 장 초반 4%대 약세…AI챗봇 성능 논란?[핫종목]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003128760?sid=105",
+                "title": "[하이퍼클로바X 공개]대화형 검색부터 보고서 작성까지... 일상·비즈니스 혁신 가속"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/023/0003783763?sid=105",
+                "title": "챗GPT보다 한국어 6500배 더 배웠다… 네이버 ‘하이퍼클로바 X’ 출격"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005062076?sid=105",
+                "title": "네이버, 클로바X 우려 실적에 영향 적을 것... 매수 기회-다올"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/005/0001633299?sid=105",
+                "title": "‘토종 생성형 AI’ 공개한 네이버… 하이퍼클로바X로 승부수"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014150760?sid=105",
+                "title": "\"하이퍼클로바X, 데이터세트 학습으로 윤리·안전성 확보노력\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/057/0001764300?sid=105",
+                "title": "네이버, 한국어 특화 생성형 AI 하이퍼클로바X 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/079/0003804979?sid=105",
+                "title": "네이버, 생성형 AI 하이퍼클로바X 공개 \"누구나 손쉽게 사용\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/021/0002590083?sid=105",
+                "title": "네이버, 1조 투자한 생성형 AI ‘하이퍼클로바X’ 전격공개…GPT보다 6500배 학습"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/648/0000018979?sid=105",
+                "title": "하이퍼클로바X 출격…\"국내기업은 당연히 네이버 선택\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005557827?sid=105",
+                "title": "\"개발부터 여행계획까지\"…네이버 대화형 AI '클로바X' 일상 혁신"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005061950?sid=105",
+                "title": "디자인·코딩도 척척…\"하이퍼클로바X, GPT보다 성능 뛰어나\" [K-AI 반격 나선다]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/023/0003783794?sid=105",
+                "title": "‘클로바X’ 내놓은 네이버, 출시 다음날 주가 6% 가까이 하락"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/629/0000234702?sid=105",
+                "title": "\"공문 작성도 8초 만에\"…네이버 '클로바X', 챗 GPT 아성 넘본다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/028/0002653679?sid=105",
+                "title": "‘서촌 브런치’ 검색 시대는 간다…네이버, 한국어 아는 AI 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/417/0000944137?sid=105",
+                "title": "AI로 달라지는 일상… 네이버, 대화형 AI '클로바X' 공개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/277/0005304438?sid=105",
+                "title": "가장 한국적인 네이버의 AI…\"챗GPT에 밀리지 않을 것\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003128766?sid=105",
+                "title": "[ET라씨로]네이버, '하이클로바X' 공개 앞두고 상승세"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/138/0002155200?sid=105",
+                "title": "[DAN23] 네이버와 손잡은 韓 스타트업들 “하이퍼클로바X, 안 쓸 이유 없어”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012050282?sid=105",
+                "title": "'클로바X 공개' 네이버보다 주가 더 뛴 회사…어디길래"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/366/0000926771?sid=105",
+                "title": "[체험기] 네이버 ‘클로바X’, 문장 자연스럽고 한국 관련 잘 답변하지만… 질문 내용 이해 못하는 허점도"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/081/0003387608?sid=105",
+                "title": "여행코스 짜고 식당 예약까지… 한국어 탁월한 ‘녹색창 AI’ 열린다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/031/0000767959?sid=105",
+                "title": "[네이버 DAN 23] 최수연 \"AI 하이퍼클로바X로 3가지 혁신 이끌겠다\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929592?sid=105",
+                "title": "\"조명 추천해줘\"…네이버표 초거대 AI 답변 엇갈렸다, 왜?"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/009/0005177206?sid=105",
+                "title": "네이버 초거대AI \"韓 법·제도 완벽이해\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002302906?sid=105",
+                "title": "하이퍼클로바X, 챗GPT보다 뭐가 낫나…최수연 \"한국 법·제도 모두 이해\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005558049?sid=105",
+                "title": "진짜가 나타났다…검색에 강한 韓 초거대AI 베일 벗다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/016/0002187728?sid=105",
+                "title": "한국형 초거대 AI 드디어 나왔다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/138/0002155204?sid=105",
+                "title": "[DAN23] “우리가 믿어야 할 종교는 무엇인가?” 네이버 클로바X 답변은…"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/277/0005304769?sid=105",
+                "title": "[클릭 e종목]\"NAVER, 클로바X 성장 잠재력…목표가↑\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005061962?sid=105",
+                "title": "챗GPT 맞설 한국형 생성형 AI 나왔다 [K-AI 반격 나선다]"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002302935?sid=105",
+                "title": "하이퍼클로바X 써본 스타트업들 \"한국어 서비스에 안 쓸 이유 없어\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/119/0002742648?sid=105",
+                "title": "네이버 “‘하이퍼클로바X’, GPT3.5 대비 75% 성능 뛰어나”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/031/0000768037?sid=105",
+                "title": "[네이버 DAN 23] 클로바X 베타 서비스 시작…\"한국인 가장 잘 이해하는 대화형 AI\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/119/0002742838?sid=105",
+                "title": "정부가 오염수 방류 반대?...‘클로바X’, 첫날부터 환각 ‘발각’"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/056/0011552270?sid=105",
+                "title": "네이버 ‘한국형 AI’ 공개…챗GPT 대항마 될까?"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007009247?sid=105",
+                "title": "'클로바X'에 3시간 동안 30개 묻자…\"똑똑한데 엉뚱 답변도\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/011/0004230123?sid=105",
+                "title": "\"고깃집 추천해줘\" 했더니…깔끔한 숫자 목록 보여줘"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005557752?sid=105",
+                "title": "최수연 대표 \"네이버 데이터, 생성AI 시대 최고 경쟁력\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/277/0005304421?sid=105",
+                "title": "폴라리스오피스 \"네이버 초대규모 AI '하이퍼클로바X'와 생태계 구축\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/215/0001121262?sid=105",
+                "title": "\"하이퍼클로바X 성장 잠재력…목표가 상향\""
+            }
+        ]
+    },
+    {
+        "group_index": 2,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005062116?sid=105",
+                "title": "\"넷플릭스 구독 갱신·계정 확인하세요\".. 알고 보니 피싱"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929852?sid=105",
+                "title": "'넷플릭스 구독 갱신' 메일 눌렀더니…카드 정보까지 '탈탈'"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/009/0005177496?sid=105",
+                "title": "‘넷플릭스 구독 곧 만료됩니다’...피싱 메일 주의보"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/437/0000357000?sid=105",
+                "title": "넷플릭스 구독 갱신하라는 메일, '피싱 공격'이었다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/656/0000061065?sid=105",
+                "title": "\"넷플릭스 함부로 갱신하지 마세요\" 피싱 공격 발견"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/374/0000348755?sid=105",
+                "title": "넷플릭스 연장하려다 개인정보 털린다…피싱 수법 보니"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/022/0003848795?sid=105",
+                "title": "“구독이 만료됩니다” 넷플릭스 메일 무심코 클릭했다간…"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/055/0001084460?sid=105",
+                "title": "안랩 \"넷플릭스 구독 갱신 메일, 피싱일 수 있으니 조심하세요\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/028/0002653784?sid=105",
+                "title": "자세히 보니 ‘netfix’…넷플릭스 구독 갱신 메일 주의보"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/277/0005304854?sid=105",
+                "title": "안랩, ‘넷플릭스 구독 갱신 및 계정확인’ 위장 피싱 공격 주의"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/016/0002188365?sid=105",
+                "title": "“넷플릭스 구독이 곧 만료됩니다” 메일 열었더니 왜 이래?…피싱 주의"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/366/0000926854?sid=105",
+                "title": "안랩 “‘넷플릭스 구독 갱신·계정확인 위장한 피싱 공격 주의”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/025/0003303125?sid=105",
+                "title": "\"넷플 구독 곧 만료\" 눌렀다간 다 털린다…신종 피싱 경보령"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007009800?sid=105",
+                "title": "\"넷플릭스 구독 곧 만료\"…가짜 메일 열면 계정 털린다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/215/0001121293?sid=105",
+                "title": "\"넷플릭스 구독 곧 만료\"…메일 클릭금지"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883845?sid=105",
+                "title": "\"넷플릭스 구독이 곧 만료됩니다\" 메일 열었더니…"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/021/0002590245?sid=105",
+                "title": "안랩 ‘넷플릭스 구독 갱신’ 위장한 피싱 공격 주의 당부"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003129175?sid=105",
+                "title": "안랩 “'넷플릭스 구독 갱신·계정 확인' 위장 피싱 공격 주의하세요”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/031/0000768229?sid=105",
+                "title": "\"구독이 곧 만료됩니다\" 넷플릭스 구독갱신 피싱 공격 주의보"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/021/0002590335?sid=105",
+                "title": "“넷플릭스 구독갱신 메일, 피싱일수 있으니 조심을”"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012050757?sid=105",
+                "title": "'구독이 곧 만료됩니다' 넷플릭스 사칭 피싱메일 주의"
+            }
+        ]
+    },
+    {
+        "group_index": 3,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003129177?sid=105",
+                "title": "더존비즈온, 'WEHAGO T 사용자교육' 성황"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929798?sid=105",
+                "title": "더존비즈온, 대세로 자리 잡은 WEHAGO T 전환"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/648/0000018996?sid=105",
+                "title": "더존비즈온, '위하고 T' 사용자 설명회 '전국 확대'"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929785?sid=105",
+                "title": "더존비즈온 \"WEHAGO T 사용자교육 성황…업무 혁신사례 공유\""
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/277/0005304965?sid=105",
+                "title": "더존비즈온, WEHAGO T 사용자교육 전국 확대"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005062245?sid=105",
+                "title": "세무회계 전문가들 '위하고 T' 관심 증가"
+            }
+        ]
+    },
+    {
+        "group_index": 4,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005558799?sid=105",
+                "title": "메타버스월드, ‘서울팝콘’서 ‘그랜드크로스:메타월드’ 선봬"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/648/0000018978?sid=105",
+                "title": "빗썸표 메타버스 첫선…옷 재질까지 선명히 보인다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883437?sid=105",
+                "title": "빗썸메타, '프리뷰 인 서울' 참가…메타버스 패션 선보인다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/031/0000768206?sid=105",
+                "title": "넷마블 '메타버스월드,' 2023 서울팝콘서 '그랜드크로스: 메타월드' 소개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/082/0001228805?sid=105",
+                "title": "빗썸메타, 국내 최대 섬유 전시회서 메타버스 세계 선보인다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/082/0001228935?sid=105",
+                "title": "메타버스월드, '2023 서울팝콘'에서 그랜드크로스: 메타월드 소개"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002303027?sid=105",
+                "title": "넷마블 메타버스월드, '그랜드크로스: 메타월드' 2023서울팝콘에 출품"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/138/0002155171?sid=105",
+                "title": "빗썸메타, 현실의 옷장을 가상세계로…'디지털 트윈' 선보여"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005558273?sid=105",
+                "title": "빗썸메타, ‘프리뷰 인 서울’서 ‘디지털 트윈’ 선보인다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/009/0005177388?sid=105",
+                "title": "넷마블, ‘2023 서울팝콘’서 ‘그랜드크로스:메타월드’ 소개…버튜버 ‘리나’ 공개"
+            }
+        ]
+    },
+    {
+        "group_index": 5,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/016/0002188226?sid=105",
+                "title": "과기정통부, ‘새로운 디지털 질서’ 청년 의견 수렴"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/014/0005062171?sid=105",
+                "title": "과기정통부, '새로운 디지털 질서' 관련 MZ 세대 의견 수렴 나섰다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/018/0005558872?sid=105",
+                "title": "과기정통부, 디지털 권리장전에 대한 MZ세대들의 의견 듣는다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/031/0000768205?sid=105",
+                "title": "과기정통부, 교사·대학원생 등 MZ세대들과 간담회 개최"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/366/0000926866?sid=105",
+                "title": "과기정통부, 새로운 디지털 질서 관련 청년들 의견 듣는다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929807?sid=105",
+                "title": "\"디지털 新질서 청년과 논의\"…과기정통부 'MZ' 간담회 개최"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014151812?sid=105",
+                "title": "디지털권리장전·AI 저작권 국민 의견은?…'디지털 공론장' 열려"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007009757?sid=105",
+                "title": "\"디지털 新질서 청년과 만든다\"…과기정통부 'MZ' 간담회 개최"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012050572?sid=105",
+                "title": "정부, MZ세대와 디지털 신질서 간담회 개최"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/056/0011552759?sid=105",
+                "title": "과기정통부, ‘디지털 공론장’ 개설…‘디지털 권리장전’ 등 의견 수렴"
+            }
+        ]
+    },
+    {
+        "group_index": 6,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/011/0004230274?sid=105",
+                "title": "SK쉴더스, 한국농수산재활용사업공제조합과 폐기물 자동 계량 시스템 개발"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012050427?sid=105",
+                "title": "SK쉴더스, 농수산 재활용 폐기물 자동 계량 시스템 개발"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/015/0004883407?sid=105",
+                "title": "SK쉴더스, ‘안전스쿨 캠페인’으로 어린이 안전사고 예방 돕는다"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/021/0002590240?sid=105",
+                "title": "SK쉴더스, 폐기물 자동 계량 시스템 공동 개발"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007009672?sid=105",
+                "title": "SK쉴더스, 농수산 재활용 공제조합과 '폐기물 자동계량' 기술 개발"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/030/0003129176?sid=105",
+                "title": "SK쉴더스, 농수산 재활용 폐기물 자동 계량 시스템 개발"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/008/0004929756?sid=105",
+                "title": "SK쉴더스, CCTV 활용 농수산 재활용 폐기물 자동 계량 프로그램 개발"
+            }
+        ]
+    },
+    {
+        "group_index": 7,
+        "date": "2023.08.25",
+        "category": "Technology",
+        "link": [
+            {
+                "link": "https://n.news.naver.com/mnews/article/119/0002743043?sid=105",
+                "title": "KAIST GoN팀, 국제해킹방어대회 대학부 우승"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/003/0012051076?sid=105",
+                "title": "미국·캐나다·인도 연합, 韓 해킹방어대회 우승…한국은 3위"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/421/0007010424?sid=105",
+                "title": "국제해킹방어대회 '코드게이트 2023'서 미국·캐나다·인도 연합팀 우승"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/001/0014152515?sid=105",
+                "title": "해킹 방어대회 '코드게이트 2023'서 카이스트팀 대학생부 우승"
+            },
+            {
+                "link": "https://n.news.naver.com/mnews/article/092/0002302930?sid=105",
+                "title": "코드게이트, '역대 최대 상금' 글로벌 1위 해커 가린다"
+            }
+        ]
+    }
+]

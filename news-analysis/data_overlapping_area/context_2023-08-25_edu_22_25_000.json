@@ -1,0 +1,74 @@
+[
+  {
+    "date": "2023-08-18",
+    "cluster0": 166.0,
+    "cluster1": 3.0,
+    "cluster2": 0.0,
+    "cluster3": 160.0,
+    "cluster4": 0.0,
+    "cluster5": 17.0,
+    "cluster6": 0.0,
+    "cluster7": 0.0,
+    "cluster8": 9.0
+  },
+  {
+    "date": "2023-08-19",
+    "cluster0": 4.0,
+    "cluster1": 0.0,
+    "cluster2": 0.0,
+    "cluster3": 5.0,
+    "cluster4": 0.0,
+    "cluster5": 0.0,
+    "cluster6": 0.0,
+    "cluster7": 0.0,
+    "cluster8": 0.0
+  },
+  {
+    "date": "2023-08-21",
+    "cluster0": 0.0,
+    "cluster1": 0.0,
+    "cluster2": 0.0,
+    "cluster3": 0.0,
+    "cluster4": 55.0,
+    "cluster5": 21.0,
+    "cluster6": 0.0,
+    "cluster7": 0.0,
+    "cluster8": 0.0
+  },
+  {
+    "date": "2023-08-22",
+    "cluster0": 0.0,
+    "cluster1": 0.0,
+    "cluster2": 0.0,
+    "cluster3": 0.0,
+    "cluster4": 125.0,
+    "cluster5": 40.0,
+    "cluster6": 0.0,
+    "cluster7": 0.0,
+    "cluster8": 0.0
+  },
+  {
+    "date": "2023-08-24",
+    "cluster0": 0.0,
+    "cluster1": 103.0,
+    "cluster2": 12.0,
+    "cluster3": 0.0,
+    "cluster4": 0.0,
+    "cluster5": 17.0,
+    "cluster6": 55.0,
+    "cluster7": 102.0,
+    "cluster8": 48.0
+  },
+  {
+    "date": "2023-08-25",
+    "cluster0": 0.0,
+    "cluster1": 79.0,
+    "cluster2": 63.0,
+    "cluster3": 0.0,
+    "cluster4": 1.0,
+    "cluster5": 13.0,
+    "cluster6": 27.0,
+    "cluster7": 50.0,
+    "cluster8": 37.0
+  }
+]

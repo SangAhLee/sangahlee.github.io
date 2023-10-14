@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2023-08-18",
+    "cluster0": 4.0,
+    "cluster1": 0.0,
+    "cluster2": 28.0,
+    "cluster3": 4.0,
+    "cluster4": 6.0,
+    "cluster5": 247.0
+  },
+  {
+    "date": "2023-08-19",
+    "cluster0": 25.0,
+    "cluster1": 0.0,
+    "cluster2": 136.0,
+    "cluster3": 10.0,
+    "cluster4": 53.0,
+    "cluster5": 74.0
+  },
+  {
+    "date": "2023-08-22",
+    "cluster0": 3.0,
+    "cluster1": 5.0,
+    "cluster2": 10.0,
+    "cluster3": 150.0,
+    "cluster4": 131.0,
+    "cluster5": 29.0
+  }
+]
