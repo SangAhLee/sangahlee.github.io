@@ -7,21 +7,29 @@
 
   --news-bg-color: var(--news-bg-color-dark);
 
-  --news-point-color: #0092ca;
-  --news-point-color2: #5b9a8b;
+  --news-point-color: #0092CA;
+  --news-point-color2: #5B9A8B;
 
   --news-text-additional: #7f8c8d;
   --news-tabs-bg: #fbfbfb; /* var(--news-tabs-bg); */
   --news-tablink-inactive: #f2f2f2; /* var(--news-tablink-inactive); */
   --news-tablink-hover: #e7e7e7; /* var(--news-tab-hover); */
-  --news-tablink-active: #7d98a1; /* var(--news-tab-active); */
+  --news-tablink-active: #7D98A1; /* var(--news-tab-active); */
 
-  --news-button-bg: #7ab9a6; /* var(--news-button-bg); */
-  --news-button-hover: #689c89; /* --news-button-hover); */
+  --news-button-bg: #7AB9A6; /* var(--news-button-bg); */
+  --news-button-hover: #689C89; /* --news-button-hover); */
 
-  --news-newsitem-button-bg: #7ab9a6;
-  --news-newsitem-button-hover: #4a857a;
-  --news-newsitem-button-active: #3f756a;
+  /* --news-newsitem-button-bg: #7AB9A6;
+  --news-newsitem-button-hover: #4A857A;
+  --news-newsitem-button-active: #3F756A; */
+
+  --news-newsitem-button-bg: #7A7A7A;       
+  --news-newsitem-button-hover: #5A5A5A;     
+  --news-newsitem-button-active: #4A4A4A;
+  
+
+  --color-red: #C70039; 
+
 }
 
 body {
@@ -104,9 +112,9 @@ ul {
   padding: 0;
   list-style-type: none;
 }
-li {
+/* li {
   margin: 0.5em 0;
-}
+} */
 
 div {
   padding: 1em;
@@ -114,6 +122,7 @@ div {
 div.box {
   /*font-family: 'Arial', sans-serif; /* 원하는 폰트로 변경 가능 */
   padding: 20px; /* 내부 패딩 추가 */
+  margin-bottom: 30px;
   background-color: #f9f9f9; /* 밝은 회색 배경색 */
   border-radius: 10px; /* 모서리 둥글게 */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
@@ -195,7 +204,7 @@ div.titlesection {
 .sample-link {
   text-decoration: none;
   color: #333;
-  background-color: #f8f8f8;
+  background-color: white;
   padding: 10px 15px;
   border-radius: 5px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
@@ -205,6 +214,13 @@ div.titlesection {
 .sample-link:hover {
   background-color: #e8e8e8;
 }
+
+.sample-news-links.B a {
+  color: #7D98A1;
+}
+
+/*--News tab----------------------------------*/
+
 
 /* 버튼 스타일 */
 .additional_info_button {
@@ -310,6 +326,9 @@ div.titlesection {
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s; /* 배경색에 대한 전환 효과 */
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
 }
 
 /* 버튼에 마우스를 올렸을 때의 스타일 */
@@ -336,8 +355,8 @@ ul.newsContentList {
 
 /* 각 항목 스타일 */
 ul.newsContentList li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd; /* 각 항목을 구분하는 하단 테두리 */
+  /* padding: 10px; */
+  border-bottom: 1px solid #ddd;  /* 각 항목을 구분하는 하단 테두리 */
   transition: background-color 0.2s;
 }
 
@@ -345,9 +364,9 @@ ul.newsContentList li:last-child {
   border-bottom: none; /* 리스트의 마지막 항목에는 테두리를 제거 */
 }
 
-ul.newsContentList li:hover {
-  background-color: #f5f5f5; /* 항목에 마우스를 올렸을 때의 배경색 */
-}
+/* ul.newsContentList li:hover {
+  background-color: #f5f5f5;
+} */
 
 /* NEW 마커 스타일 */
 span.newMarker {
@@ -358,6 +377,37 @@ span.newMarker {
   font-weight: bold;
   margin-right: 5px;
 }
+
+
+
+
+
+/*-----content list (추가) ------------------------------*/
+.newsContentList li {
+  display: flex;
+  align-items: center;
+}
+
+.newsContentList .numberDiv {
+  width: 40px;  
+  /* height: 40px;  */
+  font-size: 2em;
+  text-align: center;
+  border-radius: 5px;
+  color: #7A7A7A; /* 진한 회색으로 글씨체 색상 설정 */
+
+  /* padding: 20px; */
+}
+
+.newsContentList .textDiv {
+  flex-grow: 1; 
+  padding: 0;
+  padding-left: 10px;
+}
+.newsContentList .textDiv strong {
+  font-size: 1.1em;
+}
+
 
 /*--News tab----------------------------------*/
 
@@ -688,3 +738,36 @@ table tr:hover {
   background-color: #b5b5b5; /* 조금 더 진한 회색 */
   color: white;
 }
+
+/*--newslist row----------------------------------*/
+
+.title {
+  padding: 10px;
+  flex-grow: 1; 
+}
+
+.anchor {
+  text-decoration: none;
+  color: black;
+  display: block; 
+}
+
+.anchor:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.media-date {
+  margin-top: 8px;
+  margin-bottom: 0px;
+
+  color: grey;
+  font-size: 0.8em;
+}
+
+/*------------------------------------*/

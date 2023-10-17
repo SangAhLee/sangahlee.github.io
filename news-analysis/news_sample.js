@@ -37,6 +37,25 @@ let global_topic = null;
 
 const bulletpoint = '⟡';
 
+const color_lightgrey = '#f7f7f7'; // '#EFEFEF'
+
+var colors_tableau10 = ["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"]; //Tableau10
+var colors_gradient = ['#4A55A2', '#7895CB', '#A0BFE0', '#A0BFE0'];
+var colors_gradient2 = ['#1F4E5F', '#6AC1B8', '#BFE9DB'];
+
+
+
+function hexToRgba(hex, opacity) {
+    let bigint = parseInt(hex.slice(1), 16);
+    let r = (bigint >> 16) & 255;
+    let g = (bigint >> 8) & 255;
+    let b = bigint & 255;
+
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
+// 이 함수를 사용하여 colors 배열의 색상을 rgba 형식으로 변환합니다.
+var baseColors = colors_tableau10;
 
 var dateList = generateDateList(startDate, endDate)
 
@@ -517,19 +536,7 @@ function load_cluster_info_by_category(filename) {
                 chartDiv.className = 'content-box';
                 contentDiv.appendChild(chartDiv);
 
-                var colors = [
-                    "#f2d4d7", // muted pink
-                    "#d4f2d6", // muted green
-                    "#d4f3f4", // muted cyan
-                    "#d4d7f2", // muted blue
-                    "#f2d4f1", // muted purple
-                    "#f4d4d4", // muted red
-                    "#d4d4f2", // muted indigo
-                    "#e1e1e1", // muted gray
-                    "#d1d1d1", // silver
-                    "#f2d7d4"  // muted salmon
-                ];
-                colors = shuffle(colors);
+                var colors = baseColors.map(baseColors => hexToRgba(baseColors, 0.5)); // 0.5는 투명도 값입니다.
 
                 // *********************************************************** 
                 // * (KEY)CONTENT > Chart > Type1 Chart
@@ -540,11 +547,12 @@ function load_cluster_info_by_category(filename) {
                 svgContainer.setAttribute('width', '100%');
                 svgContainer.setAttribute('height', '500px');
 
-                drawClusteredCirclesByRatio(colors, category, index, svgContainer, newsItem.data, new_mark);
-
+                var top3 = drawClusteredCirclesByRatio(top = 3, colors, colors, category, index, svgContainer, newsItem.data, new_mark);
+                console.log(top3);  // 출력: [3, 1, 5] (예시)
 
 
                 let chart1DesctDiv = document.createElement('div');
+
 
                 let chart1_desc = ["뉴스 기사에서 다루는 주요 내용을 가볍게 훑어보세요."];
                 let chart1List_ulElement = document.createElement('ul');
@@ -570,7 +578,9 @@ function load_cluster_info_by_category(filename) {
                 svgContainer1.setAttribute('width', '100%');
                 svgContainer1.setAttribute('height', '500px');
 
-                drawClusterHorizontalBarChart(colors, category, index, svgContainer1, newsItem.data, new_mark);
+
+
+                drawClusterHorizontalBarChart(top = 3, colors, colors, category, index, svgContainer1, newsItem.data, new_mark);
 
                 let chart2DesctDiv = document.createElement('div');
                 let chart2_desc = ["글을 위에서 아래로 읽듯, 뉴스 기사의 주요 내용을 읽어내려가세요."];
@@ -631,19 +641,36 @@ function load_cluster_info_by_category(filename) {
                 let newsContentList = document.createElement('ul');
                 newsContentList.classList.add('newsContentList');
 
+
+
+                let color_bg = baseColors.map(baseColors => hexToRgba(baseColors, 0.3)); // 0.5는 투명도 값입니다.
+
                 newsItem.contents.forEach((contentItem, contentIndex) => {
                     let contentLi = document.createElement('li');
                     contentLi.id = `news-${index + 1}-subitem-${contentIndex + 1}`;
 
-                    // new_mark 배열 안에 contentIndex + 1 값이 포함되어 있는지 확인
+                    // if (top3.includes(contentIndex + 1)) {
+                    //     contentLi.style.backgroundColor = color_bg[contentIndex];
+                    // }
+
+                    let rank = top3.indexOf(contentIndex + 1); // 해당 content의 순위를 찾습니다.
+
+                    if (rank > -1) {
+                        // 순위에 따른 배경색 적용
+                        contentLi.style.backgroundColor = color_bg[rank];
+
+                        // 원래 배경색을 속성에 저장합니다.
+                        contentLi.setAttribute('data-original-bg-color', color_bg[rank]);
+                    }
+
+                    // Check if contentIndex + 1 is included in new_mark array
                     let isNew = new_mark.includes(contentIndex + 1);
-                    let newText = `핵심 내용${contentIndex + 1}.`;
+                    let newText = "";     // `핵심 내용${contentIndex + 1}.`;
 
 
                     let titleText;
                     let reversedIndex = newsItem.data.length - 1 - contentIndex;
-
-                    if (newsItem.data.length > reversedIndex) {
+                    if (newsItem.data[reversedIndex] && newsItem.data[reversedIndex].Desc && newsItem.data.length > reversedIndex) {
                         titleText = newsItem.data[reversedIndex].Desc;
                     } else {
                         titleText = "";
@@ -656,12 +683,21 @@ function load_cluster_info_by_category(filename) {
                         newText = `<span class="newMarker">NEW</span> ${newText}`;
                     }
 
-                    newText = `<strong>${newText}</strong><br>${contentItem.content}`;  // 굵은 글씨를 위해 <strong> 태그로 감쌈
+                    // Split into two divs for number and text
+                    let numberDiv = document.createElement('div');
+                    numberDiv.classList.add('numberDiv');
+                    // numberDiv.style.backgroundColor = color_reverse[contentIndex]; // 배경색 추가
+                    numberDiv.innerHTML = `<strong>${contentIndex + 1}</strong>`;
 
-                    contentLi.innerHTML = newText;
-                    contentLi.style.cursor = 'pointer';  // 마우스 커서가 포인터로 바뀝니다.
-                    // 클릭 이벤트(센턴스 보기) 임시 삭제
-                    // contentLi.addEventListener('click', createContentClickHandler(category, index, contentItem)); 
+                    let textDiv = document.createElement('div');
+                    textDiv.classList.add('textDiv');
+                    textDiv.innerHTML = `<strong>${newText}</strong><br>${contentItem.content}`;
+
+                    contentLi.appendChild(numberDiv);
+                    contentLi.appendChild(textDiv);
+
+                    contentLi.style.cursor = 'pointer';  // Set the mouse cursor to a pointer.
+                    // contentLi.addEventListener('click', createContentClickHandler(category, index, contentItem));
                     newsContentList.appendChild(contentLi);
                 });
 
@@ -754,17 +790,41 @@ function load_cluster_info_by_category(filename) {
 
                         if (linkItem && linkItem.title && linkItem.link) {
                             let row = tableElement.insertRow();
+                            row.className = "newslist-row";
 
                             // Title Column with link
                             let titleCell = row.insertCell(0);
+                            titleCell.className = "title";
+
+
+                            // Title
                             let anchor = document.createElement('a');
                             anchor.href = linkItem.link;
                             anchor.textContent = linkItem.title;
+                            anchor.className = "anchor";
                             titleCell.appendChild(anchor);
+
+                            // Intro
+                            if (linkItem.intro) {
+                                let introElement = document.createElement('p');
+                                introElement.textContent = `${linkItem.intro.trim()}...`;
+                                introElement.className = "intro";
+                                titleCell.appendChild(introElement);
+                            }
+
+                            // Media & Date
+                            if (linkItem.media) {
+                                let mediaElement = document.createElement('p');
+                                mediaElement.style.color = "grey"; // Makes the text lighter
+                                mediaElement.style.fontSize = "0.8em"; // Makes the text smaller
+                                mediaElement.textContent = `${linkItem.media} | ${linkItem.date}`;
+                                mediaElement.className = "media-date";
+                                titleCell.appendChild(mediaElement);
+                            }
+
                         }
                     }
                 }
-
 
                 function renderPagination(totalItems, paginationElement, callback) {
                     // 기존의 페이지 번호들을 지운다.
@@ -917,13 +977,19 @@ function getArticlesByGroupAndLabel(category, groupIndex, label, classifiedData)
 function highlightSelected(element) {
     // 이미 하이라이트된 항목을 누른 경우 하이라이트를 제거합니다.
     if (element.style.backgroundColor === 'lightyellow') {
-        element.style.backgroundColor = '';
+        // 원래의 배경색으로 복구합니다.
+        element.style.backgroundColor = element.getAttribute('data-original-bg-color') || '';
     } else {
         // 아니라면 모든 항목의 하이라이트를 제거하고, 선택한 항목에만 하이라이트를 적용합니다.
         let items = document.querySelectorAll('li');
         items.forEach((item) => {
-            item.style.backgroundColor = '';
+            if (/news-\d+-subitem-\d+/.test(item.id)) {
+                item.style.backgroundColor = item.getAttribute('data-original-bg-color') || '';
+            }
         });
+
+        // 원래의 배경색을 저장합니다.
+        element.setAttribute('data-original-bg-color', element.style.backgroundColor);
         element.style.backgroundColor = 'lightyellow';
     }
 }
@@ -935,7 +1001,9 @@ function clearHighlightWhenRightPaneClosed() {
     if (rightPane.style.display === 'none') {
         let items = document.querySelectorAll('li');
         items.forEach((item) => {
-            item.style.backgroundColor = '';  // 모든 항목의 하이라이트를 제거합니다.
+            if (/news-\d+-subitem-\d+/.test(item.id)) {
+                item.style.backgroundColor = item.getAttribute('data-original-bg-color') || '';
+            }
         });
     }
 }
@@ -1144,7 +1212,13 @@ function convertToRepresentative(clusterNum) {
 // 문장 클러스터 시각화 - (1)바차트
 //--------------------------------------------------
 
-function drawClusterHorizontalBarChart(colors, category, index, svgElement, data, new_mark) {
+function drawClusterHorizontalBarChart(top, rankingColors, colors, category, index, svgElement, data, new_mark) {
+
+    // data를 Count 값에 따라 내림차순으로 정렬
+    var sortedData = data.slice().sort((a, b) => b.Count - a.Count);
+
+    // 상위 3개의 Cluster 값을 가져옴
+    var topClusters = sortedData.slice(0, top).map(d => d.Cluster);
 
     // 고정된 bar의 높이
     const fixedBarHeight = 50;
@@ -1225,8 +1299,13 @@ function drawClusterHorizontalBarChart(colors, category, index, svgElement, data
         .attr("height", fixedBarHeight)
         .attr("x", 0)
         .attr("width", function (d) { return x(d.Count); })
-        .attr("fill", function (d, i) {
-            return colors[i % colors.length];
+        .attr("fill", (d) => {
+            let rank = topClusters.indexOf(d.Cluster);  // 원의 순위를 찾습니다.
+            if (rank !== -1) {
+                return rankingColors[rank];  // 순위에 따라 색상을 반환합니다.
+            } else {
+                return color_lightgrey; // '#FFFFFF'; // color_lightgrey; 
+            }
         })
         .attr("stroke", "#000000")
         .attr("stroke-width", function (d) {
@@ -1303,12 +1382,19 @@ function drawClusterHorizontalBarChart(colors, category, index, svgElement, data
 // 문장 클러스터 시각화 - (2)도형
 //--------------------------------------------------
 
+function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index, svgElement, data, new_mark) {
 
-function drawClusteredCirclesByRatio(colors, category, index, svgElement, data, new_mark) {
+    // data를 Count 값에 따라 내림차순으로 정렬
+    var sortedData = data.slice().sort((a, b) => b.Count - a.Count);
+
+    // 상위 3개의 Cluster 값을 가져옴
+    var topClusters = sortedData.slice(0, top).map(d => d.Cluster);
+
+    var circlesizeup = 1.2;
 
     var rScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.Count)])
-        .range([0, (500 / 25) * 4]);  // 원의 크기 조절
+        .range([0, (500 / 25) * 4 * circlesizeup]);  // 원의 크기 조절
 
     // 원들 간의 전체 너비 계산
     var totalWidthOfCircles = data.reduce((acc, d) => acc + 2 * rScale(d.Count), 0) + (data.length - 1) * 20; // 20은 원들 사이의 간격입니다.
@@ -1339,9 +1425,7 @@ function drawClusteredCirclesByRatio(colors, category, index, svgElement, data, 
     // ];
     // colors = shuffle(colors);
 
-    colors = colors.reverse();  // colors 배열을 역순으로 바꾸기
-    colors = colors.slice(0, data.length);  // 데이터에 필요한 수만큼의 색상만 추출하기
-
+    rankingColors = colors.slice(0, top);  // 데이터에 필요한 수만큼의 색상만 추출하기
 
 
     let description = data.map((d, index) => `클러스터 번호 ${index + 1}`);
@@ -1357,9 +1441,16 @@ function drawClusteredCirclesByRatio(colors, category, index, svgElement, data, 
 
         //        .attr("cy", height / 2) // 원의 y 위치는 중앙으로 설정합니다.
         .attr("r", d => rScale(d.Count))
-        .attr("fill", (d, i) => colors[colors.length - 1 - i]) // 인덱스를 역순으로 사용
-
-        // .attr("fill", (d, i) => colors[i % colors.length])
+        // .attr("fill", (d, i) => colors[colors.length - 1 - i]) // 인덱스를 역순으로 사용
+        // .attr("fill", (d, i) => topClusters.includes(d.Cluster) ? colors[colors.length - 1 - i] : color_lightgrey)
+        .attr("fill", (d) => {
+            let rank = topClusters.indexOf(d.Cluster);  // 원의 순위를 찾습니다.
+            if (rank !== -1) {
+                return rankingColors[rank];  // 순위에 따라 색상을 반환합니다.
+            } else {
+                return color_lightgrey; // '#FFFFFF'; // color_lightgrey; 
+            }
+        })
         .attr("stroke", "#000000")
         .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
 
@@ -1377,13 +1468,9 @@ function drawClusteredCirclesByRatio(colors, category, index, svgElement, data, 
         .style("font-size", "12px")
         .each(function (d) {  // .each() 함수를 사용하여 각 데이터 항목에 대한 처리를 수행합니다.
             let percentage = (d.Count / totalSentences) * 100;
-
-            d3.select(this).append("tspan")  // 첫 번째 행을 추가합니다.
-                .text(`핵심 내용${d.Cluster}`);
-
             d3.select(this).append("tspan")  // 두 번째 행 (비율)을 추가합니다.
+                .attr("fill", "darkgray")  // 진한 회색으로 텍스트 색상 변경
                 .attr("x", x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)  // x 위치를 다시 설정합니다.
-                .attr("dy", "15")  // 이전 tspan 요소에서 15px 아래로 이동합니다.
                 .text(`${percentage.toFixed(2)}%`);
         });
 
@@ -1433,12 +1520,14 @@ function drawClusteredCirclesByRatio(colors, category, index, svgElement, data, 
         .attr("viewBox", [bbox.x - extraPadding / 2, bbox.y - extraPadding / 2, bbox.width + extraPadding, bbox.height + extraPadding]);
 
     svg.attr("transform", `translate(${-bbox.x + extraPadding / 2}, ${-bbox.y + extraPadding / 2})`);
+
+    return topClusters;
 }
 
 
 
 //--------------------------------------------------
-// 문장 클러스터 시각화 - (3)리스트
+// 문장 클러스터 시각화 - (3)도형리스트
 //--------------------------------------------------
 
 function drawClusterHorizontalCircles(colors, category, index, svgElement, data, new_mark) {
@@ -1505,12 +1594,6 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .attr("text-anchor", "middle")
         .style("font-size", "12px")
         .text("포함된 문장 개수");
-
-    // var colors = [
-    //     "#ffd1dc", "#d1ffd1", "#dcfffd", "#d1dcff", "#fdd1ff", "#ffdcdc",
-    //     "#dcdcff", "#dcdcdc", "#d1d1d1", "#fddcdc"
-    // ];
-    // colors = shuffle(colors);
 
     let description = data.map((d, index) => `클러스터 번호 ${index + 1}`);
 
