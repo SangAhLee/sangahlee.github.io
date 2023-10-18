@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="news_style_demo.css">
+    <title>샘플 뉴스</title>
+</head>
+
+<body>
+    <!-- <h1 id="selectedSample"></h1> -->
+
+    <div id="header" class="titlesection">
+        <h1 id="title">News Snapshot</h1>
+    </div>
+
+    <div class="section" style="display:none;">
+        <div class="date-container"></div>
+    </div>
+
+    <div id="secondsection" class="section">
+
+        <div id="pageContainer">
+            <div class="tabcontent">
+                <h2 id="selectedSample" class="subtitle">뉴스 샘플</h2>
+                <!-- <ul>
+                    <li id="subtitle1_desc">데이터를 추가할 예정입니다.</li>
+                </ul> -->
+                <div id="div1" class="centerDiv"></div>
+                <div id="userstudy-news"></div>
+            </div>
+
+            <div id="rightPane" class="section">
+                <!-- 오른쪽 패널 내용이 여기에 들어갑니다 -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Created by SangAh Lee</p>
+        <p>sangahlee718@snu.ac.kr</p>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dataframe-js@1.4.4/lib/index.min.js"></script>
+    <script src="news_context_timeseries-userstudy.js"></script>
+    <script src="news_userstudy.js"></script>
+</body>
+
+</html>

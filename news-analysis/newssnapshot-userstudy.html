@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>News Snapshot</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap">
+  <!-- Title font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" />
+  <link rel="stylesheet" type="text/css" href="news_style_demo.css">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <!-- jQuery for news preview-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- axios for Server communication -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div id="header" class="titlesection">
+    <h1 id="title">News Snapshot (for User Study)</h1>
+  </div>
+
+  <div id="secondsection" class="section">
+    <div class="box">
+      <h3 class="additional"><i class="fas fa-heart"></i>Task 1</h3>
+      <div class="sample-news-links A">
+        <a href="news_userstudy.html?news=1&system=A&task=1" target="_blank" class="sample-link">뉴스1-시스템A-1. 2023.10.13 의대정원 확대 관련 뉴스</a>
+        <a href="news_userstudy.html?news=2&system=A&task=1" target="_blank" class="sample-link">뉴스2-시스템A-1. 2023.09.22 심야 집회 금지 방안</a>
+      </div>
+      <div class="sample-news-links B">
+        <a href="news_userstudy.html?news=1&system=B&task=1" target="_blank" class="sample-link">뉴스1-시스템B-1. 2023.10.13 의대정원 확대 관련 뉴스</a>
+        <a href="news_userstudy.html?news=2&system=B&task=1" target="_blank" class="sample-link">뉴스2-시스템B-1. 2023.09.22 심야 집회 금지 방안</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="secondsection" class="section">
+      <div class="box">
+        <h3 class="additional"><i class="fas fa-heart"></i>Task 2</h3>
+        <div class="sample-news-links A">
+          <a href="news_userstudy.html?news=1&system=A&task=2" target="_blank" class="sample-link">뉴스1-시스템A-2. 후쿠시마 오염수 방류</a>
+          <a href="news_userstudy.html?news=2&system=A&task=2" target="_blank" class="sample-link">뉴스2-시스템A-2. 교권 침해 및 교사 파업</a>
+        </div>
+        <div class="sample-news-links B">
+          <a href="news_userstudy.html?news=1&system=B&task=2" target="_blank" class="sample-link">뉴스1-시스템B-2. 후쿠시마 오염수 방류</a>
+          <a href="news_userstudy.html?news=2&system=B&task=2" target="_blank" class="sample-link">뉴스2-시스템B-2. 교권 침해 및 교사 파업</a>
+        </div>
+      </div>
+  </div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dataframe-js@1.4.4/lib/index.min.js"></script>
+  <script src="news_context_timeseries-userstudy.js"></script>
+
+</body>
+</html>
