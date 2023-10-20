@@ -26,21 +26,20 @@ const bulletpoint = '⟡';
 const color_lightgrey = '#f7f7f7'; // '#EFEFEF'
 
 
-// var colors = [
-//     "#f2d4d7", // muted pink
-//     "#d4f2d6", // muted green
-//     "#d4f3f4", // muted cyan
-//     "#d4d7f2", // muted blue
-//     "#f2d4f1", // muted purple
-//     "#f4d4d4", // muted red
-//     "#d4d4f2", // muted indigo
-//     "#e1e1e1", // muted gray
-//     "#d1d1d1", // silver (same as before, as it's already muted)
-//     "#f2d7d4"  // muted salmon
-// ];
-var colors_tableau10 = ["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"]; //Tableau10
-var colors_gradient = ['#4A55A2', '#7895CB', '#A0BFE0', '#A0BFE0'];
-var colors_gradient2 = ['#1F4E5F', '#6AC1B8', '#BFE9DB'];
+var tableau10_colorMapping = {
+    "Blue": "#4e79a7",
+    "Orange": "#f28e2c",
+    "Red": "#e15759",
+    "Skyblue": "#76b7b2",
+    "Green": "#59a14f",
+    "Yellow": "#edc949",
+    "Violet": "#af7aa1",
+    "Pink": "#ff9da7",
+    "Brown": "#9c755f",
+    "Grey": "#bab0ab"
+};
+
+var colors_tableau10 = [tableau10_colorMapping["Blue"], tableau10_colorMapping["Green"], tableau10_colorMapping["Violet"]];
 
 
 

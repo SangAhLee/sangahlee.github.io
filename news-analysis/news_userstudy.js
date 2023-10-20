@@ -129,9 +129,20 @@ const bulletpoint = '⟡';
 
 const color_lightgrey = '#f7f7f7'; // '#EFEFEF'
 
-var colors_tableau10 = ["#4e79a7", "#f28e2c", "#e15759", "#76b7b2", "#59a14f", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"]; //Tableau10
-var colors_gradient = ['#4A55A2', '#7895CB', '#A0BFE0', '#A0BFE0'];
-var colors_gradient2 = ['#1F4E5F', '#6AC1B8', '#BFE9DB'];
+var tableau10_colorMapping = {
+    "Blue": "#4e79a7",
+    "Orange": "#f28e2c",
+    "Red": "#e15759",
+    "Skyblue": "#76b7b2",
+    "Green": "#59a14f",
+    "Yellow": "#edc949",
+    "Violet": "#af7aa1",
+    "Pink": "#ff9da7",
+    "Brown": "#9c755f",
+    "Grey": "#bab0ab"
+};
+
+var colors_tableau10 = [tableau10_colorMapping["Blue"], tableau10_colorMapping["Green"], tableau10_colorMapping["Violet"]];
 
 
 
@@ -316,40 +327,40 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                 //*
                 //***********************************************************
 
-                // summary (1)create div
-                let summaryDiv = document.createElement('div');
-                summaryDiv.id = `news-${index + 1}-summary`;
-                summaryDiv.style.display = 'flex';
-                summaryDiv.style.flexDirection = 'column';
+                // // summary (1)create div
+                // let summaryDiv = document.createElement('div');
+                // summaryDiv.id = `news-${index + 1}-summary`;
+                // summaryDiv.style.display = 'flex';
+                // summaryDiv.style.flexDirection = 'column';
 
-                // summary (2)title
-                let summaryTitle = document.createElement('h3');
-                summaryTitle.textContent = bulletpoint + '요약';
-                summaryTitle.style.marginBottom = '10px';  // 타이틀과 본문 사이의 간격 조절
-                summaryDiv.appendChild(summaryTitle);
+                // // summary (2)title
+                // let summaryTitle = document.createElement('h3');
+                // summaryTitle.textContent = bulletpoint + '요약';
+                // summaryTitle.style.marginBottom = '10px';  // 타이틀과 본문 사이의 간격 조절
+                // summaryDiv.appendChild(summaryTitle);
 
-                let summaryText = newsItem.summary;
-                if (summaryText) {
-                    let sentences = summaryText.split('.').filter(sentence => sentence.trim() !== ''); // 빈 문자열 제거
+                // let summaryText = newsItem.summary;
+                // if (summaryText) {
+                //     let sentences = summaryText.split('.').filter(sentence => sentence.trim() !== ''); // 빈 문자열 제거
 
-                    // 각 문장을 리스트 항목으로 추가
-                    let sentenceList = document.createElement('ul');
-                    sentences.forEach(sentence => {
-                        let listItem = document.createElement('li');
-                        listItem.textContent = sentence.trim() + '.'; // 마침표 다시 추가
-                        sentenceList.appendChild(listItem);
-                    });
+                //     // 각 문장을 리스트 항목으로 추가
+                //     let sentenceList = document.createElement('ul');
+                //     sentences.forEach(sentence => {
+                //         let listItem = document.createElement('li');
+                //         listItem.textContent = sentence.trim() + '.'; // 마침표 다시 추가
+                //         sentenceList.appendChild(listItem);
+                //     });
 
-                    summaryDiv.appendChild(sentenceList);
-                }
+                //     summaryDiv.appendChild(sentenceList);
+                // }
 
-                // summary (3)attach to newsDiv
-                newsDiv.appendChild(summaryDiv);
+                // // summary (3)attach to newsDiv
+                // newsDiv.appendChild(summaryDiv);
 
-                // summary (4)divider
-                var divider_summary = document.createElement('div');
-                divider_summary.className = 'divider-style';
-                newsDiv.appendChild(divider_summary);
+                // // summary (4)divider
+                // var divider_summary = document.createElement('div');
+                // divider_summary.className = 'divider-style';
+                // newsDiv.appendChild(divider_summary);
 
 
 
@@ -373,7 +384,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
 
                         // timeline (2)title
                         let timelineTitle = document.createElement('h3');
-                        timelineTitle.textContent = bulletpoint + '뉴스기사 타임라인';
+                        timelineTitle.textContent = bulletpoint + '뉴스 기사 타임라인';
                         timelineTitle.style.marginBottom = '10px';  // 타이틀과 본문 사이의 간격 조절
                         timelineDiv.appendChild(timelineTitle);
 
@@ -870,6 +881,25 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     contentDiv.appendChild(newsContentList);
                 }
 
+
+
+                // *********************************************************** 
+                // * FIRST ARTICLE
+                // *********************************************************** 
+
+                // article list (1)create div
+                let firstArticleDiv = document.createElement('div');
+                firstArticleDiv.id = `news-${index + 1}-firstarticle`;
+                firstArticleDiv.style.display = 'flex';
+                firstArticleDiv.style.flexDirection = 'column';
+                newsDiv.appendChild(firstArticleDiv);
+
+                let newsFirstArticleTitle = document.createElement('h3');
+                newsFirstArticleTitle.textContent = bulletpoint + '뉴스 기사';
+                newsFirstArticleTitle.style.marginBottom = '10px';
+                firstArticleDiv.appendChild(newsFirstArticleTitle);
+
+
                 // ***********************************************************
                 // *
                 // * ARTICLE LIST
@@ -945,116 +975,95 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                 // * ARTICLE LIST > list
                 // *********************************************************** 
 
-
-                // if (selectedSystem === SYSTEM_OURS) {
-                //     const ITEMS_PER_PAGE = 10;
-                //     let currentPage = 1;
-
-                //     function renderItems(newsItems, tableElement, startIndex) {
-                //         // 먼저 테이블의 모든 row를 지운다.
-                //         while (tableElement.firstChild) {
-                //             tableElement.removeChild(tableElement.firstChild);
-                //         }
-
-                //         for (let i = startIndex; i < startIndex + ITEMS_PER_PAGE && i < newsItems.length; i++) {
-                //             let linkItem = newsItems[i];
-
-                //             if (linkItem && linkItem.title && linkItem.link) {
-                //                 let row = tableElement.insertRow();
-                //                 row.className = "newslist-row";
-
-                //                 // Title Column with link
-                //                 let titleCell = row.insertCell(0);
-                //                 titleCell.className = "title";
-
-                //                 // Title
-                //                 let anchor = document.createElement('a');
-                //                 anchor.href = linkItem.link;
-                //                 anchor.textContent = linkItem.title;
-                //                 anchor.className = "anchor";
-                //                 anchor.target = "_blank";
-                //                 anchor.rel = "noopener noreferrer";
-                //                 titleCell.appendChild(anchor);
-
-                //                 // Intro
-                //                 if (linkItem.intro) {
-                //                     let introElement = document.createElement('p');
-                //                     introElement.textContent = `${linkItem.intro.trim()}...`;
-                //                     introElement.className = "intro";
-                //                     titleCell.appendChild(introElement);
-                //                 }
-
-                //                 // Media & Date
-                //                 if (linkItem.media) {
-                //                     let mediaElement = document.createElement('p');
-                //                     mediaElement.style.color = "grey"; // Makes the text lighter
-                //                     mediaElement.style.fontSize = "0.8em"; // Makes the text smaller
-                //                     mediaElement.textContent = `${linkItem.media} | ${linkItem.date}`;
-                //                     mediaElement.className = "media-date";
-                //                     titleCell.appendChild(mediaElement);
-                //                 }
-                //             }
-                //         }
-                //     }
-
-                //     function renderPagination(totalItems, paginationElement, callback) {
-                //         // 기존의 페이지 번호들을 지운다.
-                //         while (paginationElement.firstChild) {
-                //             paginationElement.removeChild(paginationElement.firstChild);
-                //         }
-
-                //         let totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-
-                //         for (let i = 1; i <= totalPages; i++) {
-                //             let btn = document.createElement('button');
-                //             btn.textContent = i;
-                //             btn.className = 'navbutton';
-                //             btn.addEventListener('click', function () {
-                //                 callback(i);
-                //                 Array.from(paginationElement.children).forEach(button => {
-                //                     button.classList.remove('highlighted');
-                //                 });
-                //                 btn.classList.add('highlighted');
-                //             });
-                //             paginationElement.appendChild(btn);
-                //         }
-
-                //         // 기본적으로 첫 번째 페이지 버튼을 highlighted 상태로 만든다.
-                //         if (paginationElement.firstChild) {
-                //             paginationElement.firstChild.classList.add('highlighted');
-                //         }
-                //     }
-
-                //     let matchingNewItem = newsListData.find(item => item.group_index === index);
-
-                //     if (matchingNewItem && Array.isArray(matchingNewItem.link)) {
-                //         let table = document.createElement('table');
-                //         newslistDiv.appendChild(table);
-
-                //         let paginationDiv = document.createElement('div');
-                //         newslistDiv.appendChild(paginationDiv);
-
-                //         renderItems(matchingNewItem.link, table, 0);
-                //         renderPagination(matchingNewItem.link.length, paginationDiv, function (page) {
-                //             renderItems(matchingNewItem.link, table, (page - 1) * ITEMS_PER_PAGE);
-                //         });
-                //     }
-                // } else if (selectedSystem === SYSTEM_CONTROL) {
                     const ITEMS_PER_PAGE = 10;
                     let currentPage = 1;
 
                     function renderItems(newslistItems, tableElement) {
-                        // 먼저 테이블의 모든 row를 지운다.
-                        while (tableElement.firstChild) {
-                            tableElement.removeChild(tableElement.firstChild);
+                        // // 먼저 테이블의 모든 row를 지운다.
+                        // while (tableElement.firstChild) {
+                        //     tableElement.removeChild(tableElement.firstChild);
+                        // }
+
+                        // 첫 번째 뉴스 항목을 따로 처리
+                        if (newslistItems.length > 0) {
+                            let firstItem = newslistItems[0];
+                            let firstTable = document.createElement('table');
+
+
+                            let row = firstTable.insertRow();
+                            row.className = "newslist-row-first";
+                    
+                            let titleCell = row.insertCell(0);
+                            titleCell.className = "title-first";
+                    
+                            // 컨테이너 div 생성
+                            let containerDiv = document.createElement('div');
+                            containerDiv.className = "news-first-container";
+                            titleCell.appendChild(containerDiv);
+                    
+                            // 이미지 추가
+                            let image_filename = `newsimage_${selectedNews}_${selectedTask}.jpeg`;
+                            let imageElement = document.createElement('img');
+                            imageElement.src = `data_userstudy/${image_filename}`;
+                            imageElement.alt = "First News Image";
+                            imageElement.className = "news-first-image";
+                            imageElement.style.width = "200px";
+                            containerDiv.appendChild(imageElement);
+                    
+                            // 나머지 텍스트 정보를 감싸는 div 생성
+                            let textDiv = document.createElement('div');
+                            textDiv.className = "news-text";
+                            containerDiv.appendChild(textDiv);
+                    
+                            // 나머지 텍스트 정보 추가
+                            let anchor = document.createElement('a');
+                            anchor.href = firstItem.link;
+                            anchor.textContent = firstItem.title;
+                            anchor.target = "_blank";
+                            anchor.rel = "noopener noreferrer";
+                            anchor.className = "anchor";
+                            textDiv.appendChild(anchor);
+                        
+                            // 소개글 추가
+                            if (firstItem.intro) {
+                                let introElement = document.createElement('p');
+                                introElement.textContent = `${firstItem.intro.trim()}...`;
+                                introElement.className = "intro";
+                                // titleCell.appendChild(introElement);
+                                textDiv.appendChild(introElement);
+                            }
+                        
+                            // 미디어 및 날짜 추가
+                            if (firstItem.media) {
+                                let mediaElement = document.createElement('p');
+                                mediaElement.style.color = "grey"; // 텍스트를 더 밝게
+                                mediaElement.style.fontSize = "0.8em"; // 텍스트를 더 작게
+                                mediaElement.textContent = `${firstItem.media} | ${firstItem.date}`;
+                                mediaElement.className = "media-date";
+                                // titleCell.appendChild(mediaElement);
+                                textDiv.appendChild(mediaElement);
+                            }
+
+                            // 첫 번째 뉴스 항목을 newslistDiv 앞에 삽입합니다.
+                            // articleDiv.insertBefore(firstTable, newslistDiv);
+                            // newsDiv.insertBefore(firstTable, articleDiv);
+                            firstArticleDiv.appendChild(firstTable);
                         }
 
-                        for (let i = 0; i < newslistItems.length; i++) {
+
+                        let otherTable = document.createElement('table');
+                        newslistDiv.appendChild(otherTable);
+
+                        // 그 다음부터 나머지 항목들을 표시
+                        for (let i = 1; i < newslistItems.length; i++) {
                             let linkItem = newslistItems[i];
 
                             if (linkItem && linkItem.title && linkItem.link) {
-                                let row = tableElement.insertRow();
+                                let row = otherTable.insertRow();
                                 row.className = "newslist-row";
+
+                                // let row = tableElement.insertRow();
+                                // row.className = "newslist-row";
 
                                 // Title Column with link
                                 let titleCell = row.insertCell(0);
@@ -1093,10 +1102,11 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     let matchingNewItem = newsListData.find(item => item.group_index === index);
 
                     if (matchingNewItem && Array.isArray(matchingNewItem.link)) {
-                        let table = document.createElement('table');
-                        newslistDiv.appendChild(table);
+                        renderItems(matchingNewItem.link);
+                        // let table = document.createElement('table');
+                        // newslistDiv.appendChild(table);
 
-                        renderItems(matchingNewItem.link, table);
+                        // renderItems(matchingNewItem.link, table);
                     }
 //                }
 

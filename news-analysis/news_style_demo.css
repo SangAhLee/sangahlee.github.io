@@ -739,6 +739,19 @@ table tr:hover {
   color: white;
 }
 
+/*--newslist first row----------------------------------*/
+
+
+.news-first-container {
+  display: flex;  
+  align-items: center;
+}
+
+.news-first-image {
+  margin-right: 10px;
+}
+
+
 /*--newslist row----------------------------------*/
 
 .title {
