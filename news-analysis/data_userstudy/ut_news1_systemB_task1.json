@@ -8,7 +8,7 @@
         "data": [
             {
                 "Cluster": 1,
-                "Count": 13,
+                "Count": 23,
                 "Desc": "19년 만의 의대 증원 고려"
             },
             {
@@ -18,12 +18,12 @@
             },
             {
                 "Cluster": 3,
-                "Count": 21,
+                "Count": 41,
                 "Desc": "증원 규모와 방안"
             },
             {
                 "Cluster": 4,
-                "Count": 11,
+                "Count": 31,
                 "Desc": "의대 정원 확대에 대한 여론"
             },
             {
@@ -33,12 +33,12 @@
             },
             {
                 "Cluster": 6,
-                "Count": 145,
+                "Count": 85,
                 "Desc": "정부의 여론 인식"
             },
             {
                 "Cluster": 7,
-                "Count": 15,
+                "Count": 25,
                 "Desc": "의료현안에 대한 협의 내용"
             },
             {

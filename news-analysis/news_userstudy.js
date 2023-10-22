@@ -29,12 +29,16 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (selectedNews) {
             case '1':
                 title = "2023.10.13 의대정원 확대 관련 뉴스";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; //ut_news1_systemB_type1 or ut_news1_systemB_type2
+                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
             case '2':
                 title = "2023.09.22 심야 집회 금지 방안";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; //ut_news1_systemB_type1 or ut_news1_systemB_type2
+                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`;
                 break;
+            case '3':
+                    title = "2023.10.06 축협 조합장 직원 폭행";
+                    filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
+                    break;
             default:
                 title = "샘플 뉴스";
         }
@@ -44,11 +48,11 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (selectedNews) {
             case '1':
                 title = "후쿠시마 오염수 방류";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; //ut_news1_systemB_type1 or ut_news1_systemB_type2
+                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
             case '2':
                 title = "교권 침해 및 교사 파업";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; //ut_news1_systemB_type1 or ut_news1_systemB_type2
+                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
             default:
                 title = "샘플 뉴스";
@@ -77,7 +81,7 @@ function getTimeseriesClusterNames_UserStudy(news, system, task) {
     switch (news) {
         case '1': //후쿠시마
             clusterNames = [
-                '2023.08.21: 기시다 후미오 총리, 어민 단체장과 해양 방류 관련 면담 예정',
+                '2023.08.21: 일본 총리, 어민 단체장과 해양 방류 관련 면담 예정',
                 '2023.08.22: 일본 정부, 소문풍평 피해 지원 대상에 한국 어민 제외 명시',
                 '2023.08.22: 시민들, 후쿠시마 오염수 해양 방류 반대 시위 진행',
                 '2023.08.22: 기시다 후미오 총리, 북대서양조약기구 회의에서 \'과학적으로 안전\' 주장 예상',
@@ -115,19 +119,8 @@ function getTimeseriesClusterNames_UserStudy(news, system, task) {
 // 전역 변수
 //--------------------------------------------------
 
-// // 사용 예제:
-// let startDate = "2023-08-25";
-// let endDate = "2023-08-25";
-
-// let classifiedData = {};
-
-// let lastNewsDate = null;
-// let global_selectedDate = null;
-// let global_topic = null;
-
 const bulletpoint = '⟡';
-
-const color_lightgrey = '#f7f7f7'; // '#EFEFEF'
+const color_lightgrey = '#f7f7f7';
 
 var tableau10_colorMapping = {
     "Blue": "#4e79a7",
@@ -141,10 +134,7 @@ var tableau10_colorMapping = {
     "Brown": "#9c755f",
     "Grey": "#bab0ab"
 };
-
 var colors_tableau10 = [tableau10_colorMapping["Blue"], tableau10_colorMapping["Green"], tableau10_colorMapping["Violet"]];
-
-
 
 function hexToRgba(hex, opacity) {
     let bigint = parseInt(hex.slice(1), 16);
@@ -158,49 +148,6 @@ function hexToRgba(hex, opacity) {
 // 이 함수를 사용하여 colors 배열의 색상을 rgba 형식으로 변환합니다.
 var baseColors = colors_tableau10;
 
-
-// var dateList = generateDateList(startDate, endDate)
-
-// // Get the select element
-// var selectElement = document.getElementById("dateSelect");
-
-// // Dynamically create options
-// dateList.forEach(function (date, index) {
-//     var option = document.createElement("option");
-//     option.value = date;
-//     option.text = date;
-
-//     // dateList의 마지막 값을 자동으로 선택한다. 
-//     if (index === dateList.length - 1) {
-//         option.selected = true;
-//     }
-
-//     // Add the option to the select element
-//     selectElement.add(option);
-// });
-
-//--------------------------------------------------
-// 뉴스 날짜 선택
-//--------------------------------------------------
-
-// function generateDateList(startDate, endDate) {
-//     let start = new Date(startDate);
-//     let end = new Date(endDate);
-//     let dateList = [];
-
-//     while (start <= end) {
-//         let year = start.getFullYear();
-//         let month = (start.getMonth() + 1).toString().padStart(2, '0');  // JavaScript는 0부터 11까지의 월을 사용하므로 1을 더해줍니다.
-//         let day = start.getDate().toString().padStart(2, '0');
-
-//         dateList.push(`${year}-${month}-${day}`);
-//         start.setDate(start.getDate() + 1);  // 다음 날짜로 이동
-//     }
-
-//     return dateList;
-// }
-
-
 //--------------------------------------------------
 // 뉴스 날짜 변경
 //--------------------------------------------------
@@ -208,27 +155,12 @@ var baseColors = colors_tableau10;
 
 // This function is triggered when the select value changes
 function handleDateChange_UserStudy(selectedNews, selectedSystem, selectedTask, timeseriesrClusterName_UserStudy = null) {
-    // Get the select element
-    // let dateSelectElement = document.getElementById("dateSelect");
-
-    // 선택한 날짜
-    // let selectedDate = dateSelectElement.value || dateSelectElement.options[dateSelectElement.options.length - 1].value; // dateSelect에서 선택된 값을 가져오거나 마지막 옵션의 값을 사용합니다.
-
-    // // 선택한 날짜 확인
-    // console.log("Selected date: " + selectedDate); // 2023-07-11
-    // global_selectedDate = selectedDate
-
-    // (4) 뉴스 기사 cluster 파일 이름 설정
     loadFilesInOrder_UserStudy(selectedNews, selectedSystem, selectedTask, filename, timeseriesrClusterName_UserStudy);
 }
-
-
-
 
 //--------------------------------------------------
 // 파일 로드
 //--------------------------------------------------
-
 
 async function loadFilesInOrder_UserStudy(selectedNews, selectedSystem, selectedTask, filename, timeseriesrClusterName_UserStudy = null) {
     await load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, selectedTask, filename, timeseriesrClusterName_UserStudy);
@@ -240,13 +172,14 @@ async function loadFilesInOrder_UserStudy(selectedNews, selectedSystem, selected
 
 function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, selectedTask, filename, timeseriesrClusterName_UserStudy = null) {
 
+    console.log(`timeseriesrClusterName_UserStudy = ${timeseriesrClusterName_UserStudy}`);
+
     let category = 'userstudy';
 
     const filepath = `./${foldername}/${filename}.json`;
     console.log(filepath)
 
     let NEWS_CONTAINER_ID = `${category}-news`;
-    //console.log(NEWS_CONTAINER_ID)
 
     //화면 지우기
     let newsContainer = document.getElementById(NEWS_CONTAINER_ID);
@@ -260,9 +193,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
         }
     }
 
-
     let newslist_filepath = `./${foldername}/${filename}_newslist.json`;
-
 
     Promise.all([
         fetch(filepath).then(response => response.json()),
@@ -271,7 +202,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
         .then(([newsData, newsListData]) => {
             // 상위 레벨 뉴스 컨테이너를 선택하거나 생성합니다.
 
-            // let newsContainer = document.getElementById(NEWS_CONTAINER_ID);
             if (!newsContainer) {
                 newsContainer = document.createElement('div');
                 newsContainer.id = NEWS_CONTAINER_ID;
@@ -362,8 +292,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                 // divider_summary.className = 'divider-style';
                 // newsDiv.appendChild(divider_summary);
 
-
-
                 if (selectedSystem === SYSTEM_OURS && selectedTask === TASK_TIMESERIES) {
 
                     // ***********************************************************
@@ -371,7 +299,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     // * TIMELINE
                     // *
                     // ***********************************************************
-
 
                     if (newsItem.timeline && newsItem.timeline !== '' && newsItem.timeline !== 'none') {
 
@@ -401,14 +328,12 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // *********************************************************** 
                         // * TIMELINE > Description
                         // *********************************************************** 
-                        // let total_articles = newsItem.count ? newsItem.count : 0;
-                        // let total_sentences = newsItem.sentcount ? newsItem.sentcount : 0;
 
                         // Create the button dynamically
                         let btToggle_info_timeline = document.createElement('button');
                         let btToggle_text_timeline = '타임라인은 어떻게 도출되었나요?'
                         btToggle_info_timeline.innerHTML = ' ▼ ' + btToggle_text_timeline;
-                        btToggle_info_timeline.className = 'additional_info_button'; // 'toggle_info_button';
+                        btToggle_info_timeline.className = 'additional_info_button'; 
 
 
                         let timeline_desc = ["지속적인 사건의 경우, 시간이 지남에 따라 관련 이슈를 다루는 뉴스 기사가 주로 무엇을 다루고 있는지 분석합니다.", "이는 뉴스 기사에서 시간이 지남에 따라 다루어진 내용을 시각화한 것이며 사건의 연대순 순서와 다를 수 있습니다."];
@@ -454,6 +379,8 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         //     sentences.push(`전체 관련 기사는 ${total_articles}개 이고, 총 ${total_sentences}개의 문장을 분석했습니다.`);
                         // }
 
+
+                        
                         // let timeline_ulElement = document.createElement('ul');
                         // timeline_ulElement.className = 'guidetext';
 
@@ -470,19 +397,12 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // * TIMELINE > Chart
                         // *********************************************************** 
 
-                        // const timelineFilename = newsItem.timeline.replace(/\s+/g, '_');
-                        // const timelineFilepath = `./data_overlapping_area/context_${currentDate}_huku_22_25.json`
-                        // console.log(`timelineFilepath = ${timelineFilepath}`)
-
                         const timelineFilepath = `./${foldername}/${filename}_timeseries.json`
                         console.log(`timelineFilepath = ${timelineFilepath}`)
-
 
                         let timelineChartDiv = document.createElement('div');
                         timelineChartDiv.className = 'news-item content-box';
                         timelineDiv.appendChild(timelineChartDiv)
-
-
 
 
                         // *********************************************************** 
@@ -538,7 +458,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         let timeline2_Desc_Div = document.createElement('div');
                         //chart1DesctDiv.className = 'news-item content-box';  // Class 추가
 
-                        let timeline2_Desc = ["각 주요 내용이 언제 얼마나 주요하게 다루어졌는지 가중치를 함께 확인하세요."];
+                        let timeline2_Desc = ["각 주요 내용이 언제 얼마나 주요하게 다루어졌는지 가중치를 함께 확인하세요.", "비슷한 내용으로 묶인 그룹별로 색상이 구분되어 표시됩니다."];
                         let timeline2_ulElement = document.createElement('ul');
                         timeline2_ulElement.className = 'guidetext';  // 클래스 추가
 
@@ -577,8 +497,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                             btTab02_timeline.classList.remove('active');
                         });
 
-
-
                         // *********************************************************** 
                         // * TIMELINE > Chart > Type2 Button
                         // *********************************************************** 
@@ -598,11 +516,10 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // *********************************************************** 
                         // * 디폴트 설정
                         // *********************************************************** 
-                        timelineChart.style.display = 'block';
-                        timelineChart1.style.display = 'none';
-                        btTab02_timeline.classList.add('active');  //default state
-                        btTab01_timeline.disabled = true; // 테스트용으로 잠시 막음. (작동안되서)
-
+                        timelineChart.style.display = 'none';
+                        timelineChart1.style.display = 'block';
+                        btTab01_timeline.classList.add('active');  //default state
+                        // btTab01_timeline.disabled = true; // 테스트용으로 잠시 막음. (작동안되서)
                     }
                 }
 
@@ -651,16 +568,15 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     let btToggle_info = document.createElement('button');
                     let btToggle_text = '핵심 내용은 어떻게 도출되었나요?'
                     btToggle_info.innerHTML = ' ▼ ' + btToggle_text;
-                    btToggle_info.className = 'additional_info_button'; // 'toggle_info_button';
+                    btToggle_info.className = 'additional_info_button';
 
 
-                    let sentences = ["관련 그룹의 전체 뉴스 기사에 대하여 문장을 분리하여, 문장을 분석한 내용입니다."];
+                    let sentences = ["- 동일한 사건을 다루는 뉴스 기사들을 모아서, 전체 뉴스 기사에 사용된 문장들을 모았습니다.", "- 이후, 문장들을 전처리 하여 필요 없는 내용 (예: 제보 요청 문구, 광고 문구 등)을 삭제하고 이 문장들을 비슷한 내용끼리 묶어서 클러스터링(군집화) 합니다.", "- 그러면 비슷한 내용을 가진 문장끼리 묶여서 그룹을 이루게 되고, 각 그룹별 주요 내용은 기사 내용의 핵심 내용으로 간주합니다."]
 
                     if (total_articles !== 0 && total_sentences !== 0) {
-                        sentences.push(`<strong>전체 관련 기사는 ${total_articles}개</strong> 이고, <strong>총 ${total_sentences}개</strong>의 문장을 분석했습니다.`);
+                        sentences.push(`- <strong>전체 관련 기사는 ${total_articles}개</strong>이고, <strong>총 ${total_sentences}개</strong>의 문장을 분석했습니다.`);
                     }
-                    sentences.push(`각 핵심 내용은 뉴스기사에서 평균적으로 게재된 위치를 기준으로 정렬되었습니다.`);
-
+                    sentences.push(`- 뉴스 기사 내에서 각 내용이 언급되는 텍스트적인 컨텍스트를 고려하기위하여, 각 핵심 내용은 뉴스기사에서 평균적으로 게재된 위치를 기준으로 정렬되었습니다. `);
 
                     // Create a div for sentences content
                     let sentencesContentDiv = document.createElement('div');
@@ -692,7 +608,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     infomationDiv.appendChild(sentencesContentDiv);
                     contentDiv.appendChild(infomationDiv)
 
-
                     let new_mark = Array.isArray(newsItem.new) ? newsItem.new : [];
 
 
@@ -706,6 +621,8 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
 
                     var colors = baseColors.map(baseColors => hexToRgba(baseColors, 0.5)); // 0.5는 투명도 값입니다.
 
+                    var top3;
+
                     // *********************************************************** 
                     // * (KEY)CONTENT > Chart > Type1 Chart
                     // *********************************************************** 
@@ -715,15 +632,13 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     svgContainer.setAttribute('width', '100%');
                     svgContainer.setAttribute('height', '500px');
 
-                    var top3 = drawClusteredCirclesByRatio(top = 3, colors, colors, category, index, svgContainer, newsItem.data, new_mark);
+                    top3 = drawClusteredCirclesByRatio(top = 3, colors, colors, category, index, svgContainer, newsItem.data, new_mark);
                     console.log(top3);  // 출력: [3, 1, 5] (예시)
-
-
 
                     let chart1DesctDiv = document.createElement('div');
                     //chart1DesctDiv.className = 'news-item content-box';  // Class 추가
 
-                    let chart1_desc = ["뉴스 기사에서 다루는 주요 내용을 가볍게 훑어보세요."];
+                    let chart1_desc = ["뉴스 기사에서 다루는 주요 내용을 가볍게 훑어보세요.", "핵심 내용 중 중요도(언급된 횟수)가 높은 세 항목을 색상 강조하여 명확하게 표시하였습니다."];
                     let chart1List_ulElement = document.createElement('ul');
                     chart1List_ulElement.className = 'guidetext';  // 클래스 추가
 
@@ -738,8 +653,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     chartDiv.appendChild(chart1DesctDiv);
                     chart1DesctDiv.appendChild(svgContainer);
 
-                    //chartDiv.append(svgContainer);
-
                     // *********************************************************** 
                     // * (KEY)CONTENT > Chart > Type2 Chart
                     // *********************************************************** 
@@ -749,12 +662,11 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     svgContainer1.setAttribute('width', '100%');
                     svgContainer1.setAttribute('height', '500px');
 
-                    drawClusterHorizontalBarChart(top = 3, colors, colors, category, index, svgContainer1, newsItem.data, new_mark);
+                    top3 = drawClusterHorizontalBarChart(top = 3, colors, colors, category, index, svgContainer1, newsItem.data, new_mark);
 
                     let chart2DesctDiv = document.createElement('div');
-                    //chart1DesctDiv.className = 'news-item content-box';  // Class 추가
 
-                    let chart2_desc = ["글을 위에서 아래로 읽듯, 뉴스 기사의 주요 내용을 읽어내려가세요."];
+                    let chart2_desc = ["글을 위에서 아래로 읽듯, 뉴스 기사의 주요 내용을 읽어내려가세요.", "핵심 내용 중 중요도(언급된 횟수)가 높은 세 항목을 색상 강조하여 명확하게 표시하였습니다."];
                     let chart2List_ulElement = document.createElement('ul');
                     chart2List_ulElement.className = 'guidetext';  // 클래스 추가
 
@@ -767,9 +679,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     chart2DesctDiv.appendChild(chart2List_ulElement);
                     chartDiv.appendChild(chart2DesctDiv);
                     chart2DesctDiv.appendChild(svgContainer1);
-                    //                chartDiv.append(svgContainer1);
-
-
 
                     // *********************************************************** 
                     // * (KEY)CONTENT > Chart > Type1 Button
@@ -787,15 +696,11 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         btTab02.classList.remove('active');
                     });
 
-                    chart1DesctDiv.style.display = 'block';
-                    chart2DesctDiv.style.display = 'none';
-                    btTab01.classList.add('active');  //default state
-
                     // *********************************************************** 
                     // * (KEY)CONTENT > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab02 = document.createElement('button');
-                    btTab02.innerHTML = '바차트로 보기';
+                    btTab02.innerHTML = '타임라인 세로 보기';
                     btTab02.className = 'tab_info_button'; //'toggle_info_button';
                     chartDiv.append(btTab02);
 
@@ -807,6 +712,9 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         btTab02.classList.add('active');
                     });
 
+                    chart1DesctDiv.style.display = 'block';
+                    chart2DesctDiv.style.display = 'none';
+                    btTab01.classList.add('active');  //default state
 
                     // *********************************************************** 
                     // * (KEY)CONTENT > List
@@ -814,6 +722,20 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
 
                     let newsContentList = document.createElement('ul');
                     newsContentList.classList.add('newsContentList');
+
+
+                    let list_desc = ["핵심 내용과 관련 문장을 확인하세요.", "리스트 항목을 클릭하면 해당 문장의 원본 뉴스로 연결됩니다."];
+                    let list_desc_ulElement = document.createElement('ul');
+                    list_desc_ulElement.className = 'guidetext';  // 클래스 추가
+
+                    // 각 문장을 리스트 항목으로 추가
+                    list_desc.forEach(sentence => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = sentence;
+                        list_desc_ulElement.appendChild(listItem);
+                    });
+                    newsContentList.appendChild(list_desc_ulElement);
+
 
                     let color_bg = baseColors.map(baseColors => hexToRgba(baseColors, 0.3)); // 0.5는 투명도 값입니다.
 
@@ -838,7 +760,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // Check if contentIndex + 1 is included in new_mark array
                         let isNew = new_mark.includes(contentIndex + 1);
                         let newText = "";     // `핵심 내용${contentIndex + 1}.`;
-
 
                         let titleText;
                         let reversedIndex = newsItem.data.length - 1 - contentIndex;
@@ -925,7 +846,6 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                 // *********************************************************** 
 
                 if (selectedSystem === SYSTEM_OURS) {
-
                     const btName_newsList = '관련 뉴스기사 ' + newsItem.count + '개'
                     let btOnOff_newsList = document.createElement('button');
                     btOnOff_newsList.innerHTML = ' ▼ ' + btName_newsList;
@@ -966,149 +886,147 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                     newsList_ulElement.appendChild(listItem);
                 });
                 newslistDiv.appendChild(newsList_ulElement);
-
                 articleDiv.appendChild(newslistDiv);
-
-
 
                 // *********************************************************** 
                 // * ARTICLE LIST > list
                 // *********************************************************** 
 
-                    const ITEMS_PER_PAGE = 10;
-                    let currentPage = 1;
+                const ITEMS_PER_PAGE = 10;
+                let currentPage = 1;
 
-                    function renderItems(newslistItems, tableElement) {
-                        // // 먼저 테이블의 모든 row를 지운다.
-                        // while (tableElement.firstChild) {
-                        //     tableElement.removeChild(tableElement.firstChild);
-                        // }
+                function renderItems(newslistItems, tableElement) {
+                    // // 먼저 테이블의 모든 row를 지운다.
+                    // while (tableElement.firstChild) {
+                    //     tableElement.removeChild(tableElement.firstChild);
+                    // }
 
-                        // 첫 번째 뉴스 항목을 따로 처리
-                        if (newslistItems.length > 0) {
-                            let firstItem = newslistItems[0];
-                            let firstTable = document.createElement('table');
+                    // 첫 번째 뉴스 항목을 따로 처리
+                    if (newslistItems.length > 0) {
+                        let firstItem = newslistItems[0];
+                        let firstTable = document.createElement('table');
 
 
-                            let row = firstTable.insertRow();
-                            row.className = "newslist-row-first";
-                    
+                        let row = firstTable.insertRow();
+                        row.className = "newslist-row-first";
+
+                        let titleCell = row.insertCell(0);
+                        titleCell.className = "title-first";
+
+                        // 컨테이너 div 생성
+                        let containerDiv = document.createElement('div');
+                        containerDiv.className = "news-first-container";
+                        titleCell.appendChild(containerDiv);
+
+                        // 이미지 추가
+                        let image_filename = `newsimage_${selectedTask}_${selectedNews}.jpeg`;
+                        let imageElement = document.createElement('img');
+                        imageElement.src = `data_userstudy/${image_filename}`;
+                        imageElement.alt = "First News Image";
+                        imageElement.className = "news-first-image";
+                        imageElement.style.width = "200px";
+                        containerDiv.appendChild(imageElement);
+
+                        // 나머지 텍스트 정보를 감싸는 div 생성
+                        let textDiv = document.createElement('div');
+                        textDiv.className = "news-text";
+                        containerDiv.appendChild(textDiv);
+
+                        // 나머지 텍스트 정보 추가
+                        let anchor = document.createElement('a');
+                        anchor.href = firstItem.link;
+                        anchor.textContent = firstItem.title;
+                        anchor.target = "_blank";
+                        anchor.rel = "noopener noreferrer";
+                        anchor.className = "anchor";
+                        textDiv.appendChild(anchor);
+
+                        // 소개글 추가
+                        if (firstItem.intro) {
+                            let introElement = document.createElement('p');
+                            introElement.textContent = `${firstItem.intro.trim()}...`;
+                            introElement.className = "intro";
+                            // titleCell.appendChild(introElement);
+                            textDiv.appendChild(introElement);
+                        }
+
+                        // 미디어 및 날짜 추가
+                        if (firstItem.media) {
+                            let mediaElement = document.createElement('p');
+                            mediaElement.style.color = "grey"; // 텍스트를 더 밝게
+                            mediaElement.style.fontSize = "0.8em"; // 텍스트를 더 작게
+                            mediaElement.textContent = `${firstItem.media} | ${firstItem.date}`;
+                            mediaElement.className = "media-date";
+                            // titleCell.appendChild(mediaElement);
+                            textDiv.appendChild(mediaElement);
+                        }
+
+                        // 첫 번째 뉴스 항목을 newslistDiv 앞에 삽입합니다.
+                        // articleDiv.insertBefore(firstTable, newslistDiv);
+                        // newsDiv.insertBefore(firstTable, articleDiv);
+                        firstArticleDiv.appendChild(firstTable);
+                    }
+
+
+
+                    let otherTable = document.createElement('table');
+                    newslistDiv.appendChild(otherTable);
+
+                    // 그 다음부터 나머지 항목들을 표시
+                    for (let i = 1; i < newslistItems.length; i++) {
+                        let linkItem = newslistItems[i];
+
+                        if (linkItem && linkItem.title && linkItem.link) {
+                            let row = otherTable.insertRow();
+                            row.className = "newslist-row";
+
+                            // let row = tableElement.insertRow();
+                            // row.className = "newslist-row";
+
+                            // Title Column with link
                             let titleCell = row.insertCell(0);
-                            titleCell.className = "title-first";
-                    
-                            // 컨테이너 div 생성
-                            let containerDiv = document.createElement('div');
-                            containerDiv.className = "news-first-container";
-                            titleCell.appendChild(containerDiv);
-                    
-                            // 이미지 추가
-                            let image_filename = `newsimage_${selectedNews}_${selectedTask}.jpeg`;
-                            let imageElement = document.createElement('img');
-                            imageElement.src = `data_userstudy/${image_filename}`;
-                            imageElement.alt = "First News Image";
-                            imageElement.className = "news-first-image";
-                            imageElement.style.width = "200px";
-                            containerDiv.appendChild(imageElement);
-                    
-                            // 나머지 텍스트 정보를 감싸는 div 생성
-                            let textDiv = document.createElement('div');
-                            textDiv.className = "news-text";
-                            containerDiv.appendChild(textDiv);
-                    
-                            // 나머지 텍스트 정보 추가
+                            titleCell.className = "title";
+
+                            // Title
                             let anchor = document.createElement('a');
-                            anchor.href = firstItem.link;
-                            anchor.textContent = firstItem.title;
+                            anchor.href = linkItem.link;
+                            anchor.textContent = linkItem.title;
                             anchor.target = "_blank";
                             anchor.rel = "noopener noreferrer";
                             anchor.className = "anchor";
-                            textDiv.appendChild(anchor);
-                        
-                            // 소개글 추가
-                            if (firstItem.intro) {
+                            titleCell.appendChild(anchor);
+
+                            // Intro
+                            if (linkItem.intro) {
                                 let introElement = document.createElement('p');
-                                introElement.textContent = `${firstItem.intro.trim()}...`;
+                                introElement.textContent = `${linkItem.intro.trim()}...`;
                                 introElement.className = "intro";
-                                // titleCell.appendChild(introElement);
-                                textDiv.appendChild(introElement);
+                                titleCell.appendChild(introElement);
                             }
-                        
-                            // 미디어 및 날짜 추가
-                            if (firstItem.media) {
+
+                            // Media & Date
+                            if (linkItem.media) {
                                 let mediaElement = document.createElement('p');
-                                mediaElement.style.color = "grey"; // 텍스트를 더 밝게
-                                mediaElement.style.fontSize = "0.8em"; // 텍스트를 더 작게
-                                mediaElement.textContent = `${firstItem.media} | ${firstItem.date}`;
+                                mediaElement.style.color = "grey"; // Makes the text lighter
+                                mediaElement.style.fontSize = "0.8em"; // Makes the text smaller
+                                mediaElement.textContent = `${linkItem.media} | ${linkItem.date}`;
                                 mediaElement.className = "media-date";
-                                // titleCell.appendChild(mediaElement);
-                                textDiv.appendChild(mediaElement);
-                            }
-
-                            // 첫 번째 뉴스 항목을 newslistDiv 앞에 삽입합니다.
-                            // articleDiv.insertBefore(firstTable, newslistDiv);
-                            // newsDiv.insertBefore(firstTable, articleDiv);
-                            firstArticleDiv.appendChild(firstTable);
-                        }
-
-
-                        let otherTable = document.createElement('table');
-                        newslistDiv.appendChild(otherTable);
-
-                        // 그 다음부터 나머지 항목들을 표시
-                        for (let i = 1; i < newslistItems.length; i++) {
-                            let linkItem = newslistItems[i];
-
-                            if (linkItem && linkItem.title && linkItem.link) {
-                                let row = otherTable.insertRow();
-                                row.className = "newslist-row";
-
-                                // let row = tableElement.insertRow();
-                                // row.className = "newslist-row";
-
-                                // Title Column with link
-                                let titleCell = row.insertCell(0);
-                                titleCell.className = "title";
-
-                                // Title
-                                let anchor = document.createElement('a');
-                                anchor.href = linkItem.link;
-                                anchor.textContent = linkItem.title;
-                                anchor.target = "_blank";
-                                anchor.rel = "noopener noreferrer";
-                                anchor.className = "anchor";
-                                titleCell.appendChild(anchor);
-
-                                // Intro
-                                if (linkItem.intro) {
-                                    let introElement = document.createElement('p');
-                                    introElement.textContent = `${linkItem.intro.trim()}...`;
-                                    introElement.className = "intro";
-                                    titleCell.appendChild(introElement);
-                                }
-
-                                // Media & Date
-                                if (linkItem.media) {
-                                    let mediaElement = document.createElement('p');
-                                    mediaElement.style.color = "grey"; // Makes the text lighter
-                                    mediaElement.style.fontSize = "0.8em"; // Makes the text smaller
-                                    mediaElement.textContent = `${linkItem.media} | ${linkItem.date}`;
-                                    mediaElement.className = "media-date";
-                                    titleCell.appendChild(mediaElement);
-                                }
+                                titleCell.appendChild(mediaElement);
                             }
                         }
                     }
+                }
 
-                    let matchingNewItem = newsListData.find(item => item.group_index === index);
+                let matchingNewItem = newsListData.find(item => item.group_index === index);
 
-                    if (matchingNewItem && Array.isArray(matchingNewItem.link)) {
-                        renderItems(matchingNewItem.link);
-                        // let table = document.createElement('table');
-                        // newslistDiv.appendChild(table);
+                if (matchingNewItem && Array.isArray(matchingNewItem.link)) {
+                    renderItems(matchingNewItem.link);
+                    // let table = document.createElement('table');
+                    // newslistDiv.appendChild(table);
 
-                        // renderItems(matchingNewItem.link, table);
-                    }
-//                }
+                    // renderItems(matchingNewItem.link, table);
+                }
+                //                }
 
 
                 // ***********************************************************
@@ -1422,14 +1340,6 @@ function shuffle(array) {
 
 //-----------------------  여러 그래프 그려보기
 
-// function drawClusterGraph(category, index, svgElement, data, new_mark) {
-//     //drawClusterHorizontalBarChart(category, index, svgElement, data, new_mark);
-
-//     // drawClusterHorizontalCircles(category, index, svgElement, data, new_mark);
-
-//     drawClusteredCirclesByRatio(category, index, svgElement, data, new_mark);
-// }
-
 // y축 값을 "핵심 내용1", "핵심 내용2", ... 로 변경하는 함수
 function convertToRepresentative(clusterNum) {
     return "핵심 내용" + clusterNum;
@@ -1456,7 +1366,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     // 동적으로 SVG의 높이를 설정합니다.
     var dynamicHeight = data.length * (barHeight + barSpacing);
 
-    var margin = { top: 120, right: 100, bottom: 80, left: 70 },
+    var margin = { top: 120, right: 150, bottom: 80, left: 70 },
         initialWidth = 1280,
         initialHeight = 500,
         scaleRatio = 1.3, // 130%
@@ -1469,36 +1379,17 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-    // // Title 추가
-    // svg.append("text")
-    //     .attr("x", (width / 2))
-    //     .attr("y", -(margin.top / 2))
-    //     .attr("text-anchor", "middle")
-    //     .style("font-size", "16px")
-    //     .style("font-weight", "bold")
-    //     .text("뉴스 문장 군집화 결과");
-
-    // // 설명 추가 (타이틀 바로 밑에)
-    // svg.append("text")
-    //     .attr("x", (width / 2))
-    //     .attr("y", -(margin.top / 2) + 25)  // 타이틀 위치에서 20 아래로
-    //     .attr("text-anchor", "middle")
-    //     .style("font-size", "14px")
-    //     .text("y축은 클러스터 종류, x축은 클러스터에 포함된 문장 개수를 나타냅니다.");
-
-
-
     // x scale - 이제 문장의 개수로 스케일링
     var x = d3.scaleLinear()
         .domain([0, d3.max(data, function (d) { return d.Count; })])
         .range([0, width]);
 
-    svg.append("g")
-        .call(d3.axisBottom(x))
-        .attr("transform", "translate(0," + height + ")")
-        .selectAll("text")
-        .style("fill", "#000000");
+    // x축 틱(tick)
+    // svg.append("g")
+    //     .call(d3.axisBottom(x))
+    //     .attr("transform", "translate(0," + height + ")")
+    //     .selectAll("text")
+    //     .style("fill", "#000000");
 
     // y scale - 클러스터 종류
     var y = d3.scaleBand()
@@ -1507,11 +1398,25 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .padding(0.8);
 
 
+    /*--축 정보 그리기 ------------------------------*/
+
+
+    //  y축 틱(tick)
+    // svg.append("g")
+    //     .call(d3.axisLeft(y))
+    //     .selectAll("text")
+    //     .style("fill", "#000000");
 
     svg.append("g")
-        .call(d3.axisLeft(y))
-        .selectAll("text")
-        .style("fill", "#000000");
+        .call(d3.axisLeft(y).tickSize(0).tickFormat(""))  // 틱 크기를 0으로 설정하여 y축의 틱을 제거합니다.
+        .selectAll("path")  // y축의 경로를 선택합니다.
+        .attr("stroke-width", 2.5)  // y축의 두께를 2로 설정합니다.
+        .attr("stroke-dasharray", "5,5")  // 5픽셀 실선, 5픽셀 공백의 점선 패턴으로 설정
+        .attr("stroke", "#aaa")  // y축의 색깔을 #aaa로 설정
+        .selectAll("line")  // y축의 라인을 선택합니다.
+        .attr("stroke-width", 2)  // y축의 라인 두께를 2로 설정합니다.
+        .attr("stroke", "#aaa");  // y축의 라인 색깔을 #aaa로 설정
+
 
     // // y축 레이블 (클러스터 종류)
     // svg.append("text")
@@ -1519,7 +1424,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     //     .attr("y", 0 - margin.left / 1.5)
     //     .attr("x", 0 - (height / 2))
     //     .attr("text-anchor", "middle")
-    //     .style("font-size", "12px")
+    //     .style("font-size", "0.8em")
     //     .text("클러스터 종류");
 
     // // x축 레이블 (문장개수)
@@ -1527,9 +1432,57 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     //     .attr("x", width / 2)
     //     .attr("y", height + margin.bottom / 1.5)
     //     .attr("text-anchor", "middle")
-    //     .style("font-size", "12px")
+    //     .style("font-size", "0.8em")
     //     .text("포함된 문장 개수");
 
+
+        /*--타임라인 느낌주기 ------------------------------*/
+
+    // y축에 원과 날짜 텍스트 추가
+    svg.append("circle")
+        .attr("cx", 0)  // 원의 x 위치를 y축에서 왼쪽으로 조금 이동합니다.
+        .attr("cy", 0)  // 원의 y 위치를 y축 맨 위로 설정합니다.
+        .attr("r", 10)  // 원의 반지름을 설정합니다.
+        .attr("fill", "blue");  // 원의 색상을 파란색으로 설정합니다.
+
+    svg.append("text")
+        .attr("x", -10)  // 텍스트의 x 위치를 원의 중앙으로 설정합니다.
+        .attr("y", -30)  // 텍스트의 y 위치를 원 위로 조금 이동합니다.
+        .attr("text-anchor", "middle")  // 텍스트를 중앙 정렬합니다.
+        .style("font-size", "1em")  // 텍스트의 크기를 설정합니다.
+        .style("font-weight", "bold")  // 텍스트를
+        .text("2023.08.25");  // 텍스트 내용을 설정합니다.
+
+
+
+
+//             // 추가: 파란색 동그라미를 중심으로 가로 축 그리기
+//     svg.append("line")
+//     .attr("x1", -200) // 축의 시작점 (파란 원보다 왼쪽으로 200px)
+//     .attr("y1", 0)
+//     .attr("x2", 200) // 축의 끝점 (파란 원보다 오른쪽으로 200px)
+//     .attr("y2", 0)
+//     .attr("stroke", "black")
+//     .attr("stroke-width", 2);
+
+// // 추가: 파란색 동그라미의 왼쪽에 이전 날짜 추가
+// svg.append("text")
+//     .attr("x", -150) // 원보다 왼쪽으로 150px
+//     .attr("y", -30)  // 원 위로 조금 이동
+//     .attr("text-anchor", "middle")
+//     .style("font-size", "1em")
+//     .text("2023.08.24");  // 이전 날짜
+
+// // 추가: 파란색 동그라미의 오른쪽에 다음 날짜 추가
+// svg.append("text")
+//     .attr("x", 150)  // 원보다 오른쪽으로 150px
+//     .attr("y", -30)  // 원 위로 조금 이동
+//     .attr("text-anchor", "middle")
+//     .style("font-size", "1em")
+//     .text("2023.08.26");  // 다음 날짜
+
+
+    
 
     /*--bar graph 막대 그리기 ------------------------------*/
 
@@ -1539,7 +1492,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .attr("class", "bar")
         .attr("y", function (d) { return y(convertToRepresentative(d.Cluster)) + (y.bandwidth() - fixedBarHeight) / 2; })
         .attr("height", fixedBarHeight)
-        .attr("x", 0)
+        .attr("x", 3) //막대 오른쪽으로 조금 옮기기
         .attr("width", function (d) { return x(d.Count); })
         .attr("fill", (d) => {
             let rank = topClusters.indexOf(d.Cluster);  // 원의 순위를 찾습니다.
@@ -1555,14 +1508,9 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
             return (new_mark.length !== 0 && new_mark.includes(d.Cluster)) ? 3 : 1;
         });
 
-
-
-
     /*--bar graph 위에 텍스트 ------------------------------*/
 
     let total = d3.sum(data, d => d.Count);
-
-
 
     svg.selectAll(".barTextContainer")
         .data(data)
@@ -1576,7 +1524,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .append("xhtml:div")
         .style("display", "flex")
         .style("align-items", "center")  // 세로 중앙 정렬
-        .style("font-size", "12px")
+        .style("font-size", "0.8em")
         .style("word-wrap", "break-word")  // 단어 분리 기능 활용
         .style("text-align", "start")  // 왼쪽 정렬
         .style("width", "100%")
@@ -1612,18 +1560,18 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .data(data)
         .enter().append("text")
         .attr("class", "ratioText")
-        .attr("x", function (d) { return x(d.Count) + 5; })
+        .attr("x", function (d) { return x(d.Count) + 5 + 5; })
         .attr("y", function (d) { return y(convertToRepresentative(d.Cluster)) + y.bandwidth() / 2; })
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "middle")
         .style("font-size", "12px")
+        .style("fill", "darkgray")  // 글자의 색깔을 "darkgray"로 설정
+        // .text(d => `(${d.Count}개, ${((d.Count / total) * 100).toFixed(2)}%)`);
         .text(d => `${((d.Count / total) * 100).toFixed(2)}%`);
 
+    
+    return topClusters;
 }
-
-
-
-
 
 
 //--------------------------------------------------
@@ -1639,13 +1587,18 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
     // 상위 3개의 Cluster 값을 가져옴
     var topClusters = sortedData.slice(0, top).map(d => d.Cluster);
 
-    var circlesizeup = 1.2;
+    var circleSizeMax = 100;
     var rScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.Count)])
-        .range([0, (500 / 25) * 4 * circlesizeup]);  // 원의 크기 조절
+        .range([0, circleSizeMax]); // (500 / 25) * 4 * circlesizeup]);  // 원의 크기 조절
+
+
+    // 고정된 원 간의 간격
+    var circleSpacing = 50;
 
     // 원들 간의 전체 너비 계산
-    var totalWidthOfCircles = data.reduce((acc, d) => acc + 2 * rScale(d.Count), 0) + (data.length - 1) * 20; // 20은 원들 사이의 간격입니다.
+    var totalWidthOfCircles = data.reduce((acc, d) => acc + 2 * rScale(d.Count) + circleSpacing, 0) - circleSpacing; // 마지막 원 다음의 간격을 빼줍니다.
+
 
     var margin = { top: 120, right: 100, bottom: 80, left: 100 },
         initialWidth = 1280,
@@ -1678,12 +1631,18 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
     let description = data.map((d, index) => `클러스터 번호 ${index + 1}`);
 
     let currentXPosition = 0;
+
     // 원들을 그립니다
     svg.selectAll(".circle")
         .data(data)
         .enter().append("circle")
         .attr("class", "circle")
-        .attr("cx", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        // .attr("cx", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        .attr("cx", d => {
+            let cx = currentXPosition + rScale(d.Count);
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return cx;
+        })
         .attr("cy", (height + margin.top + margin.bottom) / 2) // 원의 y 위치는 SVG의 중앙으로 설정합니다.
         .attr("r", d => rScale(d.Count))
         // .attr("fill", (d, i) => colors[colors.length - 1 - i]) // 인덱스를 역순으로 사용
@@ -1697,52 +1656,65 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
             }
         })
         .attr("stroke", "#000000")
-        .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
+        //        .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
+        .attr("stroke-width", d => {
+            let rank = topClusters.indexOf(d.Cluster);
+            if (rank !== -1) {
+                return 1.5;  // 원이 상위 클러스터에 속하는 경우 굵기를 4로 설정합니다.
+            } else if (new_mark.length !== 0 && new_mark.includes(d.Cluster)) {
+                return 3;  // 원이 new_mark 배열에 포함되어 있을 때 굵기를 3으로 설정합니다.
+            } else {
+                return 1;  // 위의 조건에 모두 해당되지 않는 경우 굵기를 1로 설정합니다.
+            }
+        });
 
 
-    // 원 아래에 핵심 내용을 그립니다.
+    currentXPosition = 0; // cx 계산을 위한 위치 초기화
+
+    // 원 아래에 % 정보
     svg.selectAll(".circleTextDescription")
         .data(data)
         .enter().append("text")
         .attr("class", "circleTextDescription")
-        .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
-        // .attr("y", d => (height / 2) + rScale(d.Count) + 15)  // 원의 중심보다 아래로 15px 이동
+        // .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        .attr("x", d => {
+            let x = currentXPosition + rScale(d.Count);
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return x;
+        })
+
         .attr("y", d => (height + margin.top + margin.bottom) / 2 + rScale(d.Count) + 15)  // 원의 중심보다 원의 반지름과 추가로 15px 아래로 이동
 
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "hanging")  // 'hanging'으로 변경하여 tspan이 올바르게 정렬되도록 합니다.
-        .style("font-size", "12px")
+        .style("font-size", "0.8em")
         .each(function (d) {  // .each() 함수를 사용하여 각 데이터 항목에 대한 처리를 수행합니다.
             let percentage = (d.Count / totalSentences) * 100;
             d3.select(this).append("tspan")  // 두 번째 행 (비율)을 추가합니다.
                 .attr("fill", "darkgray")  // 진한 회색으로 텍스트 색상 변경
-
-                .attr("x", x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)  // x 위치를 다시 설정합니다.
                 .text(`${percentage.toFixed(2)}%`);
-            // d3.select(this).append("tspan")  // 첫 번째 행을 추가합니다.
-            //     .text(`핵심 내용${d.Cluster}`);
-
-            // d3.select(this).append("tspan")  // 두 번째 행 (비율)을 추가합니다.
-            //     .attr("x", x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)  // x 위치를 다시 설정합니다.
-            //     .attr("dy", "15")  // 이전 tspan 요소에서 15px 아래로 이동합니다.
-            //     .text(`${percentage.toFixed(2)}%`);
+            //                .text(d => `(${d.Count}개, ${percentage.toFixed(2)}%)`);
         });
 
+    currentXPosition = 0; // cx 계산을 위한 위치 초기화
     svg.selectAll(".circleTextContainer")
         .data(data)
         .enter().append("foreignObject")
         .attr("class", "circleTextContainer")
-        .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2 - (rScale(d.Count) * 2) / 2)
+        // .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2 - (rScale(d.Count) * 2) / 2)
+        .attr("x", d => {
+            let x = currentXPosition;
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return x;
+        })
         .attr("y", d => (height + margin.top + margin.bottom) / 2 - rScale(d.Count)) // 원의 중심에서 반지름만큼 위로 이동
-
-        // .attr("y", d => (height / 2) - rScale(d.Count))
         .attr("width", d => rScale(d.Count) * 2)
         .attr("height", d => rScale(d.Count) * 2)
         .append("xhtml:div")
         .style("display", "flex")
         .style("align-items", "center") // centers text vertically
         .style("justify-content", "center") // centers text horizontally
-        .style("font-size", "12px")
+        .style("font-size", "0.8em")
         .style("word-wrap", "break-word")
         .style("text-align", "center")
         .style("width", "100%")
@@ -1761,10 +1733,7 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
             return descriptions.join('<br>');
         });
 
-
-
-    // 다음의 코드를 추가
-
+    // 
     var bbox = svg.node().getBBox();
     var extraPadding = 20;  // 추가 패딩
 
@@ -1774,7 +1743,6 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
         .attr("viewBox", [bbox.x - extraPadding / 2, bbox.y - extraPadding / 2, bbox.width + extraPadding, bbox.height + extraPadding]);
 
     svg.attr("transform", `translate(${-bbox.x + extraPadding / 2}, ${-bbox.y + extraPadding / 2})`);
-
 
     return topClusters;
 }
@@ -1850,12 +1818,6 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .style("font-size", "12px")
         .text("포함된 문장 개수");
 
-    // var colors = [
-    //     "#ffd1dc", "#d1ffd1", "#dcfffd", "#d1dcff", "#fdd1ff", "#ffdcdc",
-    //     "#dcdcff", "#dcdcdc", "#d1d1d1", "#fddcdc"
-    // ];
-    // colors = shuffle(colors);
-
     let description = data.map((d, index) => `클러스터 번호 ${index + 1}`);
 
     svg.selectAll(".circleText")
@@ -1866,7 +1828,7 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .attr("y", d => y(convertToRepresentative(d.Cluster)) + y.bandwidth() / 2)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "middle")
-        .style("font-size", "12px")
+        .style("font-size", "1em")
         .each(function (d) {
             let node = d3.select(this);
             if (new_mark.length !== 0 && new_mark.includes(d.Cluster)) {
@@ -1891,5 +1853,4 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .attr("fill", (d, i) => colors[i % colors.length])
         .attr("stroke", "#000000")
         .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
-
 }
