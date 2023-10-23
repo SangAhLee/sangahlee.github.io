@@ -1,4 +1,3 @@
-
 //--------------------------------------------------
 // 전역 변수
 //--------------------------------------------------
@@ -539,7 +538,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     btToggle_info_timeline.className = 'additional_info_button'; // 'toggle_info_button';
 
 
-                    let timeline_desc = ["관련된 이슈를 다루는 뉴스 기사들이 시간이 지남에 따라 어떤 내용을 주요하게 다루는 가를 분석한 내용입니다."];
+                    let timeline_desc = ["지속적인 사건의 경우, 시간이 지남에 따라 관련 이슈를 다루는 뉴스 기사가 주로 무엇을 다루고 있는지 분석합니다.", "이는 뉴스 기사에서 시간이 지남에 따라 다루어진 내용을 시각화한 것이며 사건의 연대순 순서와 다를 수 있습니다."];
 
                     let timelineDescDiv = document.createElement('div');
                     timelineDescDiv.style.display = 'none';
@@ -599,8 +598,30 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     timelineChart1.style.display = 'flex';
                     timelineChart1.style.flexDirection = 'column';
 
-                    drawContextTimeseriesHorizonGraph(category, index, timelineChart1, timelineFilepath);
+
+                    // *********************************************************** 
+                    // * TIMELINE > Chart > Type1 Chart > Desc
+                    // *********************************************************** 
+                    let timeline1_Desc_Div = document.createElement('div');
+                    let timeline1_Desc = ["뉴스 기사에서 주요하게 다뤄온 내용을 타임라인으로 확인하세요."];
+                    let timeline1_ulElement = document.createElement('ul');
+                    timeline1_ulElement.className = 'guidetext';  // 클래스 추가
+
+                    // 각 문장을 리스트 항목으로 추가
+                    timeline1_Desc.forEach(sentence => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = sentence;
+                        timeline1_ulElement.appendChild(listItem);
+                    });
+                    timeline1_Desc_Div.appendChild(timeline1_ulElement);
+                    timelineChart1.appendChild(timeline1_Desc_Div);
                     timelineChartDiv.appendChild(timelineChart1);
+
+                    // *********************************************************** 
+                    // * TIMELINE > Chart > Type1 Chart > Chart
+                    // *********************************************************** 
+                    drawContextTimeseriesHorizonGraph(category, index, timelineChart1, timelineFilepath);
+
 
                     // *********************************************************** 
                     // * TIMELINE > Chart > Type2 Chart
@@ -610,12 +631,35 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     timelineChart.style.display = 'flex';
                     timelineChart.style.flexDirection = 'column';
 
-                    drawContextTimeseriesOverlappingAreaGraph(category, index, timelineChart, timelineFilepath);
+
+                    // *********************************************************** 
+                    // * TIMELINE > Chart > Type1 Chart > Desc
+                    // *********************************************************** 
+                    let timeline2_Desc_Div = document.createElement('div');
+
+                    let timeline2_Desc = ["각 주요 내용이 언제 얼마나 주요하게 다루어졌는지 가중치를 함께 확인하세요."];
+                    let timeline2_ulElement = document.createElement('ul');
+                    timeline2_ulElement.className = 'guidetext';  // 클래스 추가
+
+                    // 각 문장을 리스트 항목으로 추가
+                    timeline2_Desc.forEach(sentence => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = sentence;
+                        timeline2_ulElement.appendChild(listItem);
+                    });
+                    timeline2_Desc_Div.appendChild(timeline2_ulElement);
+                    timelineChart.appendChild(timeline2_Desc_Div);
                     timelineChartDiv.appendChild(timelineChart);
 
 
                     // *********************************************************** 
-                    // * TIMELINE > Chart > Type1 Button
+                    // * TIMELINE > Chart > Type1 Chart > Chart
+                    // *********************************************************** 
+
+                    drawContextTimeseriesOverlappingAreaGraph(category, index, timelineChart, timelineFilepath);
+
+                    // *********************************************************** 
+                    // * TIMELINE > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab01_timeline = document.createElement('button');
                     btTab01_timeline.innerHTML = '타임라인 보기';
@@ -630,9 +674,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                         btTab02_timeline.classList.remove('active');
                     });
 
-                    timelineChart1.style.display = 'block';
-                    timelineChart.style.display = 'none';
-                    btTab01_timeline.classList.add('active');  //default
+
 
                     // *********************************************************** 
                     // * TIMELINE > Chart > Type2 Button
@@ -649,6 +691,15 @@ function load_cluster_info_by_category(filename, selectedDate) {
                         btTab01_timeline.classList.remove('active');
                         btTab02_timeline.classList.add('active');
                     });
+
+                    // *********************************************************** 
+                    // * 디폴트 설정
+                    // *********************************************************** 
+                    timelineChart.style.display = 'none';
+                    timelineChart1.style.display = 'block';
+                    btTab01_timeline.classList.add('active');  //default state
+                    // btTab01_timeline.disabled = true; // 테스트용으로 잠시 막음. (작동안되서)
+
                 }
 
 
@@ -694,12 +745,13 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 btToggle_info.innerHTML = ' ▼ ' + btToggle_text;
                 btToggle_info.className = 'additional_info_button';
 
-                let sentences = ["관련 그룹의 전체 뉴스 기사에 대하여 문장을 분리하여, 문장을 분석한 내용입니다."];
+
+                let sentences = ["- 동일한 사건을 다루는 뉴스 기사들을 모아서, 전체 뉴스 기사에 사용된 문장들을 모았습니다.", "- 이후, 문장들을 전처리 하여 필요 없는 내용 (예: 제보 요청 문구, 광고 문구 등)을 삭제하고 이 문장들을 비슷한 내용끼리 묶어서 클러스터링(군집화) 합니다.", "- 그러면 비슷한 내용을 가진 문장끼리 묶여서 그룹을 이루게 되고, 각 그룹별 주요 내용은 기사 내용의 핵심 내용으로 간주합니다."]
 
                 if (total_articles !== 0 && total_sentences !== 0) {
-                    sentences.push(`<strong>전체 관련 기사는 ${total_articles}개</strong> 이고, <strong>총 ${total_sentences}개</strong>의 문장을 분석했습니다.`);
+                    sentences.push(`- <strong>전체 관련 기사는 ${total_articles}개</strong>이고, <strong>총 ${total_sentences}개</strong>의 문장을 분석했습니다.`);
                 }
-                sentences.push(`각 핵심 내용은 뉴스기사에서 평균적으로 게재된 위치를 기준으로 정렬되었습니다.`);
+                sentences.push(`- 뉴스 기사 내에서 각 내용이 언급되는 텍스트적인 컨텍스트를 고려하기위하여, 각 핵심 내용은 뉴스기사에서 평균적으로 게재된 위치를 기준으로 정렬되었습니다. `);
 
                 // Create a div for sentences content
                 let sentencesContentDiv = document.createElement('div');
@@ -744,16 +796,18 @@ function load_cluster_info_by_category(filename, selectedDate) {
 
                 var colors = baseColors.map(baseColors => hexToRgba(baseColors, 0.5)); // 0.5는 투명도 값입니다.
 
+                var top3;
+
                 // *********************************************************** 
                 // * (KEY)CONTENT > Chart > Type1 Chart
                 // *********************************************************** 
 
-                let svgContainer = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                svgContainer.id = `news-${index + 1}-svg`;
-                svgContainer.setAttribute('width', '100%');
-                svgContainer.setAttribute('height', '500px');
+                let svgContainer_circle = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svgContainer_circle.id = `news-${index + 1}-svg`;
+                svgContainer_circle.setAttribute('width', '100%');
+                svgContainer_circle.setAttribute('height', '500px');
 
-                var top3 = drawClusteredCirclesByRatio(top = 3, colors, colors, category, index, svgContainer, newsItem.data, new_mark);
+                top3 = drawClusteredCirclesByRatio(top = 3, colors, colors, category, index, svgContainer_circle, newsItem.data, new_mark);
                 console.log(top3);  // 출력: [3, 1, 5] (예시)
 
                 // drawClusteredCirclesByRatio(colors, category, index, svgContainer, newsItem.data, new_mark);
@@ -775,7 +829,6 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 chart1DesctDiv.appendChild(chart1List_ulElement);
 
                 chartDiv.appendChild(chart1DesctDiv);
-                chart1DesctDiv.appendChild(svgContainer);
 
                 //chartDiv.append(svgContainer);
 
@@ -783,16 +836,12 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 // * (KEY)CONTENT > Chart > Type2 Chart
                 // *********************************************************** 
 
-                let svgContainer1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                svgContainer1.id = `news-${index + 1}-svg1`;
-                svgContainer1.setAttribute('width', '100%');
-                svgContainer1.setAttribute('height', '500px');
+                let svgContainer_bar = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svgContainer_bar.id = `news-${index + 1}-svg1`;
+                svgContainer_bar.setAttribute('width', '100%');
+                svgContainer_bar.setAttribute('height', '500px');
 
-                // drawClusterHorizontalBarChart(colors, category, index, svgContainer1, newsItem.data, new_mark);
-                // chartDiv.append(svgContainer1);
-
-
-                drawClusterHorizontalBarChart(top = 3, colors, colors, category, index, svgContainer1, newsItem.data, new_mark);
+                top3 = drawClusterHorizontalBarChart(top = 3, colors, colors, category, index, svgContainer_bar, newsItem.data, new_mark);
 
                 let chart2DesctDiv = document.createElement('div');
                 //chart1DesctDiv.className = 'news-item content-box';  // Class 추가
@@ -809,15 +858,12 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 });
                 chart2DesctDiv.appendChild(chart2List_ulElement);
                 chartDiv.appendChild(chart2DesctDiv);
-                chart2DesctDiv.appendChild(svgContainer1);
-                //                chartDiv.append(svgContainer1);
-
 
                 // *********************************************************** 
                 // * (KEY)CONTENT > Chart > Type1 Button
                 // *********************************************************** 
                 let btTab01 = document.createElement('button');
-                btTab01.innerHTML = '도형으로 보기';
+                btTab01.innerHTML = '타임라인 세로 보기';
                 btTab01.className = 'tab_info_button'; //'toggle_info_button';
                 chartDiv.append(btTab01);
 
@@ -829,15 +875,13 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     btTab02.classList.remove('active');
                 });
 
-                chart1DesctDiv.style.display = 'block';
-                chart2DesctDiv.style.display = 'none';
-                btTab01.classList.add('active');  //default state
+
 
                 // *********************************************************** 
                 // * (KEY)CONTENT > Chart > Type2 Button
                 // *********************************************************** 
                 let btTab02 = document.createElement('button');
-                btTab02.innerHTML = '막대차트로 보기';
+                btTab02.innerHTML = '도형으로 보기';
                 btTab02.className = 'tab_info_button';
                 chartDiv.append(btTab02);
 
@@ -849,6 +893,15 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     btTab02.classList.add('active');
                 });
 
+                // *********************************************************** 
+                // * (KEY)CONTENT > Chart > Default
+                // *********************************************************** 
+                chart1DesctDiv.appendChild(svgContainer_bar);
+                chart2DesctDiv.appendChild(svgContainer_circle);
+
+                chart1DesctDiv.style.display = 'block';
+                chart2DesctDiv.style.display = 'none';
+                btTab01.classList.add('active');  //default state
 
                 // *********************************************************** 
                 // * (KEY)CONTENT > List
@@ -857,6 +910,18 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 let newsContentList = document.createElement('ul');
                 newsContentList.classList.add('newsContentList');
 
+
+                let list_desc = ["핵심 내용과 관련 문장을 확인하세요.", "리스트 항목을 클릭하면 해당 문장의 원본 뉴스로 연결됩니다."];
+                let list_desc_ulElement = document.createElement('ul');
+                list_desc_ulElement.className = 'guidetext';  // 클래스 추가
+
+                // 각 문장을 리스트 항목으로 추가
+                list_desc.forEach(sentence => {
+                    let listItem = document.createElement('li');
+                    listItem.textContent = sentence;
+                    list_desc_ulElement.appendChild(listItem);
+                });
+                newsContentList.appendChild(list_desc_ulElement);
 
 
                 let color_bg = baseColors.map(baseColors => hexToRgba(baseColors, 0.3)); // 0.5는 투명도 값입니다.
@@ -914,7 +979,15 @@ function load_cluster_info_by_category(filename, selectedDate) {
 
                     contentLi.style.cursor = 'pointer';  // Set the mouse cursor to a pointer.
                     // contentLi.addEventListener('click', createContentClickHandler(category, index, contentItem));
+
+                    contentLi.addEventListener('click', function () {
+                        window.open(contentItem.link, '_blank');  // Open the link in a new window or tab.
+                    });
+
                     newsContentList.appendChild(contentLi);
+
+
+                    contentDiv.appendChild(newsContentList);
                 });
 
                 contentDiv.appendChild(newsContentList);
@@ -1457,7 +1530,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     // 동적으로 SVG의 높이를 설정합니다.
     var dynamicHeight = data.length * (barHeight + barSpacing);
 
-    var margin = { top: 120, right: 100, bottom: 80, left: 70 },
+    var margin = { top: 120, right: 150, bottom: 80, left: 70 },
         initialWidth = 1280,
         initialHeight = 500,
         scaleRatio = 1.3, // 130%
@@ -1470,36 +1543,17 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
-    // // Title 추가
-    // svg.append("text")
-    //     .attr("x", (width / 2))
-    //     .attr("y", -(margin.top / 2))
-    //     .attr("text-anchor", "middle")
-    //     .style("font-size", "16px")
-    //     .style("font-weight", "bold")
-    //     .text("뉴스 문장 군집화 결과");
-
-    // // 설명 추가 (타이틀 바로 밑에)
-    // svg.append("text")
-    //     .attr("x", (width / 2))
-    //     .attr("y", -(margin.top / 2) + 25)  // 타이틀 위치에서 20 아래로
-    //     .attr("text-anchor", "middle")
-    //     .style("font-size", "14px")
-    //     .text("y축은 클러스터 종류, x축은 클러스터에 포함된 문장 개수를 나타냅니다.");
-
-
-
     // x scale - 이제 문장의 개수로 스케일링
     var x = d3.scaleLinear()
         .domain([0, d3.max(data, function (d) { return d.Count; })])
         .range([0, width]);
 
-    svg.append("g")
-        .call(d3.axisBottom(x))
-        .attr("transform", "translate(0," + height + ")")
-        .selectAll("text")
-        .style("fill", "#000000");
+    // x축 틱(tick)
+    // svg.append("g")
+    //     .call(d3.axisBottom(x))
+    //     .attr("transform", "translate(0," + height + ")")
+    //     .selectAll("text")
+    //     .style("fill", "#000000");
 
     // y scale - 클러스터 종류
     var y = d3.scaleBand()
@@ -1508,11 +1562,17 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .padding(0.8);
 
 
+    /*--축 정보 그리기 ------------------------------*/
 
     svg.append("g")
-        .call(d3.axisLeft(y))
-        .selectAll("text")
-        .style("fill", "#000000");
+        .call(d3.axisLeft(y).tickSize(0).tickFormat(""))  // 틱 크기를 0으로 설정하여 y축의 틱을 제거합니다.
+        .selectAll("path")  // y축의 경로를 선택합니다.
+        .attr("stroke-width", 2.5)  // y축의 두께를 2로 설정합니다.
+        .attr("stroke-dasharray", "5,5")  // 5픽셀 실선, 5픽셀 공백의 점선 패턴으로 설정
+        .attr("stroke", "#aaa")  // y축의 색깔을 #aaa로 설정
+        .selectAll("line")  // y축의 라인을 선택합니다.
+        .attr("stroke-width", 2)  // y축의 라인 두께를 2로 설정합니다.
+        .attr("stroke", "#aaa");  // y축의 라인 색깔을 #aaa로 설정
 
     // // y축 레이블 (클러스터 종류)
     // svg.append("text")
@@ -1520,7 +1580,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     //     .attr("y", 0 - margin.left / 1.5)
     //     .attr("x", 0 - (height / 2))
     //     .attr("text-anchor", "middle")
-    //     .style("font-size", "12px")
+    //     .style("font-size", "0.8em")
     //     .text("클러스터 종류");
 
     // // x축 레이블 (문장개수)
@@ -1528,13 +1588,26 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     //     .attr("x", width / 2)
     //     .attr("y", height + margin.bottom / 1.5)
     //     .attr("text-anchor", "middle")
-    //     .style("font-size", "12px")
+    //     .style("font-size", "0.8em")
     //     .text("포함된 문장 개수");
 
 
-    /*--bar graph ------------------------------*/
+    /*--타임라인 느낌주기 ------------------------------*/
 
+    // y축에 원과 날짜 텍스트 추가
+    svg.append("circle")
+        .attr("cx", 0)  // 원의 x 위치를 y축에서 왼쪽으로 조금 이동합니다.
+        .attr("cy", 0)  // 원의 y 위치를 y축 맨 위로 설정합니다.
+        .attr("r", 10)  // 원의 반지름을 설정합니다.
+        .attr("fill", "blue");  // 원의 색상을 파란색으로 설정합니다.
 
+    svg.append("text")
+        .attr("x", -10)  // 텍스트의 x 위치를 원의 중앙으로 설정합니다.
+        .attr("y", -30)  // 텍스트의 y 위치를 원 위로 조금 이동합니다.
+        .attr("text-anchor", "middle")  // 텍스트를 중앙 정렬합니다.
+        .style("font-size", "1em")  // 텍스트의 크기를 설정합니다.
+        .style("font-weight", "bold")  // 텍스트를
+        .text("2023.08.25");  // 텍스트 내용을 설정합니다.
 
     /*--bar graph 막대 그리기 ------------------------------*/
 
@@ -1544,7 +1617,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .attr("class", "bar")
         .attr("y", function (d) { return y(convertToRepresentative(d.Cluster)) + (y.bandwidth() - fixedBarHeight) / 2; })
         .attr("height", fixedBarHeight)
-        .attr("x", 0)
+        .attr("x", 3) //막대 오른쪽으로 조금 옮기기
         .attr("width", function (d) { return x(d.Count); })
         .attr("fill", (d) => {
             let rank = topClusters.indexOf(d.Cluster);  // 원의 순위를 찾습니다.
@@ -1581,7 +1654,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .append("xhtml:div")
         .style("display", "flex")
         .style("align-items", "center")  // 세로 중앙 정렬
-        .style("font-size", "12px")
+        .style("font-size", "0.8em")
         .style("word-wrap", "break-word")  // 단어 분리 기능 활용
         .style("text-align", "start")  // 왼쪽 정렬
         .style("width", "100%")
@@ -1617,13 +1690,17 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         .data(data)
         .enter().append("text")
         .attr("class", "ratioText")
-        .attr("x", function (d) { return x(d.Count) + 5; })
+        .attr("x", function (d) { return x(d.Count) + 5 + 5; })
         .attr("y", function (d) { return y(convertToRepresentative(d.Cluster)) + y.bandwidth() / 2; })
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "middle")
         .style("font-size", "12px")
+        .style("fill", "darkgray")  // 글자의 색깔을 "darkgray"로 설정
+        // .text(d => `(${d.Count}개, ${((d.Count / total) * 100).toFixed(2)}%)`);
         .text(d => `${((d.Count / total) * 100).toFixed(2)}%`);
 
+
+    return topClusters;
 }
 
 
@@ -1643,14 +1720,18 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
     // 상위 3개의 Cluster 값을 가져옴
     var topClusters = sortedData.slice(0, top).map(d => d.Cluster);
 
-    var circlesizeup = 1.2;
-
+    var circleSizeMax = 100;
     var rScale = d3.scaleSqrt()
         .domain([0, d3.max(data, d => d.Count)])
-        .range([0, (500 / 25) * 4 * circlesizeup]);  // 원의 크기 조절
+        .range([0, circleSizeMax]); // (500 / 25) * 4 * circlesizeup]);  // 원의 크기 조절
+
+
+    // 고정된 원 간의 간격
+    var circleSpacing = 50;
 
     // 원들 간의 전체 너비 계산
-    var totalWidthOfCircles = data.reduce((acc, d) => acc + 2 * rScale(d.Count), 0) + (data.length - 1) * 20; // 20은 원들 사이의 간격입니다.
+    var totalWidthOfCircles = data.reduce((acc, d) => acc + 2 * rScale(d.Count) + circleSpacing, 0) - circleSpacing; // 마지막 원 다음의 간격을 빼줍니다.
+
 
     var margin = { top: 120, right: 100, bottom: 80, left: 100 },
         initialWidth = 1280,
@@ -1687,7 +1768,12 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
         .data(data)
         .enter().append("circle")
         .attr("class", "circle")
-        .attr("cx", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        // .attr("cx", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        .attr("cx", d => {
+            let cx = currentXPosition + rScale(d.Count);
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return cx;
+        })
         .attr("cy", (height + margin.top + margin.bottom) / 2) // 원의 y 위치는 SVG의 중앙으로 설정합니다.
 
         //        .attr("cy", height / 2) // 원의 y 위치는 중앙으로 설정합니다.
@@ -1703,39 +1789,57 @@ function drawClusteredCirclesByRatio(top, rankingColors, colors, category, index
             }
         })
         .attr("stroke", "#000000")
-        .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
+        //        .attr("stroke-width", d => new_mark.length !== 0 && new_mark.includes(d.Cluster) ? 3 : 1);
+        .attr("stroke-width", d => {
+            let rank = topClusters.indexOf(d.Cluster);
+            if (rank !== -1) {
+                return 1.5;  // 원이 상위 클러스터에 속하는 경우 굵기를 4로 설정합니다.
+            } else if (new_mark.length !== 0 && new_mark.includes(d.Cluster)) {
+                return 3;  // 원이 new_mark 배열에 포함되어 있을 때 굵기를 3으로 설정합니다.
+            } else {
+                return 1;  // 위의 조건에 모두 해당되지 않는 경우 굵기를 1로 설정합니다.
+            }
+        });
 
-    // 원 아래에 핵심 내용을 그립니다.
+
+    currentXPosition = 0; // cx 계산을 위한 위치 초기화
+
+    // 원 아래에 % 정보
     svg.selectAll(".circleTextDescription")
         .data(data)
         .enter().append("text")
         .attr("class", "circleTextDescription")
-        .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
-        // .attr("y", d => (height / 2) + rScale(d.Count) + 15)  // 원의 중심보다 아래로 15px 이동
+        // .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)
+        .attr("x", d => {
+            let x = currentXPosition + rScale(d.Count);
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return x;
+        })
+
         .attr("y", d => (height + margin.top + margin.bottom) / 2 + rScale(d.Count) + 15)  // 원의 중심보다 원의 반지름과 추가로 15px 아래로 이동
 
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "hanging")  // 'hanging'으로 변경하여 tspan이 올바르게 정렬되도록 합니다.
-        .style("font-size", "12px")
+        .style("font-size", "0.8em")
         .each(function (d) {  // .each() 함수를 사용하여 각 데이터 항목에 대한 처리를 수행합니다.
             let percentage = (d.Count / totalSentences) * 100;
-
-            // d3.select(this).append("tspan")  // 첫 번째 행을 추가합니다.
-            //    .text(`핵심 내용${d.Cluster}`);
-
             d3.select(this).append("tspan")  // 두 번째 행 (비율)을 추가합니다.
                 .attr("fill", "darkgray")  // 진한 회색으로 텍스트 색상 변경
-                .attr("x", x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2)  // x 위치를 다시 설정합니다.
-             //   .attr("dy", "15")  // 이전 tspan 요소에서 15px 아래로 이동합니다.
                 .text(`${percentage.toFixed(2)}%`);
+            //                .text(d => `(${d.Count}개, ${percentage.toFixed(2)}%)`);
         });
 
-
+    currentXPosition = 0; // cx 계산을 위한 위치 초기화
     svg.selectAll(".circleTextContainer")
         .data(data)
         .enter().append("foreignObject")
         .attr("class", "circleTextContainer")
-        .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2 - (rScale(d.Count) * 2) / 2)
+        // .attr("x", d => x(convertToRepresentative(d.Cluster)) + x.bandwidth() / 2 - (rScale(d.Count) * 2) / 2)
+        .attr("x", d => {
+            let x = currentXPosition;
+            currentXPosition += 2 * rScale(d.Count) + circleSpacing;
+            return x;
+        })
         .attr("y", d => (height + margin.top + margin.bottom) / 2 - rScale(d.Count)) // 원의 중심에서 반지름만큼 위로 이동
 
         // .attr("y", d => (height / 2) - rScale(d.Count))
@@ -1852,12 +1956,6 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .style("font-size", "12px")
         .text("포함된 문장 개수");
 
-    // var colors = [
-    //     "#ffd1dc", "#d1ffd1", "#dcfffd", "#d1dcff", "#fdd1ff", "#ffdcdc",
-    //     "#dcdcff", "#dcdcdc", "#d1d1d1", "#fddcdc"
-    // ];
-    // colors = shuffle(colors);
-
     let description = data.map((d, index) => `클러스터 번호 ${index + 1}`);
 
     svg.selectAll(".circleText")
@@ -1868,7 +1966,7 @@ function drawClusterHorizontalCircles(colors, category, index, svgElement, data,
         .attr("y", d => y(convertToRepresentative(d.Cluster)) + y.bandwidth() / 2)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "middle")
-        .style("font-size", "12px")
+        .style("font-size", "1em")
         .each(function (d) {
             let node = d3.select(this);
             if (new_mark.length !== 0 && new_mark.includes(d.Cluster)) {

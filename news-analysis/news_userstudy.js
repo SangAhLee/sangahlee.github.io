@@ -1,3 +1,13 @@
+//--------------------------------------------------
+// 메인으로 돌아가기
+//--------------------------------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    var titleElement = document.getElementById('title-userstudy');
+    
+    titleElement.addEventListener('click', function() {
+        window.location.href = "newssnapshot-userstudy.html";
+    });
+});
 
 //--------------------------------------------------
 // 전역 변수

@@ -156,7 +156,7 @@ div.titlesection {
   align-items: center;
 }
 
-#title {
+#title, #title-userstudy {
   text-align: center;
   /* font-family: "Tangerine", cursive;
   font-size: 4em; */
@@ -170,6 +170,8 @@ div.titlesection {
   /* background: linear-gradient(90deg, var(--news-bg-color) 10%, var(--news-point-color) 90%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
+}
+
 }
 
 #dateSelect {
