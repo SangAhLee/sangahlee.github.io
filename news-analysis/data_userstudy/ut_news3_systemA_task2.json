@@ -1,0 +1,90 @@
+[
+    {
+        "title": "새만금 잼버리 참가자 50여명, 귀국 않고 난민 신청",
+        "count": 1201,
+        "sentcount": 276,
+        "new": 0,
+        "summary": "summary 생략합니다. (API 대체 예정)",
+        "timeline": "Jamboree",
+        "data": [
+            {
+                "Cluster": 1,
+                "Count": 53,
+                "Desc": "클러스터 설명 1"
+            },
+            {
+                "Cluster": 2,
+                "Count": 68,
+                "Desc": "클러스터 설명 2"
+            },
+            {
+                "Cluster": 3,
+                "Count": 16,
+                "Desc": "클러스터 설명 3"
+            },
+            {
+                "Cluster": 4,
+                "Count": 32,
+                "Desc": "클러스터 설명 4"
+            },
+            {
+                "Cluster": 5,
+                "Count": 29,
+                "Desc": "클러스터 설명 5"
+            },
+            {
+                "Cluster": 6,
+                "Count": 49,
+                "Desc": "클러스터 설명 6"
+            },
+            {
+                "Cluster": 7,
+                "Count": 22,
+                "Desc": "클러스터 설명 7"
+            },
+            {
+                "Cluster": 8,
+                "Count": 6,
+                "Desc": "클러스터 설명 8"
+            }
+        ],
+        "contents": [
+            {
+                "content": "난민 신청자 수는 수십여명 수준으로 구체적인 국적 등은 알려지지 않았다.",
+                "link": "https://n.news.naver.com/mnews/article/003/0012157663?sid=102"
+            },
+            {
+                "content": "난민으로 인정되진 않더라도 고문 등 비인도적 처우로 생명이나 신체의 자유를 침해당할 가능성이 입증되면 ‘인도적 체류 허가’를 받아 국내에 머물 수 있다.",
+                "link": "https://n.news.naver.com/mnews/article/020/0003526369?sid=102"
+            },
+            {
+                "content": "이들은 잼버리 참가를 위해 국내에 입국한 직후 난민 신청을 한 것으로 전해졌다.",
+                "link": "https://n.news.naver.com/mnews/article/022/0003866555?sid=102"
+            },
+            {
+                "content": "2023.8.2 부안 오장환 기자지난 8월 전북 새만금 일대에서 열린 세계스카우트잼버리 참가자 중 일부가 한국 정부에 난민 신청을 한 것으로 파악됐다.",
+                "link": "https://n.news.naver.com/mnews/article/081/0003401761?sid=102"
+            },
+            {
+                "content": "교통수단 이용하기, 물건 사기 등도 여기서 배울 수 있습니다.",
+                "link": "https://n.news.naver.com/mnews/article/437/0000363838?sid=102"
+            },
+            {
+                "content": "법무부는 난민심사를 거쳐 수용 여부를 결정할 예정이다.",
+                "link": "https://n.news.naver.com/mnews/article/015/0004904234?sid=102"
+            },
+            {
+                "content": "대부분 미성년자이지만 일부 성인도 포함된 것으로 알려졌다.",
+                "link": "https://n.news.naver.com/mnews/article/001/0014274379?sid=102"
+            },
+            {
+                "content": "난민법은 인종, 종교, 국적, 특정 사회집단의 구성원인 신분이나 정치적 견해를 이유로 박해받을 수 있다고 인정할 충분한 근거가 있는 공포로 인해 국적국의 보호를 받을 수 없거나 보호받기를 원하지 않는 외국인 등을 난민으로 정한다.",
+                "link": "https://n.news.naver.com/mnews/article/277/0005328889?sid=102"
+            },
+            {
+                "content": "사진 19일 법조계에 따르면 법무부 출입국외국인지원센터는 난민 인정 신청을 한 잼버리 참가자들을 상대로 지난 12일 난민 신청자들이 받는 교육을 진행했다.",
+                "link": "https://n.news.naver.com/mnews/article/277/0005328889?sid=102"
+            }
+        ]
+    }
+]

@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 title = "교권 침해 및 교사 파업";
                 filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
+                case '3':
+                    title = "2023 잼버리";
+                    filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
+                    break;
             default:
                 title = "샘플 뉴스";
         }
@@ -118,11 +122,103 @@ function getTimeseriesClusterNames_UserStudy(news, system, task) {
                 "2023.08.25: 조희연 서울시교육감, 9월4일 '공교육 멈춤의 날' 지원 약속"
             ];
             break;
+        case '3':
+                clusterNames = [    
+                    "2023.08.03: 잼버리 개영식에서 참가자 83명이 온열질환으로 인해 쓰러짐.",   
+                    "2023.08.04: 세계잼버 대회에서 온열질환 다수 발생, 부족한 시설 문제 제기.",  
+                    "2023.08.04: 한덕수 국무총리가 2023 새만금 세계잼버 관련 정부입장 발표. 폭염 대책 등 준비 소홀 지탄 받음.",   
+                    "2023.08.05: 영국 대표단, 세계 스카우트 잼버리 후 서울로 출발.",  
+                    "2023.08.07: 잼버리 예산 사용 문제와 야영장 시설 부족 문제 제기.",   
+                    "2023.08.09: 성일종 의원, BTS 멤버들의 잼버리 콘서트 참여에 대한 국방부 조치 요구.",    
+                    "2023.08.11: 세계스카우트 잼버리 K-팝 공연 앞두고 각국 대원들 기다림.",  
+                    "2023.08.11: 서울월드컵경기장 교통 혼잡도 대비, 교통경찰 400명 배치.", 
+                    "2023.08.25: 김현숙 여성가족부 장관, 여가위 전체회의에서 불참.",    
+                    "2023.08.29: 새만금 개발 관련 SOC 예산 삭감, 세계스카우트 잼버리 파행 후폭풍으로 드러남.",   
+                    "2023.10.20: 세계스카우트잼버리 참가자 수십명, 대회 후 난민 신청.",   
+                //    "2023.08.30: 김관영 전북도지사, 세계스카우트잼버리 파행 관련 입장 발표."
+                ];
+                break;
         default:
             clusterNames = defaultNames;
             break;
     }
     return clusterNames;
+}
+
+
+function getTimeseriesClusterLinks_UserStudy(news, system, task) {
+
+    if (task == 1) return null;
+
+    let clusterLinks = null;
+
+    switch (news) {
+        case '1': //후쿠시마
+            clusterLinks = [
+                'https://n.news.naver.com/mnews/article/001/0014141518?sid=104',
+                'https://n.news.naver.com/mnews/article/001/0014145670?sid=104',
+                'https://n.news.naver.com/mnews/article/123/0002313762?sid=104',
+                'https://n.news.naver.com/mnews/article/029/0002820643?sid=104',
+                'https://n.news.naver.com/mnews/article/016/0002186687?sid=104',
+                'https://n.news.naver.com/mnews/article/025/0003302894?sid=104"',
+                'https://n.news.naver.com/mnews/article/079/0003804965?sid=104',
+                'https://n.news.naver.com/mnews/article/030/0003128619?sid=104',
+                'https://n.news.naver.com/mnews/article/018/0005558072?sid=104',
+                'https://n.news.naver.com/mnews/article/022/0003848714?sid=102',
+                'https://n.news.naver.com/mnews/article/008/0004930059?sid=104',
+                'https://n.news.naver.com/mnews/article/025/0003303328?sid=104',
+                'https://n.news.naver.com/mnews/article/277/0005308505?sid=104',
+                'https://n.news.naver.com/mnews/article/417/0000952472?sid=104'                
+            ];
+            // clusterNames = [ //뉴스기사제목
+            //     '2023.08.21: 오염수 방류 미루지 않겠다는 기시다, 오늘 어민 단체장 면담',
+            //     '2023.08.22: 일본 정부 "오염수 방류 소문피해 한국 어민은 지원 대상 아냐"',
+            //     '2023.08.22: 정부 "日 오염수 방류 계획, 조금이라도 다르면 즉각 중단 요청"',
+            //     '2023.08.22: IAEA "오염수 `안전기준 부합` 현장 평가할 것"…`일정표` 속도 내는 일본',
+            //     '2023.08.22: 정부 "日오염수 각료회의 안건상정, 21일 연락받아…오늘 오후 입장 발표"',
+            //     '2023.08.24: 스가 요시히데 당시 결정 후 2년 4개월, 후쿠시마 원전 사고 12년 경과',
+            //     '2023.08.24: 日 오염수 방류에…中 "日수산물 수입 중단" 대만 "영향 미미"',
+            //     '2023.08.24: 日 도쿄전력 “오염수 방류, 오늘 오후 1시 개시” 공식 확인',
+            //     '2023.08.24: IAEA "日오염수 방류 확인…희석수 삼중수소 기준치 밑돌아"',
+            //     '2023.08.25: 교육부 “학교 급식, 일본산 수산물 사용 현황 없어…철저히 관리할 것”',
+            //     '2023.08.26: 美국무부, 日오염수 "안전하고 과학적" 방류 공식 지지',
+            //     '2023.08.27: BBC 특파원 "日 수산물 걱정된다? 세계 모든 수산물 못 먹어"',
+            //     '2023.09.02: "中, 日수산물 수입금지 WTO 통보"… 日, 자국 수산업자 긴급 지원',
+            //     '2023.10.04: 日 오염수 경제피해 \'907억원\' 추산… 내일부터 2차 \'7800t\' 방류'
+            // ];
+            break;
+        case '2':
+            clusterLinks = [
+                'https://n.news.naver.com/mnews/article/421/0006996588?sid=102',
+                'https://n.news.naver.com/mnews/article/421/0006998439?sid=102',
+                'https://n.news.naver.com/mnews/article/008/0004928694?sid=102',
+                'https://n.news.naver.com/mnews/article/088/0000831996?sid=102',
+                'https://n.news.naver.com/mnews/article/088/0000831996?sid=102',
+                'https://n.news.naver.com/mnews/article/022/0003848363?sid=102',
+                'https://n.news.naver.com/mnews/article/018/0005558943?sid=102', 
+            ];
+            break;
+        case '3':
+            clusterLinks = [
+                'https://n.news.naver.com/mnews/article/421/0006968608?sid=102', //3
+                'https://n.news.naver.com/mnews/article/011/0004222677?sid=100', // 4
+                'https://n.news.naver.com/mnews/article/025/0003298698?sid=100', // 4
+                'https://n.news.naver.com/mnews/article/009/0005168636?sid=102', // 5
+                'https://n.news.naver.com/mnews/article/032/0003241071?sid=100', // 7
+                'https://n.news.naver.com/mnews/article/023/0003780553?sid=100', // 9
+                'https://n.news.naver.com/mnews/article/421/0006986426?sid=102', // 11
+                'https://n.news.naver.com/mnews/article/052/0001922152?sid=102', // 11
+                'https://n.news.naver.com/mnews/article/022/0003848827?sid=100', // 25
+                'https://n.news.naver.com/mnews/article/021/0002590887?sid=102', // 29
+                'https://n.news.naver.com/mnews/article/014/0005088747?sid=102', // 10/20
+            //    'https://n.news.naver.com/mnews/article/001/0014160813?sid=102' //30
+            ];
+            break;
+        default:
+            clusterLinks = defaultNames;
+            break;
+    }
+    return clusterLinks;
 }
 
 //--------------------------------------------------
@@ -530,6 +626,54 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         timelineChart1.style.display = 'block';
                         btTab01_timeline.classList.add('active');  //default state
                         // btTab01_timeline.disabled = true; // 테스트용으로 잠시 막음. (작동안되서)
+
+                        // *********************************************************** 
+                        // * 표 추가
+                        // *********************************************************** 
+
+
+                        const clusterNames = getTimeseriesClusterNames_UserStudy(selectedNews,selectedSystem, selectedTask);
+                        const clusterLinks = getTimeseriesClusterLinks_UserStudy(selectedNews,selectedSystem, selectedTask);
+
+
+                                // 테이블 생성
+        const table = document.createElement('table');
+        
+        // 테이블 헤더 생성
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        const dateHeader = document.createElement('th');
+        dateHeader.textContent = '타임라인 항목';
+        headerRow.appendChild(dateHeader);
+        const linkHeader = document.createElement('th');
+        linkHeader.textContent = '뉴스 원문';
+        headerRow.appendChild(linkHeader);
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+                        const tableBody = document.createElement('tbody');
+
+                        for(let i = 0; i < clusterNames.length; i++) {
+                            const row = document.createElement('tr');
+                
+                            const nameCell = document.createElement('td');
+                            nameCell.textContent = clusterNames[i];
+                            row.appendChild(nameCell);
+                
+                            const linkCell = document.createElement('td');
+                            const linkElement = document.createElement('a');
+                            linkElement.href = clusterLinks[i];
+                            linkElement.target = "_blank"; // 새 탭에서 링크 열기
+                            linkElement.textContent = "Link";
+                            linkCell.appendChild(linkElement);
+                            row.appendChild(linkCell);
+                
+                            tableBody.appendChild(row);
+                        }
+                        table.appendChild(tableBody);
+
+                        timelineDiv.appendChild(table);
+
                     }
                 }
 

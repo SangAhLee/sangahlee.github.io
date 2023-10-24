@@ -463,7 +463,8 @@ async function visualizeOverlappingAreaData_UserStudy(svgElement, data, filepath
         .attr("ry", 5);
 
     const legend = svg.selectAll(".legend")
-        .data(custom_colors.slice(0, clusterCount))
+    .data(clusterNames)
+        // .data(custom_colors.slice(0, clusterCount))
         .enter().append("g")
         .attr("class", "legend")
         .style("cursor", "pointer")
@@ -494,11 +495,15 @@ async function visualizeOverlappingAreaData_UserStudy(svgElement, data, filepath
         .attr("stroke-width", 0.5);
 
     // 마우스 이벤트는 그대로 유지
-    legend.on("mouseover", function (event, d) {
-        console.log(`clicked => ${d}`)  // d는 색상 값이 될 것입니다.
+    // legend.on("mouseover", function (event, d) {
+    //     console.log(`clicked => ${d}`)  // d는 색상 값이 될 것입니다.
+            // // 데이터 배열에서 해당 데이터의 인덱스 찾기
+            // const idx = custom_colors.indexOf(d);
+    legend.on("mouseover", function (event, clusterName) {
+        // 클러스터 이름에 따른 인덱스 찾기
+        const idx = clusterNames.indexOf(clusterName);
 
-        // 데이터 배열에서 해당 데이터의 인덱스 찾기
-        const idx = custom_colors.indexOf(d);
+
         console.log(`clicked index => ${idx}`)
 
         // 모든 area를 흐리게 만듭니다.
