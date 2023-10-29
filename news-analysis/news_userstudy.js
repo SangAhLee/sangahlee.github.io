@@ -1,10 +1,10 @@
 //--------------------------------------------------
 // 메인으로 돌아가기
 //--------------------------------------------------
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var titleElement = document.getElementById('title-userstudy');
-    
-    titleElement.addEventListener('click', function() {
+
+    titleElement.addEventListener('click', function () {
         window.location.href = "newssnapshot-userstudy.html";
     });
 });
@@ -39,18 +39,19 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (selectedNews) {
             case '1':
                 title = "2023.10.13 의대정원 확대 관련 뉴스";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
             case '2':
                 title = "2023.09.22 심야 집회 금지 방안";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`;
                 break;
             case '3':
-                    title = "2023.10.06 축협 조합장 직원 폭행";
-                    filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
-                    break;
+                title = "2023.10.06 축협 조합장 직원 폭행";
+                break;
+            case '4':
+                title = '202.08.30 불법무기류 자진시고';
+                break;
             default:
                 title = "샘플 뉴스";
+                break;
         }
     }
     else if (selectedTask === TASK_TIMESERIES) {
@@ -58,21 +59,23 @@ document.addEventListener('DOMContentLoaded', function () {
         switch (selectedNews) {
             case '1':
                 title = "후쿠시마 오염수 방류";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
             case '2':
                 title = "교권 침해 및 교사 파업";
-                filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
                 break;
-                case '3':
-                    title = "2023 잼버리";
-                    filename = `ut_news${selectedNews}_system${selectedSystem}_task${selectedTask}`; 
-                    break;
+            case '3':
+                title = "2023 잼버리";
+                break;
+            case '4':
+                title = '홍범도 장군 흉상 철거';
+                break;
             default:
                 title = "샘플 뉴스";
+                break;
         }
     }
 
+    filename = `ut_task${selectedTask}_news${selectedNews}`;
     document.querySelector('#selectedSample').textContent = title;
 
     if (selectedSystem === SYSTEM_OURS && selectedTask === TASK_TIMESERIES) {
@@ -123,21 +126,35 @@ function getTimeseriesClusterNames_UserStudy(news, system, task) {
             ];
             break;
         case '3':
-                clusterNames = [    
-                    "2023.08.03: 잼버리 개영식에서 참가자 83명이 온열질환으로 인해 쓰러짐.",   
-                    "2023.08.04: 세계잼버 대회에서 온열질환 다수 발생, 부족한 시설 문제 제기.",  
-                    "2023.08.04: 한덕수 국무총리가 2023 새만금 세계잼버 관련 정부입장 발표. 폭염 대책 등 준비 소홀 지탄 받음.",   
-                    "2023.08.05: 영국 대표단, 세계 스카우트 잼버리 후 서울로 출발.",  
-                    "2023.08.07: 잼버리 예산 사용 문제와 야영장 시설 부족 문제 제기.",   
-                    "2023.08.09: 성일종 의원, BTS 멤버들의 잼버리 콘서트 참여에 대한 국방부 조치 요구.",    
-                    "2023.08.11: 세계스카우트 잼버리 K-팝 공연 앞두고 각국 대원들 기다림.",  
-                    "2023.08.11: 서울월드컵경기장 교통 혼잡도 대비, 교통경찰 400명 배치.", 
-                    "2023.08.25: 김현숙 여성가족부 장관, 여가위 전체회의에서 불참.",    
-                    "2023.08.29: 새만금 개발 관련 SOC 예산 삭감, 세계스카우트 잼버리 파행 후폭풍으로 드러남.",   
-                    "2023.10.20: 세계스카우트잼버리 참가자 수십명, 대회 후 난민 신청.",   
+            clusterNames = [
+                "2023.08.03: 잼버리 개영식에서 참가자 83명이 온열질환으로 인해 쓰러짐.",
+                "2023.08.04: 세계잼버 대회에서 온열질환 다수 발생, 부족한 시설 문제 제기.",
+                "2023.08.04: 한덕수 국무총리가 2023 새만금 세계잼버 관련 정부입장 발표. 폭염 대책 등 준비 소홀 지탄 받음.",
+                "2023.08.05: 영국 대표단, 세계 스카우트 잼버리 후 서울로 출발.",
+                "2023.08.07: 잼버리 예산 사용 문제와 야영장 시설 부족 문제 제기.",
+                "2023.08.09: 성일종 의원, BTS 멤버들의 잼버리 콘서트 참여에 대한 국방부 조치 요구.",
+                "2023.08.11: 세계스카우트 잼버리 K-팝 공연 앞두고 각국 대원들 기다림.",
+                "2023.08.11: 서울월드컵경기장 교통 혼잡도 대비, 교통경찰 400명 배치.",
+                "2023.08.25: 김현숙 여성가족부 장관, 여가위 전체회의에서 불참.",
+                "2023.08.29: 새만금 개발 관련 SOC 예산 삭감, 세계스카우트 잼버리 파행 후폭풍으로 드러남.",
+                "2023.10.20: 세계스카우트잼버리 참가자 수십명, 대회 후 난민 신청.",
                 //    "2023.08.30: 김관영 전북도지사, 세계스카우트잼버리 파행 관련 입장 발표."
-                ];
-                break;
+            ];
+            break;
+        case '4':
+            clusterNames = [
+                "2023.08.25 육군사관학교, 홍범도 장군 흉상 철거 및 백선엽 장군 흉상 설치 검토", //9  -> 0
+                "2023.08.27 홍범도·지청천·이회영·이범석·김좌진 등 독립운동가 5분의 흉상 철거·이전 논란 비판", //5  -> 1
+                "2023.08.27 독립전쟁 영웅 5인 흉상 이전, 철거·제거' 아닌 '재배치·이전' 표현 주장", //1  -> 2
+                "2023.08.27 대통령실은 흉상 이전 관련 국방부와 육사가 결정할 사안이라는 입장", //2  -> 3
+                "2023.08.28 홍범도 장군 흉상, 지난 2018년 3·1절 제99주년 기념으로 5.56㎜ 탄피 300kg로 제작", //7  -> 4
+                "2023.08.28 국방부, 홍범도 장군의 소련 공산당 활동과 봉오동·청산리전투 참가 의혹 제기", //8  -> 5
+                "2023.08.30 유인태, 육사 흉상 철거 논란에 대해 “멍청한 짓” 비판", //4  -> 6
+                "2023.09.01 방위사업청 제공한덕수 국무총리, 홍범도함 이름 변경 언급 후 국방부 부인", // 0  -> 7 
+                "2023.09.04 국방부, \'홍범도함\' 개명 필요성에 대해 검토 중이라 밝혀", //3  -> 8
+                "2023.09.05 대통령실, 문재인 전 대통령 홍범도 장군 흉상 비판에 반응", //6  -> 9
+            ]
+            break;
         default:
             clusterNames = defaultNames;
             break;
@@ -168,24 +185,8 @@ function getTimeseriesClusterLinks_UserStudy(news, system, task) {
                 'https://n.news.naver.com/mnews/article/008/0004930059?sid=104',
                 'https://n.news.naver.com/mnews/article/025/0003303328?sid=104',
                 'https://n.news.naver.com/mnews/article/277/0005308505?sid=104',
-                'https://n.news.naver.com/mnews/article/417/0000952472?sid=104'                
+                'https://n.news.naver.com/mnews/article/417/0000952472?sid=104'
             ];
-            // clusterNames = [ //뉴스기사제목
-            //     '2023.08.21: 오염수 방류 미루지 않겠다는 기시다, 오늘 어민 단체장 면담',
-            //     '2023.08.22: 일본 정부 "오염수 방류 소문피해 한국 어민은 지원 대상 아냐"',
-            //     '2023.08.22: 정부 "日 오염수 방류 계획, 조금이라도 다르면 즉각 중단 요청"',
-            //     '2023.08.22: IAEA "오염수 `안전기준 부합` 현장 평가할 것"…`일정표` 속도 내는 일본',
-            //     '2023.08.22: 정부 "日오염수 각료회의 안건상정, 21일 연락받아…오늘 오후 입장 발표"',
-            //     '2023.08.24: 스가 요시히데 당시 결정 후 2년 4개월, 후쿠시마 원전 사고 12년 경과',
-            //     '2023.08.24: 日 오염수 방류에…中 "日수산물 수입 중단" 대만 "영향 미미"',
-            //     '2023.08.24: 日 도쿄전력 “오염수 방류, 오늘 오후 1시 개시” 공식 확인',
-            //     '2023.08.24: IAEA "日오염수 방류 확인…희석수 삼중수소 기준치 밑돌아"',
-            //     '2023.08.25: 교육부 “학교 급식, 일본산 수산물 사용 현황 없어…철저히 관리할 것”',
-            //     '2023.08.26: 美국무부, 日오염수 "안전하고 과학적" 방류 공식 지지',
-            //     '2023.08.27: BBC 특파원 "日 수산물 걱정된다? 세계 모든 수산물 못 먹어"',
-            //     '2023.09.02: "中, 日수산물 수입금지 WTO 통보"… 日, 자국 수산업자 긴급 지원',
-            //     '2023.10.04: 日 오염수 경제피해 \'907억원\' 추산… 내일부터 2차 \'7800t\' 방류'
-            // ];
             break;
         case '2':
             clusterLinks = [
@@ -195,7 +196,7 @@ function getTimeseriesClusterLinks_UserStudy(news, system, task) {
                 'https://n.news.naver.com/mnews/article/088/0000831996?sid=102',
                 'https://n.news.naver.com/mnews/article/088/0000831996?sid=102',
                 'https://n.news.naver.com/mnews/article/022/0003848363?sid=102',
-                'https://n.news.naver.com/mnews/article/018/0005558943?sid=102', 
+                'https://n.news.naver.com/mnews/article/018/0005558943?sid=102',
             ];
             break;
         case '3':
@@ -211,8 +212,22 @@ function getTimeseriesClusterLinks_UserStudy(news, system, task) {
                 'https://n.news.naver.com/mnews/article/022/0003848827?sid=100', // 25
                 'https://n.news.naver.com/mnews/article/021/0002590887?sid=102', // 29
                 'https://n.news.naver.com/mnews/article/014/0005088747?sid=102', // 10/20
-            //    'https://n.news.naver.com/mnews/article/001/0014160813?sid=102' //30
             ];
+            break;
+        case '4':
+            clusterLinks = [
+
+                'https://n.news.naver.com/mnews/article/028/0002653806?sid=100', //9
+                'https://n.news.naver.com/mnews/article/366/0000927234?sid=100', //5
+                'https://n.news.naver.com/mnews/article/087/0000991214?sid=100', //1
+                'https://n.news.naver.com/mnews/article/001/0014154588?sid=100', //2
+                'https://n.news.naver.com/mnews/article/421/0007014759?sid=100', //7 
+                'https://n.news.naver.com/mnews/article/028/0002654145?sid=100', //8 
+                'https://n.news.naver.com/mnews/article/032/0003245862?sid=100', //4
+                'https://n.news.naver.com/mnews/article/028/0002654772?sid=100', //0 
+                'https://n.news.naver.com/mnews/article/469/0000758725?sid=100', //3
+                'https://n.news.naver.com/mnews/article/053/0000038315?sid=100',//6
+            ]
             break;
         default:
             clusterLinks = defaultNames;
@@ -439,7 +454,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         let btToggle_info_timeline = document.createElement('button');
                         let btToggle_text_timeline = '타임라인은 어떻게 도출되었나요?'
                         btToggle_info_timeline.innerHTML = ' ▼ ' + btToggle_text_timeline;
-                        btToggle_info_timeline.className = 'additional_info_button'; 
+                        btToggle_info_timeline.className = 'additional_info_button';
 
 
                         let timeline_desc = ["지속적인 사건의 경우, 시간이 지남에 따라 관련 이슈를 다루는 뉴스 기사가 주로 무엇을 다루고 있는지 분석합니다.", "이는 뉴스 기사에서 시간이 지남에 따라 다루어진 내용을 시각화한 것이며 사건의 연대순 순서와 다를 수 있습니다."];
@@ -486,7 +501,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // }
 
 
-                        
+
                         // let timeline_ulElement = document.createElement('ul');
                         // timeline_ulElement.className = 'guidetext';
 
@@ -632,34 +647,34 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                         // *********************************************************** 
 
 
-                        const clusterNames = getTimeseriesClusterNames_UserStudy(selectedNews,selectedSystem, selectedTask);
-                        const clusterLinks = getTimeseriesClusterLinks_UserStudy(selectedNews,selectedSystem, selectedTask);
+                        const clusterNames = getTimeseriesClusterNames_UserStudy(selectedNews, selectedSystem, selectedTask);
+                        const clusterLinks = getTimeseriesClusterLinks_UserStudy(selectedNews, selectedSystem, selectedTask);
 
 
-                                // 테이블 생성
-        const table = document.createElement('table');
-        
-        // 테이블 헤더 생성
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        const dateHeader = document.createElement('th');
-        dateHeader.textContent = '타임라인 항목';
-        headerRow.appendChild(dateHeader);
-        const linkHeader = document.createElement('th');
-        linkHeader.textContent = '뉴스 원문';
-        headerRow.appendChild(linkHeader);
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
+                        // 테이블 생성
+                        const table = document.createElement('table');
+
+                        // 테이블 헤더 생성
+                        const thead = document.createElement('thead');
+                        const headerRow = document.createElement('tr');
+                        const dateHeader = document.createElement('th');
+                        dateHeader.textContent = '타임라인 항목';
+                        headerRow.appendChild(dateHeader);
+                        const linkHeader = document.createElement('th');
+                        linkHeader.textContent = '뉴스 원문';
+                        headerRow.appendChild(linkHeader);
+                        thead.appendChild(headerRow);
+                        table.appendChild(thead);
 
                         const tableBody = document.createElement('tbody');
 
-                        for(let i = 0; i < clusterNames.length; i++) {
+                        for (let i = 0; i < clusterNames.length; i++) {
                             const row = document.createElement('tr');
-                
+
                             const nameCell = document.createElement('td');
                             nameCell.textContent = clusterNames[i];
                             row.appendChild(nameCell);
-                
+
                             const linkCell = document.createElement('td');
                             const linkElement = document.createElement('a');
                             linkElement.href = clusterLinks[i];
@@ -667,7 +682,7 @@ function load_cluster_info_by_category_UserStudy(selectedNews, selectedSystem, s
                             linkElement.textContent = "Link";
                             linkCell.appendChild(linkElement);
                             row.appendChild(linkCell);
-                
+
                             tableBody.appendChild(row);
                         }
                         table.appendChild(tableBody);
@@ -1590,7 +1605,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
     //     .text("포함된 문장 개수");
 
 
-        /*--타임라인 느낌주기 ------------------------------*/
+    /*--타임라인 느낌주기 ------------------------------*/
 
     // y축에 원과 날짜 텍스트 추가
     svg.append("circle")
@@ -1610,33 +1625,33 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
 
 
 
-//             // 추가: 파란색 동그라미를 중심으로 가로 축 그리기
-//     svg.append("line")
-//     .attr("x1", -200) // 축의 시작점 (파란 원보다 왼쪽으로 200px)
-//     .attr("y1", 0)
-//     .attr("x2", 200) // 축의 끝점 (파란 원보다 오른쪽으로 200px)
-//     .attr("y2", 0)
-//     .attr("stroke", "black")
-//     .attr("stroke-width", 2);
+    //             // 추가: 파란색 동그라미를 중심으로 가로 축 그리기
+    //     svg.append("line")
+    //     .attr("x1", -200) // 축의 시작점 (파란 원보다 왼쪽으로 200px)
+    //     .attr("y1", 0)
+    //     .attr("x2", 200) // 축의 끝점 (파란 원보다 오른쪽으로 200px)
+    //     .attr("y2", 0)
+    //     .attr("stroke", "black")
+    //     .attr("stroke-width", 2);
 
-// // 추가: 파란색 동그라미의 왼쪽에 이전 날짜 추가
-// svg.append("text")
-//     .attr("x", -150) // 원보다 왼쪽으로 150px
-//     .attr("y", -30)  // 원 위로 조금 이동
-//     .attr("text-anchor", "middle")
-//     .style("font-size", "1em")
-//     .text("2023.08.24");  // 이전 날짜
+    // // 추가: 파란색 동그라미의 왼쪽에 이전 날짜 추가
+    // svg.append("text")
+    //     .attr("x", -150) // 원보다 왼쪽으로 150px
+    //     .attr("y", -30)  // 원 위로 조금 이동
+    //     .attr("text-anchor", "middle")
+    //     .style("font-size", "1em")
+    //     .text("2023.08.24");  // 이전 날짜
 
-// // 추가: 파란색 동그라미의 오른쪽에 다음 날짜 추가
-// svg.append("text")
-//     .attr("x", 150)  // 원보다 오른쪽으로 150px
-//     .attr("y", -30)  // 원 위로 조금 이동
-//     .attr("text-anchor", "middle")
-//     .style("font-size", "1em")
-//     .text("2023.08.26");  // 다음 날짜
+    // // 추가: 파란색 동그라미의 오른쪽에 다음 날짜 추가
+    // svg.append("text")
+    //     .attr("x", 150)  // 원보다 오른쪽으로 150px
+    //     .attr("y", -30)  // 원 위로 조금 이동
+    //     .attr("text-anchor", "middle")
+    //     .style("font-size", "1em")
+    //     .text("2023.08.26");  // 다음 날짜
 
 
-    
+
 
     /*--bar graph 막대 그리기 ------------------------------*/
 
@@ -1723,7 +1738,7 @@ function drawClusterHorizontalBarChart(top, rankingColors, colors, category, ind
         // .text(d => `(${d.Count}개, ${((d.Count / total) * 100).toFixed(2)}%)`);
         .text(d => `${((d.Count / total) * 100).toFixed(2)}%`);
 
-    
+
     return topClusters;
 }
 
