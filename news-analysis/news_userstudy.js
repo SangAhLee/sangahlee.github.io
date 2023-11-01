@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title = "2023.10.06 축협 조합장 직원 폭행";
                 break;
             case '4':
-                title = '202.08.30 불법무기류 자진시고';
+                title = '2023.08.30 불법무기류 자진신고';
                 break;
             default:
                 title = "샘플 뉴스";
