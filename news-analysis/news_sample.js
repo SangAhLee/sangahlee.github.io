@@ -440,7 +440,7 @@ function load_cluster_info_by_category(filename) {
                     // * TIMELINE > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab01_timeline = document.createElement('button');
-                    btTab01_timeline.innerHTML = '타임라인 보기';
+                    btTab01_timeline.innerHTML = 'Simple Timeline';
                     btTab01_timeline.className = 'tab_info_button'; //'toggle_info_button';
                     timelineChartDiv.append(btTab01_timeline);
 
@@ -456,7 +456,7 @@ function load_cluster_info_by_category(filename) {
                     // * TIMELINE > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab02_timeline = document.createElement('button');
-                    btTab02_timeline.innerHTML = '가중치 함께 보기';
+                    btTab02_timeline.innerHTML = 'Dynamic Timeline';
                     btTab02_timeline.className = 'tab_info_button'; //'toggle_info_button';
                     timelineChartDiv.append(btTab02_timeline);
 
@@ -630,7 +630,7 @@ function load_cluster_info_by_category(filename) {
                 // * (KEY)CONTENT > Chart > Type1 Button
                 // *********************************************************** 
                 let btTab01 = document.createElement('button');
-                btTab01.innerHTML = '타임라인 세로 보기';
+                btTab01.innerHTML = 'Vertical Flow';
                 btTab01.className = 'tab_info_button'; //'toggle_info_button';
                 chartDiv.append(btTab01);
 
@@ -646,7 +646,7 @@ function load_cluster_info_by_category(filename) {
                 // * (KEY)CONTENT > Chart > Type2 Button
                 // *********************************************************** 
                 let btTab02 = document.createElement('button');
-                btTab02.innerHTML = '도형으로 보기';
+                btTab02.innerHTML = 'Circles';
                 btTab02.className = 'tab_info_button'; //'toggle_info_button';
                 chartDiv.append(btTab02);
 
