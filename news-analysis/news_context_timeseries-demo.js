@@ -162,10 +162,13 @@ function getClusterNames(clusterCount, path) {
                     break;
                 case 'sample2':
                     clusterNames = [
-                        "Sample 2 - 아동학대 신고에 대한 교사 직위해제 전문가 도입 검토",
-                        "Sample 2 - 개정 및 교사 죽음 진상 규명 촉구 집회",
-                        "Sample 2 - 발표",
-                        "Sample 2 - 원응대 강화"
+                        "2023.08.18: 서울시교육청, 아동학대 신고에 대한 교사 직위해제 전문가 도입 검토",
+                        "2023.08.19: 아동학대관련법 개정 및 교사 죽음 진상 규명 촉구 집회",
+                        "2023.08.23: 학생인권조례 자율적 개정 지원 및 예시안 발표",
+                        "2023.08.23: 교육지원청 '통합민원팀' 설치 및 교사 민원응대 강화",
+                        "2023.08.23: 교육활동 침해 학생에 대한 처분 강화 계획",
+                        "2023.08.24: 교육부, 9월4일 재량휴업일 지정에 부정적 입장",
+                        "2023.08.25: 조희연 서울시교육감, 9월4일 '공교육 멈춤의 날' 지원 약속"
                     ];
                     break;
                 case 'sample3':
@@ -275,9 +278,15 @@ function getClusterNames(clusterCount, path) {
 
 async function visualizeTimelineData(svgElement, data, filepath) {
 
-    const margin = { top: 20, right: 150, bottom: 80, left: 50 };
-    const width = 1200 - margin.left - margin.right;
+
+    const clusterCount = Object.keys(data[0]).length - 1; // -1 for the date key
+    const clusterNames = await getClusterNames(clusterCount, filepath);
+
+    const margin = { top: 50, right: 300, bottom: 80, left: 50 };
+    const width = 1200 - margin.left - margin.right + (clusterCount * 30);
     const height = 500 - margin.top - margin.bottom;
+
+    const PositionX = 40; // height / 4;
 
     const svg = d3.select(svgElement)
         .attr("width", width + margin.left + margin.right)
@@ -286,6 +295,7 @@ async function visualizeTimelineData(svgElement, data, filepath) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const parseDate = d3.timeParse("%Y-%m-%d");
+    const parseClusterDate = d3.timeParse("%Y.%m.%d");
 
 
     data.forEach(d => {
@@ -296,11 +306,8 @@ async function visualizeTimelineData(svgElement, data, filepath) {
     });
 
 
-    const clusterCount = Object.keys(data[0]).length - 1; // -1 for the date key
-    const clusterNames = await getClusterNames(clusterCount, filepath);
-
     const x = d3.scaleTime().range([0, width]);
-    // x.domain(d3.extent(data, d => d.date));
+
     const lastDate = d3.max(data, d => d.date);
     const adjustedLastDate = new Date(lastDate);
     adjustedLastDate.setDate(lastDate.getDate() + 5);  // 마지막 날짜로부터 5일 후로 범위를 확장
@@ -308,67 +315,82 @@ async function visualizeTimelineData(svgElement, data, filepath) {
     x.domain([d3.min(data, d => d.date), adjustedLastDate]);
 
 
-    const xAxis = d3.axisBottom(x)
-        .ticks(d3.timeDay, 1)
-        .tickFormat(d3.timeFormat("%Y-%m-%d"));
+    // SVG의 왼쪽 상단에 '2023'이라고 표시
+    svg.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .attr("dy", "-0.5em")
+        .style("font-size", "1.1em")
+        .style("font-weight", "bold")
+        .text("2023년");
 
-    svg.append("g")
-        .attr("transform", `translate(0,${height / 2})`)
-        .call(xAxis)
-        .selectAll("text")
-        .style("text-anchor", "middle")
-        .attr("dx", "0em")
-        .attr("dy", "-1.5em");
 
-    // Extract cluster with the highest value for each date
-    const getDominantCluster = (d) => {
-        let maxVal = -Infinity;
-        let maxKey = "";
-        Object.keys(d).forEach(key => {
-            if (key !== "date" && d[key] > maxVal) {
-                maxVal = d[key];
-                maxKey = key;
-            }
-        });
-        return maxKey;
+
+    // 날짜를 추출하는 함수
+    const extractDateFromClusterName = (name) => {
+        const match = name.match(/^\d{4}\.\d{2}\.\d{2}/);
+        return match ? match[0] : null;
     };
 
-    // Add vertical lines for each event
-    svg.selectAll(".event-line")
-        .data(data)
-        .enter()
-        .append("line")
-        .attr("class", "event-line")
-        .attr("x1", d => x(d.date))
-        .attr("y1", height / 2)  // 시작 지점을 가로선의 위치로 설정
-        .attr("x2", d => x(d.date))
-        .attr("y2", height)
-        .style("stroke", "#aaa")
-        .style("stroke-dasharray", "2,2");
-
-    // Add circles for each event
-    svg.selectAll(".event-dot")
-        .data(data)
-        .enter()
-        .append("circle")
-        .attr("class", "event-dot")
-        .attr("cx", d => x(d.date))
-        .attr("cy", height / 2)
-        .attr("r", 5)
-        .style("fill", "blue");
-
-
-    let lastY = height / 2 + 15; // 초기 y 위치
+    const InitialPositionY = PositionX + 15; // 초기 y 위치
+    let lastY = InitialPositionY; // 초기 y 위치
     const gapBetweenBoxes = 25; // 박스 간 거리
 
-    // Text first
-    const texts = svg.selectAll(".event-text")
-        .data(data)
+    const textsData = data.flatMap(d => {
+        const relatedTexts = clusterNames.filter(text => {
+            const extractedDate = extractDateFromClusterName(text);
+            return d.date.getTime() === parseClusterDate(extractedDate).getTime();
+        });
+        return relatedTexts.map(text => ({ date: d.date, text }));
+    });
+
+
+    const firstDatesOfMonths = [...new Set(textsData.map(d => d.date.getMonth() + "-" + d.date.getFullYear()))]
+        .map(str => {
+            const [month, year] = str.split("-").map(Number);
+            const datesInMonth = textsData.filter(d => d.date.getMonth() === month && d.date.getFullYear() === year)
+                .map(d => d.date);
+            return new Date(Math.min.apply(null, datesInMonth));
+        });
+
+
+    function dateToClassName(date) {
+        console.log(`dateToClassName => ${date}`)
+
+        console.log(`dateToClassName  date.getTime() => ${date.getTime()}`)
+        return "date-" + date.getTime();
+    }
+
+
+    const rects = svg.selectAll(".event-text-bg")
+        .data(textsData)
+        .enter()
+        .append("rect")
+        .attr("class", d => `event-text-bg ${dateToClassName(d.date)}`)
+        .attr("x", d => x(d.date))
+        .attr("y", d => {
+            if (firstDatesOfMonths.some(date => date.getTime() === d.date.getTime())) {
+                lastY = InitialPositionY;
+            }
+            lastY += gapBetweenBoxes;
+            return lastY - 15; // 텍스트 상단에 맞게 위치 조정
+        })
+        .attr("width", 200) // 적절한 너비로 조정
+        .attr("height", 20) // 적절한 높이로 조정
+        .attr("fill", "none");
+
+
+    svg.selectAll(".event-text")
+        .data(textsData)
         .enter()
         .append("text")
         .attr("class", "event-text")
-        .attr("x", d => x(d.date) + 10)
-        .attr("y", () => {
+        .attr("x", d => x(d.date) + 2)
+        .attr("y", d => {
+            // 해당 월에 데이터가 있는 첫 번째 날짜라면 lastY를 초기 위치로 리셋
+            if (firstDatesOfMonths.some(date => date.getTime() === d.date.getTime())) {
+                lastY = InitialPositionY;
+            }
             lastY += gapBetweenBoxes;
             return lastY;
         })
@@ -376,49 +398,216 @@ async function visualizeTimelineData(svgElement, data, filepath) {
         .style("text-anchor", "start")
         .style("font-size", "12px")
         .style("fill", "#2c3e50")
-        .text(d => {
-            const clusterKey = getDominantCluster(d);
-            const clusterIndex = Number(clusterKey.replace("cluster", ""));
-            const fullText = clusterNames[clusterIndex];
-            return fullText.replace(/^\d{4}\.\d{2}\.\d{2}: /, '');
+        .text(d => "• " + d.text.replace(/^\d{4}\.\d{2}\.\d{2}: /, ''))
+        .style("cursor", "pointer")  // <-- 커서 스타일을 포인터로 변경
+        .on("mouseover", (i, d, nodes) => {
+            console.log(`mouseover => ${d}`)
+            console.log(`mouseover => ${i}`)
+            console.log(`mouseover => ${nodes}`)
+
+            const className = dateToClassName(d.date);
+            console.log(`mouseover className=> ${className}`)
+
+
+            d3.select(`.event-dot ${className}`).style("fill", "red");
+            d3.select(`.event-line ${className}`).style("stroke", "red");
+            d3.select(".event-text-bg " + className).style("stroke", "red");
         })
-        .on("mouseover", function (d) {
-            // 현재 선택된 text에 대한 날짜 데이터
-            const currentDate = d.date;
-
-            // Text 하이라이트
-            d3.select(this).style("font-weight", "bold");
-
-            // 연관된 dot 하이라이트
-            svg.selectAll(".event-dot")
-                .filter(dot => dot.date === currentDate)
-                .style("fill", "red");
-
-            // 연관된 line 하이라이트
-            svg.selectAll(".event-line")
-                .filter(line => line.date === currentDate)
-                .style("stroke", "red")
-                .style("stroke-width", 2);
-        })
-        .on("mouseout", function (d) {
-            // 현재 선택된 text에 대한 날짜 데이터
-            const currentDate = d.date;
-
-            // Text 원래대로
-            d3.select(this).style("font-weight", "normal");
-
-            // 연관된 dot 원래대로
-            svg.selectAll(".event-dot")
-                .filter(dot => dot.date === currentDate)
-                .style("fill", "blue");
-
-            // 연관된 line 원래대로
-            svg.selectAll(".event-line")
-                .filter(line => line.date === currentDate)
-                .style("stroke", "#aaa")
-                .style("stroke-width", 1)
-                .style("stroke-dasharray", "2,2");
+        .on("mouseout", (d, i, nodes) => {
+            const className = dateToClassName(d.date);
+            d3.select(`.event-dot ${className}`).style("fill", "blue");
+            d3.select(`.event-line ${className}`).style("stroke", "#aaa");
         });
+
+
+    // 해당되는 날짜의 텍스트 데이터를 기반으로 고유한 날짜 목록을 만듭니다.
+    const datesWithText = [...new Set(textsData.map(item => item.date.getTime()))];
+
+    // 이벤트가 있는 날짜에 파란색 원 추가
+    svg.selectAll(".event-dot")
+        .data(data)
+        .enter()
+        .filter(d => datesWithText.includes(d.date.getTime())) // 텍스트가 있는 날짜만 필터링
+        .append("circle")
+        .attr("class", d => "event-dot " + dateToClassName(d.date))
+        //        .attr("class", "event-dot")
+        .attr("cx", d => x(d.date))
+        .attr("cy", PositionX) // 시작 지점을 가로선의 위치로 설정
+        .attr("r", 5)
+        .style("fill", "blue");
+
+
+    // 세로선과 원의 Y 위치를 위로 올립니다.
+    svg.selectAll(".event-line")
+        .data(data)
+        .enter()
+        .filter(d => datesWithText.includes(d.date.getTime())) // 텍스트가 있는 날짜만 필터링
+        .append("line")
+        //        .attr("class", "event-line")
+        .attr("class", d => "event-line " + dateToClassName(d.date))
+        .attr("x1", d => x(d.date))
+        .attr("y1", PositionX)  // 시작 지점을 가로선의 위치로 설정
+        .attr("x2", d => x(d.date))
+        .attr("y2", height)
+        .style("stroke", "#aaa")
+        .style("stroke-dasharray", "2,2");
+
+
+    // 원하는 틱만 필터링
+    const xAxis = d3.axisBottom(x)
+        .ticks(d3.timeDay, 1)
+        .tickFormat(date => {
+            // 텍스트가 있는 날짜면 날짜를 반환하고, 그렇지 않으면 빈 문자열을 반환
+            if (datesWithText.includes(date.getTime())) {
+                // return d3.timeFormat("%m/%d")(date);
+                return d3.timeFormat("%-m/%-d")(date);
+            } else {
+                return "";
+            }
+        });
+
+    // X축의 위치를 위로 올립니다.
+    svg.append("g")
+        .attr("transform", `translate(0,${PositionX})`)
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "middle")
+        .attr("dx", "0em")
+        .attr("dy", "-1.5em");
+
+
+    svg.append("g")
+        .attr("transform", `translate(0,${PositionX})`)
+        .call(xAxis)
+        .selectAll("text")
+        .style("text-anchor", "middle")
+        .attr("dx", "0em")
+        .attr("dy", "-1.5em");
+
+
+    // const clusterCount = Object.keys(data[0]).length - 1; // -1 for the date key
+    // const clusterNames = await getClusterNames(clusterCount, filepath);
+
+    // const x = d3.scaleTime().range([0, width]);
+    // // x.domain(d3.extent(data, d => d.date));
+    // const lastDate = d3.max(data, d => d.date);
+    // const adjustedLastDate = new Date(lastDate);
+    // adjustedLastDate.setDate(lastDate.getDate() + 5);  // 마지막 날짜로부터 5일 후로 범위를 확장
+
+    // x.domain([d3.min(data, d => d.date), adjustedLastDate]);
+
+
+    // const xAxis = d3.axisBottom(x)
+    //     .ticks(d3.timeDay, 1)
+    //     .tickFormat(d3.timeFormat("%Y-%m-%d"));
+
+    // svg.append("g")
+    //     .attr("transform", `translate(0,${height / 2})`)
+    //     .call(xAxis)
+    //     .selectAll("text")
+    //     .style("text-anchor", "middle")
+    //     .attr("dx", "0em")
+    //     .attr("dy", "-1.5em");
+
+    // // Extract cluster with the highest value for each date
+    // const getDominantCluster = (d) => {
+    //     let maxVal = -Infinity;
+    //     let maxKey = "";
+    //     Object.keys(d).forEach(key => {
+    //         if (key !== "date" && d[key] > maxVal) {
+    //             maxVal = d[key];
+    //             maxKey = key;
+    //         }
+    //     });
+    //     return maxKey;
+    // };
+
+    // // Add vertical lines for each event
+    // svg.selectAll(".event-line")
+    //     .data(data)
+    //     .enter()
+    //     .append("line")
+    //     .attr("class", "event-line")
+    //     .attr("x1", d => x(d.date))
+    //     .attr("y1", height / 2)  // 시작 지점을 가로선의 위치로 설정
+    //     .attr("x2", d => x(d.date))
+    //     .attr("y2", height)
+    //     .style("stroke", "#aaa")
+    //     .style("stroke-dasharray", "2,2");
+
+    // // Add circles for each event
+    // svg.selectAll(".event-dot")
+    //     .data(data)
+    //     .enter()
+    //     .append("circle")
+    //     .attr("class", "event-dot")
+    //     .attr("cx", d => x(d.date))
+    //     .attr("cy", height / 2)
+    //     .attr("r", 5)
+    //     .style("fill", "blue");
+
+
+    // let lastY = height / 2 + 15; // 초기 y 위치
+    // const gapBetweenBoxes = 25; // 박스 간 거리
+
+    // // Text first
+    // const texts = svg.selectAll(".event-text")
+    //     .data(data)
+    //     .enter()
+    //     .append("text")
+    //     .attr("class", "event-text")
+    //     .attr("x", d => x(d.date) + 10)
+    //     .attr("y", () => {
+    //         lastY += gapBetweenBoxes;
+    //         return lastY;
+    //     })
+    //     .attr("dy", ".35em")
+    //     .style("text-anchor", "start")
+    //     .style("font-size", "12px")
+    //     .style("fill", "#2c3e50")
+    //     .text(d => {
+    //         const clusterKey = getDominantCluster(d);
+    //         const clusterIndex = Number(clusterKey.replace("cluster", ""));
+    //         const fullText = clusterNames[clusterIndex];
+    //         return fullText.replace(/^\d{4}\.\d{2}\.\d{2}: /, '');
+    //     })
+    //     .on("mouseover", function (d) {
+    //         // 현재 선택된 text에 대한 날짜 데이터
+    //         const currentDate = d.date;
+
+    //         // Text 하이라이트
+    //         d3.select(this).style("font-weight", "bold");
+
+    //         // 연관된 dot 하이라이트
+    //         svg.selectAll(".event-dot")
+    //             .filter(dot => dot.date === currentDate)
+    //             .style("fill", "red");
+
+    //         // 연관된 line 하이라이트
+    //         svg.selectAll(".event-line")
+    //             .filter(line => line.date === currentDate)
+    //             .style("stroke", "red")
+    //             .style("stroke-width", 2);
+    //     })
+    //     .on("mouseout", function (d) {
+    //         // 현재 선택된 text에 대한 날짜 데이터
+    //         const currentDate = d.date;
+
+    //         // Text 원래대로
+    //         d3.select(this).style("font-weight", "normal");
+
+    //         // 연관된 dot 원래대로
+    //         svg.selectAll(".event-dot")
+    //             .filter(dot => dot.date === currentDate)
+    //             .style("fill", "blue");
+
+    //         // 연관된 line 원래대로
+    //         svg.selectAll(".event-line")
+    //             .filter(line => line.date === currentDate)
+    //             .style("stroke", "#aaa")
+    //             .style("stroke-width", 1)
+    //             .style("stroke-dasharray", "2,2");
+    //     });
 }
 
 
