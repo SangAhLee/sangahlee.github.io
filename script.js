@@ -138,8 +138,33 @@ navItems.forEach(item => {
 });
 
 
-/* ------메인 꾸미기------ */
+/* ------welcome message------ */
 
+// var welcomeMessage = `
+// <p>Hi there!</p>
+// <p>My name is <b>SangAh Lee(이상아)</b>, but you can call me <b>Ivory</b>. In Korean, my first name "SangAh" means "Ivory," a name my father gave me.</p>
+// <p>I've always thought that elephants, which are big and wonderful, are really amazing.
+//  Also, I love the ivory color because it looks elegant and matches well with everything.
+//  That's why I chose "Ivory" as my nickname.</p>
+// `;
+var welcomeMessage = `
+<style>
+  .welcome-message b {
+    color: #0092CA;
+  }
+</style>
+
+<div class="welcome-message">
+  <h3>Hi there!
+  My name is <b>SangAh Lee(이상아)</b>, but you can call me <b>Ivory</b>.</h3>
+  <p>In Korean, my first name "SangAh" means "Ivory," a name my father gave me.<br>
+  I've always thought that elephants, which are big and wonderful, are really amazing.
+  Also, I love the ivory color because it looks elegant and matches well with everything.
+  That's why I chose "Ivory" as my nickname.</p>
+</div>
+`;
+
+/* ------메인 꾸미기------ */
 var mainContent = `
 <div class="maincontainer curves">
 <div id="sec1" class="section">
@@ -171,6 +196,7 @@ var mainContent = `
 // 페이지 로드할 때
 document.addEventListener("DOMContentLoaded", function () {
   var contentDiv = document.getElementById("page-content");
+  mainContent = welcomeMessage + mainContent;
   contentDiv.innerHTML = mainContent;
 });
 
