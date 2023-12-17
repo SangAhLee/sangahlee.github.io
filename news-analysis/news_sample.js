@@ -189,7 +189,6 @@ function load_cluster_info_by_category(filename) {
     ])
         .then(([newsData, newsListData]) => {
             // 상위 레벨 뉴스 컨테이너를 선택하거나 생성합니다.
-
             if (!newsContainer) {
                 newsContainer = document.createElement('div');
                 newsContainer.id = NEWS_CONTAINER_ID;
@@ -495,7 +494,7 @@ function load_cluster_info_by_category(filename) {
 
                 // content (2)title
                 let contentTitle = document.createElement('h3');
-                contentTitle.textContent = bulletpoint + '핵심 내용';
+                contentTitle.textContent = bulletpoint + '서브 토픽';
                 contentTitle.style.marginBottom = '10px';
                 contentDiv.appendChild(contentTitle);
 
@@ -516,7 +515,7 @@ function load_cluster_info_by_category(filename) {
 
                 // Create the button dynamically
                 let btToggle_info = document.createElement('button');
-                let btToggle_text = '핵심 내용은 어떻게 도출되었나요?'
+                let btToggle_text = '서브 토픽(핵심 내용)은 어떻게 도출되었나요?'
                 btToggle_info.innerHTML = ' ▼ ' + btToggle_text;
                 btToggle_info.className = 'additional_info_button';
 

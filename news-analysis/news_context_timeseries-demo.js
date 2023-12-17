@@ -708,6 +708,17 @@ async function visualizeOverlappingAreaData(svgElement, data, filepath) {
         .attr("fill", "white")
         .attr("stroke", "black");
 
+
+
+        svg.append("text")
+        .attr("x", 0)  // 텍스트의 x 위치를 원의 중앙으로 설정합니다.
+        .attr("y", -20)  // 텍스트의 y 위치를 원 위로 조금 이동합니다.
+        .attr("text-anchor", "middle")  // 텍스트를 중앙 정렬합니다.
+        .style("font-size", "1em")  // 텍스트의 크기를 설정합니다.
+        .style("font-weight", "bold")  // 텍스트를
+        .text("뉴스 기사의 수");  // 텍스트 내용을 설정합니다.
+
+
     const legend = svg.selectAll(".legend")
         .data(custom_colors.slice(0, clusterCount))
         .enter().append("g")

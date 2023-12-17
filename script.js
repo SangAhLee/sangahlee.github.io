@@ -53,7 +53,7 @@ function handleNavClick(event) {
 
     if (contents[targetId] == contents.newssnapshotdemo) {
       console.log("It's a html file!");
-      let currentDate = new Date('2023-10-14'); // 업데이트일자
+      let currentDate = new Date('2023-12-18'); // 업데이트일자
       let initialDate = new Date('2023-10-14'); // 최초 작성일을 원하는 날짜로 설정
 
       let additionalContent = `<div style="margin-bottom: 20px;">

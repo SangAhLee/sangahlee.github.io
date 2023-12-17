@@ -662,7 +662,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     // * TIMELINE > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab01_timeline = document.createElement('button');
-                    btTab01_timeline.innerHTML = '타임라인 보기';
+                    btTab01_timeline.innerHTML = 'Simple Timeline';
                     btTab01_timeline.className = 'tab_info_button';
                     timelineChartDiv.append(btTab01_timeline);
 
@@ -680,7 +680,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                     // * TIMELINE > Chart > Type2 Button
                     // *********************************************************** 
                     let btTab02_timeline = document.createElement('button');
-                    btTab02_timeline.innerHTML = '가중치 함께 보기';
+                    btTab02_timeline.innerHTML = 'Dynamic Timeline';
                     btTab02_timeline.className = 'tab_info_button';
                     timelineChartDiv.append(btTab02_timeline);
 
@@ -719,7 +719,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
 
                 // content (2)title
                 let contentTitle = document.createElement('h3');
-                contentTitle.textContent = bulletpoint + '핵심 내용';
+                contentTitle.textContent = bulletpoint + '서브 토픽';
                 contentTitle.style.marginBottom = '10px';
                 contentDiv.appendChild(contentTitle);
 
@@ -741,7 +741,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
 
                 // Create the button dynamically
                 let btToggle_info = document.createElement('button');
-                let btToggle_text = '핵심 내용은 어떻게 도출되었나요?'
+                let btToggle_text = '서브 토픽(핵심 내용)은 어떻게 도출되었나요?'
                 btToggle_info.innerHTML = ' ▼ ' + btToggle_text;
                 btToggle_info.className = 'additional_info_button';
 
@@ -863,7 +863,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 // * (KEY)CONTENT > Chart > Type1 Button
                 // *********************************************************** 
                 let btTab01 = document.createElement('button');
-                btTab01.innerHTML = '타임라인 세로 보기';
+                btTab01.innerHTML = 'Vertical Flow';
                 btTab01.className = 'tab_info_button'; //'toggle_info_button';
                 chartDiv.append(btTab01);
 
@@ -881,7 +881,7 @@ function load_cluster_info_by_category(filename, selectedDate) {
                 // * (KEY)CONTENT > Chart > Type2 Button
                 // *********************************************************** 
                 let btTab02 = document.createElement('button');
-                btTab02.innerHTML = '도형으로 보기';
+                btTab02.innerHTML = 'Circles';
                 btTab02.className = 'tab_info_button';
                 chartDiv.append(btTab02);
 

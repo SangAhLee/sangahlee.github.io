@@ -423,12 +423,12 @@ async function visualizeOverlappingAreaData_UserStudy(svgElement, data, filepath
     });
 
     svg.append("text")
-        .attr("y", -10)  // y축 맨 위에 위치하도록 조정
-        .attr("x", 0)
-        .style("text-anchor", "middle")
-        .style("font-size", "0.8em")  // 폰트 사이즈 설정
-        .text("뉴스 기사의 수");
-
+    .attr("x", 0)  // 텍스트의 x 위치를 원의 중앙으로 설정합니다.
+    .attr("y", -20)  // 텍스트의 y 위치를 원 위로 조금 이동합니다.
+    .attr("text-anchor", "middle")  // 텍스트를 중앙 정렬합니다.
+    .style("font-size", "1em")  // 텍스트의 크기를 설정합니다.
+    .style("font-weight", "bold")  // 텍스트를
+    .text("뉴스 기사의 수");  // 텍스트 내용을 설정합니다.
 
 
     // legend 추가 
