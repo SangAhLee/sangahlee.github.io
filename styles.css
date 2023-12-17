@@ -108,10 +108,11 @@ hr {
 }
 
 .theme-toggle {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 20px;
-    /* left: 260px; */
+    z-index: 100; /* 다른 요소 위에 표시되도록 z-index 설정 */
+
 }
 
 .selected {
