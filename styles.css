@@ -1,168 +1,213 @@
 :root {
-    --text-color-light: #000;
-    --text-color-dark: #fff;
-    --bg-color-light: #FCFCFC;
-    --bg-color-dark: #323536;
-    --nav-color-light: #EEEEEE;
-    --nav-color-dark: #28292A;
+  --text-color-light: #000;
+  --text-color-dark: #fff;
+  --bg-color-light: #fcfcfc;
+  --bg-color-dark: #323536;
+  --nav-color-light: #eeeeee;
+  --nav-color-dark: #28292a;
+  --link-color: #63d1ef;
 }
 
 body {
-    font-family: 'Noto Sans', sans-serif; 
-    display: flex;
-    min-height: 100vh;
-    margin: 0;
-    background-color: var(--bg-color-light);
-    color: var(--text-color-light);
+  font-family: "Noto Sans", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
 }
 
 body.dark {
-    --text-color-light: var(--text-color-dark);
-    --bg-color-light: var(--bg-color-dark);
-    --nav-color-light: var(--nav-color-dark);
+  --text-color-light: var(--text-color-dark);
+  --bg-color-light: var(--bg-color-dark);
+  --nav-color-light: var(--nav-color-dark);
 }
 
+/* a {
+    color: var(--link-color);
+    text-decoration: none;
+} */
+
+.content-container {
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.date-info,
+.paper-link,
+.access-link {
+  margin: 10px 0;
+}
+
+.paper-link a,
+.access-link a {
+  color: #63d1ef;
+  text-decoration: none;
+}
+
+.paper-link a:hover,
+.access-link a:hover {
+  text-decoration: underline;
+}
+
+ul.paper-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.highlight {
+  font-style: italic;
+}
 
 .nav {
-    width: 200px;
-    height: 100vh;
-    position: fixed; /* sticky; */
-    top: 0;
-    background-color: var(--nav-color-light);
-    color: var(--text-color-light);
-    padding: 20px;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  /* sticky; */
+  top: 0;
+  background-color: var(--nav-color-light);
+  color: var(--text-color-light);
+  padding: 20px;
 }
 
 /* Section 제목을 진하게 */
 .nav h4 {
-    font-weight: bold;
+  font-weight: bold;
 
-    font-family: 'Alatsi', sans-serif;
+  font-family: "Alatsi", sans-serif;
 }
 
 .nav ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .nav ul li a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* 아이템에 마우스를 올렸을 때 밑줄 추가 */
 .nav ul li a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .main-content {
-    width: calc(100% - 240px);
-    margin-left: 240px;
-    flex-grow: 1; /* to take up remaining vertical space */
-    display: flex;
-    flex-direction: column;
+  width: calc(100% - 240px);
+  margin-left: 240px;
+  flex-grow: 1;
+  /* to take up remaining vertical space */
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-    height: 43px; /* fixed height */
-    padding: 15px;
-    text-align: center;
-    background-color: var(--bg-color-light);
+  height: 43px;
+  /* fixed height */
+  padding: 15px;
+  text-align: center;
+  background-color: var(--bg-color-light);
 }
 
 .footer {
-    height: 43px; /* fixed height */
-    padding: 15px;
-    text-align: center;
-    background-color: var(--bg-color-light);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  height: 43px;
+  /* fixed height */
+  padding: 15px;
+  text-align: center;
+  background-color: var(--bg-color-light);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
-
 .content {
-    flex-grow: 1; /* to fill remaining vertical space */
-    padding: 20px;
-    text-align: left;
-    background-color: var(--bg-color-light);
+  flex-grow: 1;
+  /* to fill remaining vertical space */
+  padding: 20px;
+  text-align: left;
+  background-color: var(--bg-color-light);
 }
 
 hr {
-    border: none;
-    border-top: 1px solid darkgrey; /* var(--bg-color-light); */ 
-    margin: 20px 0;
-    width: 100%;  /* 너비를 100%로 설정 */
+  border: none;
+  border-top: 1px solid darkgrey;
+  /* var(--bg-color-light); */
+  margin: 20px 0;
+  width: 100%;
+  /* 너비를 100%로 설정 */
 }
 
 #gnb-title {
-    font-family: 'Alatsi', sans-serif;
+  font-family: "Alatsi", sans-serif;
 
-    /* background: linear-gradient(90deg, #72c7df 10%, #d8a5ed 90%); */
-    background: linear-gradient(90deg, #63d1ef 10%, #d467ff 90%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* background: linear-gradient(90deg, #72c7df 10%, #d8a5ed 90%); */
+  background: linear-gradient(90deg, #63d1ef 10%, #d467ff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 #gnb-title:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 100; /* 다른 요소 위에 표시되도록 z-index 설정 */
-
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  /* 다른 요소 위에 표시되도록 z-index 설정 */
 }
 
 .selected {
-    color: #0092CA !important;
-    font-weight: bold;
+  color: #0092ca !important;
+  font-weight: bold;
 }
 
-
-
-
-
-/* ------메인 꾸미기------ */ 
-
+/* ------메인 꾸미기------ */
 
 .maincontainer {
-	display: flex;
-	background-color: hsl(0,0%,100%);
+  display: flex;
+  background-color: hsl(0, 0%, 100%);
 }
 
 .curves {
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%237a7a7a' stroke-width='8' stroke-opacity='0.9'%3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%237a7a7a' stroke-width='8' stroke-opacity='0.9'%3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
+
 .section {
-	padding: 2.5em; 
-	width: 33.3333vw;
-	color: white;
+  padding: 2.5em;
+  width: 33.3333vw;
+  color: white;
 }
+
 .section h1 {
-	font-weight: 300;
-	font-size: 2em;
-	letter-spacing: 0.15em;
-	margin: 0 0 0.5em;
-	font-family: 'Rajdhani', sans-serif;
-	text-transform: uppercase;
-	color: hsl(0,0%,90%);
+  font-weight: 300;
+  font-size: 2em;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.5em;
+  font-family: "Rajdhani", sans-serif;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 90%);
 }
+
 .section p {
-	font-weight: 300;
-	margin-bottom: 1em;
-	line-height: 1.4em;
+  font-weight: 300;
+  margin-bottom: 1em;
+  line-height: 1.4em;
 }
+
 .section p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
+
 #sec1 {
-	background: hsl(180,30%,45%,90%);
+  background: hsl(180, 30%, 45%, 90%);
 }
+
 #sec2 {
-	background: hsl(220,30%,45%,90%);
+  background: hsl(220, 30%, 45%, 90%);
 }
+
 #sec3 {
-	background: hsl(260,30%,45%,90%);
+  background: hsl(260, 30%, 45%, 90%);
 }

@@ -1,6 +1,6 @@
 // import { marked } from 'marked'
 
-// marked의 renderer을 설정하여, 링크를 새창으로 뜨게 한다. 
+// marked의 renderer을 설정하여, 링크를 새창으로 뜨게 한다.
 let renderer = new marked.Renderer();
 let linkRenderer = renderer.link;
 renderer.link = (href, title, text) => {
@@ -8,9 +8,7 @@ renderer.link = (href, title, text) => {
   return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
 };
 
-marked.setOptions({ renderer });  // 전역 설정
-
-
+marked.setOptions({ renderer }); // 전역 설정
 
 function toggleTheme() {
   var body = document.body;
@@ -29,16 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
   button.textContent = "Light Mode로 변환";
 });
 
-
-
 /* ------메뉴 동작------ */
-
 
 var contents = {
   mycareer: "./pages/99_about.md",
   myinterest: "./pages/00_research.md",
   graphvis: "./datavis/visualizellms.html",
-  newssnapshotdemo: "./news-analysis/newssnapshot-demo.html"
+  newssnapshotdemo: "./news-analysis/newssnapshot-demo.html",
 };
 
 // GNB 아이템을 클릭했을 때 이벤트 핸들러
@@ -50,93 +45,99 @@ function handleNavClick(event) {
     event.preventDefault();
     var contentDiv = document.getElementById("page-content");
 
-
     if (contents[targetId] == contents.newssnapshotdemo) {
       console.log("It's a html file!");
-      let currentDate = new Date('2023-12-18'); // 업데이트일자
-      let initialDate = new Date('2023-10-14'); // 최초 작성일을 원하는 날짜로 설정
+      let currentDate = new Date("2024-03-24"); // 업데이트일자
+      let initialDate = new Date("2023-10-14"); // 최초 작성일을 원하는 날짜로 설정
 
-      let additionalContent = `<div style="margin-bottom: 20px;">
-      - 최초 작성일: ${initialDate.toLocaleDateString()}<br>
-      - 최근 업데이트 일자: ${currentDate.toLocaleDateString()}<br><br>
-      뉴스 분석 및 시각화 인터페이스에 관한 연구를 진행 중입니다.<br><br>
-        이 컨텐츠는 아래의 URL로 바로 접근 가능합니다.<br>
-        <a href="https://sangahlee.github.io/news-analysis/newssnapshot-demo.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/news-analysis/newssnapshot-demo.html</a><br>
-      </div>`;
-      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
-    }
-    else if (contents[targetId] == contents.graphvis) {
+      let additionalContent = `
+<div class="content-container">
+  <p class="date-info">● 최초 작성일: <span class="highlight">${initialDate.toLocaleDateString()}</span></p>
+  <p class="date-info">● 최근 업데이트 일자: <span class="highlight">${currentDate.toLocaleDateString()}</span></p>
+  <p>뉴스 분석 및 시각화 인터페이스에 관한 연구 내용입니다.</p>
+  <hr> <!-- Divider 추가 -->
+  <p>● 논문:</p>
+  <ul class="paper-list">
+    <li class="paper-link">1. <a href="https://sangahlee.github.io/papers/20231222_HCI2024_NewsInterface.pdf" target="_blank">&lt;HCI Korea 2024&gt; 시맨틱 문장 분석을 활용한 뉴스 인터페이스 디자인</a></li>
+    <li class="paper-link">2. <a href="https://sangahlee.github.io/papers/20240119_NewsSnapshot.pdf" target="_blank">&lt;Master's Thesis (Submitted in 2024)&gt; News Snapshot: Design for Enhancing News Reading Experience Using Semantic Sentence Analysis</a></li>
+  </ul>
+  <hr> <!-- Divider 추가 -->
+  <p class="access-link">다음의 URL로 크게 보실 수 있어요: <a href="https://sangahlee.github.io/news-analysis/newssnapshot-demo.html" target="_blank">https://sangahlee.github.io/news-analysis/newssnapshot-demo.html</a></p>
+</div>
+      `;
+      contentDiv.innerHTML =
+        additionalContent +
+        `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
+    } else if (contents[targetId] == contents.graphvis) {
       console.log("It's a html file!");
-      let currentDate = new Date('2023-10-15'); // 업데이트일자
-      let initialDate = new Date('2023-10-15'); // 최초 작성일을 원하는 날짜로 설정
+      let currentDate = new Date("2023-10-15"); // 업데이트일자
+      let initialDate = new Date("2023-10-15"); // 최초 작성일을 원하는 날짜로 설정
 
-      let additionalContent = `<div style="margin-bottom: 20px;">
-      - 최초 작성일: ${initialDate.toLocaleDateString()}<br>
-      - 최근 업데이트 일자: ${currentDate.toLocaleDateString()}<br><br>
-      학습 목적으로 제작한 Large Language Models (LLMs)의 시각화 결과물입니다.<br><br>
-      이 컨텐츠는 아래의 URL로 바로 접근 가능합니다.<br>
-      <a href="https://sangahlee.github.io/datavis/visualizellms.html" target="_blank" style="color: #63d1ef;">https://sangahlee.github.io/datavis/visualizellms.html</a><br>
-    </div>`;
-      contentDiv.innerHTML = additionalContent + `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
-    }
-    else if (contents[targetId]) {
+      let additionalContent = `
+      <div class="content-container">
+  <p class="date-info">● 최초 작성일: <span class="highlight">${initialDate.toLocaleDateString()}</span></p>
+  <p class="date-info">● 최근 업데이트 일자: <span class="highlight">${currentDate.toLocaleDateString()}</span></p>
+  <p>학습 목적으로 제작한 Large Language Models (LLMs)의 시각화 결과물입니다.</p>
+  <hr> <!-- Divider 추가 -->
+  <p class="access-link">다음의 URL로 크게 보실 수 있어요: <a href="https://sangahlee.github.io/datavis/visualizellms.html" target="_blank">https://sangahlee.github.io/datavis/visualizellms.html</a></p>
+</div>
+`;
+      contentDiv.innerHTML =
+        additionalContent +
+        `<iframe src="${contents[targetId]}" width="95%" height="95%" frameborder="0"></iframe>`;
+    } else if (contents[targetId]) {
       // If the content is an HTML file, load it in an iframe instead of fetching it
-      if (contents[targetId].endsWith('.html')) {
+      if (contents[targetId].endsWith(".html")) {
         console.log("It's a html file!");
         contentDiv.innerHTML = `<iframe src="${contents[targetId]}" width="100%" height="100%" frameborder="0"></iframe>`;
-      }
-      else {
+      } else {
         fetch(contents[targetId])
-          .then(response => {
+          .then((response) => {
             if (response.ok) {
               return response.text();
             } else {
-              throw new Error('Error: ' + response.status);
+              throw new Error("Error: " + response.status);
             }
           })
-          .then(data => {
-            if (contents[targetId].endsWith('.md')) {
+          .then((data) => {
+            if (contents[targetId].endsWith(".md")) {
               // Markdown 파일인 경우, HTML로 변환
-              if (typeof marked !== 'undefined') {
-
+              if (typeof marked !== "undefined") {
                 // 여기서 특정 내용을 추가합니다.
-                let additionalContent = '<div>한글로 변경할 예정입니다.</div>';
+                let additionalContent = "<div>한글로 변경할 예정입니다.</div>";
                 let markdownContent = marked(data);
 
                 // 추가한 내용과 Markdown 파일의 내용을 합칩니다.
                 contentDiv.innerHTML = additionalContent + markdownContent;
               } else {
-                throw new Error('marked library is not properly initialized.');
+                throw new Error("marked library is not properly initialized.");
               }
             } else {
               contentDiv.innerHTML = data;
             }
           })
-          .catch(error => console.error('Error:', error));
-
+          .catch((error) => console.error("Error:", error));
       }
     }
     // 모든 아이템의 선택 스타일을 초기화
-    var navItems = document.querySelectorAll('.nav a');
-    navItems.forEach(item => {
-      item.classList.remove('selected');
+    var navItems = document.querySelectorAll(".nav a");
+    navItems.forEach((item) => {
+      item.classList.remove("selected");
     });
 
     // 현재 선택된 아이템에 선택 스타일 적용
-    event.target.classList.add('selected');
+    event.target.classList.add("selected");
 
     // // GNB의 선택 스타일 제거
     // var gnbTitle = document.querySelector('.gnb-title');
     // gnbTitle.classList.remove('selected');
-
   }
 }
 
 var navItems = document.querySelectorAll(".nav a");
-navItems.forEach(item => {
+navItems.forEach((item) => {
   item.addEventListener("click", handleNavClick);
 });
-
 
 /* ------welcome message------ */
 
@@ -201,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 페이지 타이틀 클릭했을 때
-var gnbTitle = document.querySelector('#gnb-title');
+var gnbTitle = document.querySelector("#gnb-title");
 gnbTitle.addEventListener("click", handleTitlelick);
 
 function handleTitlelick(event) {
@@ -210,18 +211,14 @@ function handleTitlelick(event) {
   contentDiv.innerHTML = mainContent;
 
   // 모든 아이템의 선택 스타일을 초기화
-  var navItems = document.querySelectorAll('.nav a');
-  navItems.forEach(item => {
-    item.classList.remove('selected');
+  var navItems = document.querySelectorAll(".nav a");
+  navItems.forEach((item) => {
+    item.classList.remove("selected");
   });
 
   // // GNB에 선택 스타일 적용
   // event.target.classList.add('selected');
 }
-
-
-
-
 
 // const markdownText = '# Hello, Markdown!';
 // const htmlText = marked(markdownText);
